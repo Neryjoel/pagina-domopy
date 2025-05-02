@@ -611,34 +611,38 @@
   </form>
   
   <!-- SCRIPT -->
-  <script>
-    document.getElementById("contactForm").addEventListener("submit", async function (e) {
-        e.preventDefault();
-    
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const subject = document.getElementById("subject").value.trim();
-        const message = document.getElementById("message").value.trim();
-    
-        // Aquí se realiza una solicitud POST al Worker
-        const response = await fetch("https://domo-13k.pages.dev", {
-            method: "POST", // Es importante que sea POST
+<script>
+document.getElementById("contactForm").addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const subject = document.getElementById("subject").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    try {
+        const response = await fetch("https://domo-13k.pages.dev", {  // Asegúrate de que esta es la URL correcta de tu Worker
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ name, email, subject, message })
         });
-    
+
         const result = await response.json();
-    
+
         if (response.ok) {
-            alert(result.message);
+            alert(result.message);  // Mostrar mensaje de éxito
         } else {
             alert("Error al enviar el mensaje");
         }
-    });
-    </script>
-    
+    } catch (error) {
+        alert("Error en la solicitud");
+    }
+});
+
+</script>
+
   
                 </div>
             </div>
@@ -769,7 +773,6 @@
 
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
