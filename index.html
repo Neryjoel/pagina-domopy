@@ -602,7 +602,7 @@
                 <div class="w-100">
                     <h1 class="mb-4">Contáctanos para cualquier consulta</h1>
                     <!-- FORMULARIO -->
-<form id="contactForm">
+<form id="contactForm"method="POST" novalidate="novalidate">
     <input type="text" id="name" placeholder="Tu Nombre" required>
     <input type="email" id="email" placeholder="Tu Correo" required>
     <input type="text" id="subject" placeholder="Asunto" required>
@@ -612,31 +612,33 @@
   
   <!-- SCRIPT -->
   <script>
-  document.getElementById("contactForm").addEventListener("submit", async function (e) {
-    e.preventDefault();
-  
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const subject = document.getElementById("subject").value.trim();
-    const message = document.getElementById("message").value.trim();
-  
-    try {
-      const response = await fetch("https://<TU-SUBDOMINIO>.workers.dev", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ name, email, subject, message })
-      });
-  
-      const result = await response.json();
-      alert(result.message || "Mensaje enviado con éxito.");
-    } catch (error) {
-      alert("Hubo un error al enviar el mensaje.");
-      console.error(error);
-    }
-  });
-  </script>
+    document.getElementById("contactForm").addEventListener("submit", async function (e) {
+        e.preventDefault();
+    
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const subject = document.getElementById("subject").value.trim();
+        const message = document.getElementById("message").value.trim();
+    
+        // Aquí se realiza una solicitud POST al Worker
+        const response = await fetch("https://domo-13k.pages.dev", {
+            method: "POST", // Es importante que sea POST
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ name, email, subject, message })
+        });
+    
+        const result = await response.json();
+    
+        if (response.ok) {
+            alert(result.message);
+        } else {
+            alert("Error al enviar el mensaje");
+        }
+    });
+    </script>
+    
   
                 </div>
             </div>
