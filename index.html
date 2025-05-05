@@ -594,34 +594,41 @@
 
     <div class="container">
         <div class="row no-gutters">
-            <!-- Mapa: mitad izquierda -->
-            
-
-            <!-- Formulario: mitad derecha -->
+            <!-- Formulario: izquierda -->
             <div class="col-lg-6 d-flex align-items-center bg-white shadow p-4 p-lg-5">
                 <div class="w-100">
                     <h1 class="mb-4">Contáctanos para cualquier consulta</h1>
-                    <form id="contactForm" action="https://formspree.io/f/xvgaaqpv" method="POST" novalidate="novalidate">
+                    <form id="contactForm" action="https://formspree.io/f/xvgaaqpv" method="POST">
                         <div class="form-row">
                             <div class="form-group col-sm-6">
-                                <input type="text" name="name" class="form-control border-0 p-3" placeholder="Your Name" required />
+                                <input type="text" class="form-control border-0 p-3" name="name" placeholder="Your Name" required />
                             </div>
                             <div class="form-group col-sm-6">
-                                <input type="email" name="email" class="form-control border-0 p-3" placeholder="Your Email" required />
+                                <input type="email" class="form-control border-0 p-3" name="email" placeholder="Your Email" required />
                             </div>
                         </div>
                         <div class="form-group">
-                            <input type="text" name="subject" class="form-control border-0 p-3" placeholder="Subject" required />
+                            <input type="text" class="form-control border-0 p-3" name="subject" placeholder="Subject" required />
                         </div>
                         <div class="form-group">
-                            <textarea name="message" class="form-control border-0 p-3" rows="4" placeholder="Message" required></textarea>
+                            <textarea class="form-control border-0 p-3" rows="4" name="message" placeholder="Message" required></textarea>
                         </div>
-
                         <button class="btn btn-primary px-4 py-2" type="submit">Send Message</button>
                     </form>
                 </div>
             </div>
+        
+            <!-- Mapa: derecha -->
+            <div class="col-lg-6">
+                <div class="h-100" style="min-height: 650px;">
+                    <iframe class="w-100 h-100 border-0" 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8667.917767248056!2d-57.58077595159728!3d-25.287202553044427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da8a019c3884f%3A0x7381107c318c7be8!2sComplejo%20La%20Torre!5e0!3m2!1ses!2spy!4v1746019288003!5m2!1ses!2spy" 
+                        allowfullscreen="" aria-hidden="false" tabindex="0">
+                    </iframe>
                 </div>
+            </div>
+        </div>
+        
             </div>
             
             <div class="col-lg-6">
