@@ -817,11 +817,12 @@ document.getElementById('contactForm').addEventListener('submit', async e => {
   };
 
   try {
-    const resp = await fetch('/contact', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(data)
-    });
+    const resp = await fetch('https://mail.henryzapata95.workers.dev/contact', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(data)
+});
+
     if (resp.ok) {
       alert('Mensaje enviado correctamente.');
       e.target.reset();
