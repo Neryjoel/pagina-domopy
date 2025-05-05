@@ -618,6 +618,8 @@
                     </form>
                     
                 </div>
+                <div id="formMessage"></div>
+
             </div>
         
             <!-- Mapa: derecha -->
@@ -838,7 +840,27 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
         });
     });
     </script>
-    
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(e) {
+            e.preventDefault();
+        
+            // Simulamos un envío exitoso (en producción usarías fetch u otro método real)
+            const form = e.target;
+        
+            // Aquí podrías hacer tu fetch/post real, pero simulamos éxito:
+            setTimeout(() => {
+                document.getElementById("formMessage").innerHTML =
+                    "<div style='color: green; font-weight: bold;'>Mensaje enviado con éxito.</div>";
+                form.reset();
+        
+                // Ocultar el mensaje después de 3 segundos
+                setTimeout(() => {
+                    document.getElementById("formMessage").innerHTML = "";
+                }, 3000);
+            }, 500); // simulación de retardo
+        });
+        </script>
+        
 
 </body>
 </html>
