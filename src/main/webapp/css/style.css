@@ -9632,7 +9632,7 @@ h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #009CFF;
+  color: #ff00bf;
   background: #FFFFFF;
   font-size: 30px;
 }
@@ -9640,7 +9640,7 @@ h4, h5, h6 {
 .testimonial-carousel .owl-nav .owl-prev,
 .testimonial-carousel .owl-nav .owl-next {
   color: #FFFFFF;
-  background: #ff00bf;
+  background: #009CFF;
 }
 
 .contact-form .help-block ul {
