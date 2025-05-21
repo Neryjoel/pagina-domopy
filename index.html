@@ -54,13 +54,20 @@
         position: static; /* El topbar se desplaza con la página */
         z-index: 998; /* Asegura que esté debajo del navbar */
     }
-    .carousel-indicators li,
-.carousel-indicators li:focus,
-.carousel-indicators li:active {
+    .carousel-item:focus,
+.carousel-item *:focus,
+.carousel-item:active,
+.carousel-item *:active {
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
 }
+.carousel .carousel-indicators li {
+  outline: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
 
 </style>
 
