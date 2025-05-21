@@ -54,20 +54,10 @@
         position: static; /* El topbar se desplaza con la página */
         z-index: 998; /* Asegura que esté debajo del navbar */
     }
-    .carousel-item:focus,
-.carousel-item *:focus,
-.carousel-item:active,
-.carousel-item *:active {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
+    .carousel-item {
+  transition: opacity 0.8s ease-in-out !important;
+  backface-visibility: hidden;
 }
-.carousel .carousel-indicators li {
-  outline: none !important;
-  box-shadow: none !important;
-  border: none !important;
-}
-
 
 </style>
 
