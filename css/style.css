@@ -9527,7 +9527,7 @@ h4, h5, h6 {
   height: 2px;
   bottom: 12px;
   left: calc(50% - 75px);
-  background: #009CFF;
+  background: #ff00d4;
 }
 
 .section-title::after {
@@ -9537,7 +9537,7 @@ h4, h5, h6 {
   height: 2px;
   bottom: 8px;
   left: calc(50% - 60px);
-  background: #009CFF;
+  background: #ff00d4;
 }
 
 .product-img,
@@ -9632,7 +9632,7 @@ h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #009CFF;
+  color: #ff00d4;
   background: #FFFFFF;
   font-size: 30px;
 }
@@ -9640,7 +9640,7 @@ h4, h5, h6 {
 .testimonial-carousel .owl-nav .owl-prev,
 .testimonial-carousel .owl-nav .owl-next {
   color: #FFFFFF;
-  background: #009CFF;
+  background: #ff00d4;
 }
 
 .contact-form .help-block ul {
