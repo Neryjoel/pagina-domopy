@@ -2663,14 +2663,14 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary {
-  color: #ff00d4;
-  border-color: #ff00d4;
+  color: #009CFF;
+  border-color: #009CFF;
 }
 
 .btn-outline-primary:hover {
   color: #fff;
-  background-color: #ff00d4;
-  border-color: #ff00d4;
+  background-color: #009CFF;
+  border-color: #009CFF;
 }
 
 .btn-outline-primary:focus, .btn-outline-primary.focus {
@@ -2678,7 +2678,7 @@ fieldset:disabled a.btn {
 }
 
 .btn-outline-primary.disabled, .btn-outline-primary:disabled {
-  color: #ff00d4;
+  color: #009CFF;
   background-color: transparent;
 }
 
@@ -2920,12 +2920,12 @@ fieldset:disabled a.btn {
 
 .btn-link {
   font-weight: 400;
-  color: #009CFF;
+  color: #ff00d4;
   text-decoration: none;
 }
 
 .btn-link:hover {
-  color: #006db3;
+  color: #ff00d4;
   text-decoration: underline;
 }
 
@@ -3217,7 +3217,7 @@ input[type="button"].btn-block {
 .dropdown-item.active, .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #009CFF;
+  background-color: #ff00d4;
 }
 
 .dropdown-item.disabled, .dropdown-item:disabled {
@@ -3506,8 +3506,8 @@ input[type="button"].btn-block {
 
 .custom-control-input:checked ~ .custom-control-label::before {
   color: #fff;
-  border-color: #009CFF;
-  background-color: #009CFF;
+  border-color: #ff00d4;
+  background-color: #ff00d4;
 }
 
 .custom-control-input:focus ~ .custom-control-label::before {
@@ -3567,8 +3567,8 @@ input[type="button"].btn-block {
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
-  border-color: #009CFF;
-  background-color: #009CFF;
+  border-color: #ff00d4;
+  background-color: #ff00d4;
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::after {
@@ -3792,7 +3792,7 @@ input[type="button"].btn-block {
   width: 1rem;
   height: 1rem;
   margin-top: -0.25rem;
-  background-color: #009CFF;
+  background-color: #ff00d4;
   border: 0;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   appearance: none;
@@ -3820,7 +3820,7 @@ input[type="button"].btn-block {
 .custom-range::-moz-range-thumb {
   width: 1rem;
   height: 1rem;
-  background-color: #009CFF;
+  background-color: #ff00d4;
   border: 0;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   appearance: none;
