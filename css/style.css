@@ -21,7 +21,7 @@
   --white: #fff;
   --gray: #6c757d;
   --gray-dark: #343a40;
-  --primary: #009CFF;
+  --primary: #e83e8c;
   --secondary: #F3F6FF;
   --success: #28a745;
   --info: #17a2b8;
@@ -9497,7 +9497,7 @@ h4, h5, h6 {
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-  color: #e83e8c;
+  color: #009CFF;
 }
 
 @media (max-width: 991.98px) {
@@ -9632,7 +9632,7 @@ h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #e83e8c;
+  color: #009CFF;
   background: #FFFFFF;
   font-size: 30px;
 }
@@ -9640,7 +9640,7 @@ h4, h5, h6 {
 .testimonial-carousel .owl-nav .owl-prev,
 .testimonial-carousel .owl-nav .owl-next {
   color: #FFFFFF;
-  background: #e83e8c;
+  background: #009CFF;
 }
 
 .contact-form .help-block ul {
