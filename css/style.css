@@ -4545,7 +4545,7 @@ input[type="button"].btn-block {
   padding: 0.5rem 0.75rem;
   margin-left: -2px;
   line-height: 1.25;
-  color: #009CFF;
+  color: #e83e8c;
   background-color: #fff;
   border: 2px solid #dee2e6;
 }
@@ -4571,8 +4571,8 @@ input[type="button"].btn-block {
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-  background-color: #009CFF;
-  border-color: #009CFF;
+  background-color: #e83e8c;
+  border-color: #e83e8c;
 }
 
 .page-item.disabled .page-link {
@@ -4633,7 +4633,7 @@ a.badge:hover, a.badge:focus {
 
 .badge-primary {
   color: #fff;
-  background-color: #009CFF;
+  background-color: #e83e8c;
 }
 
 a.badge-primary:hover, a.badge-primary:focus {
@@ -4934,7 +4934,7 @@ a.badge-dark:focus, a.badge-dark.focus {
   color: #fff;
   text-align: center;
   white-space: nowrap;
-  background-color: #009CFF;
+  background-color: #e83e8c;
   transition: width 0.6s ease;
 }
 
@@ -5010,8 +5010,8 @@ a.badge-dark:focus, a.badge-dark.focus {
 .list-group-item.active {
   z-index: 2;
   color: #fff;
-  background-color: #009CFF;
-  border-color: #009CFF;
+  background-color: #e83e8c;
+  border-color: #e83e8c;
 }
 
 .list-group-item + .list-group-item {
@@ -6057,7 +6057,7 @@ a.close.disabled {
 }
 /*Revisar mañana*/
 .bg-primary {
-  background-color: #009CFF !important;
+  background-color: #e83e8c !important;
 }
 
 a.bg-primary:hover, a.bg-primary:focus,
@@ -6191,7 +6191,7 @@ button.bg-dark:focus {
 }
 
 .border-primary {
-  border-color: #009CFF !important;
+  border-color: #e83e8c !important;
 }
 
 .border-secondary {
@@ -9234,7 +9234,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #009CFF !important;
+  color: #e83e8c !important;
 }
 
 a.text-primary:hover, a.text-primary:focus {
@@ -9497,7 +9497,7 @@ h4, h5, h6 {
 
 .navbar-dark .navbar-nav .nav-link:hover,
 .navbar-dark .navbar-nav .nav-link.active {
-  color: #009CFF;
+  color: #e83e8c;
 }
 
 @media (max-width: 991.98px) {
@@ -9527,7 +9527,7 @@ h4, h5, h6 {
   height: 2px;
   bottom: 12px;
   left: calc(50% - 75px);
-  background: #009CFF;
+  background: #e83e8c;
 }
 
 .section-title::after {
@@ -9537,7 +9537,7 @@ h4, h5, h6 {
   height: 2px;
   bottom: 8px;
   left: calc(50% - 60px);
-  background: #009CFF;
+  background: #e83e8c;
 }
 
 .product-img,
@@ -9632,7 +9632,7 @@ h4, h5, h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #009CFF;
+  color: #e83e8c;
   background: #FFFFFF;
   font-size: 30px;
 }
@@ -9640,7 +9640,7 @@ h4, h5, h6 {
 .testimonial-carousel .owl-nav .owl-prev,
 .testimonial-carousel .owl-nav .owl-next {
   color: #FFFFFF;
-  background: #009CFF;
+  background: #e83e8c;
 }
 
 .contact-form .help-block ul {
