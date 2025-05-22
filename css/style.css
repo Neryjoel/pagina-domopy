@@ -9527,7 +9527,7 @@ h4, h5, h6 {
   height: 2px;
   bottom: 12px;
   left: calc(50% - 75px);
-  background: #e83e8c;
+  background: #009CFF;
 }
 
 .section-title::after {
@@ -9537,7 +9537,7 @@ h4, h5, h6 {
   height: 2px;
   bottom: 8px;
   left: calc(50% - 60px);
-  background: #e83e8c;
+  background: #009CFF;
 }
 
 .product-img,
