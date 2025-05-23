@@ -54,6 +54,13 @@
         position: static; /* El topbar se desplaza con la página */
         z-index: 998; /* Asegura que esté debajo del navbar */
     }
+
+    @media (max-width: 991.98px) {
+    .logo-movil {
+        height: 70px !important; /* o el tamaño que desees */
+    }
+}
+
 </style>
 
 </head>
@@ -104,9 +111,10 @@
 
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 py-lg-0 px-lg-5 align-items-center">
-    <a href="index.html" class="navbar-brand d-block d-lg-none">
-        <img src="img/Logodomo.jpg" alt="Logo" style="height: 65px;"> <!-- Imagen para móviles -->
-    </a>
+<a href="index.html" class="navbar-brand d-block d-lg-none">
+    <img src="img/Logodomo.jpg" alt="Logo" class="logo-movil" style="height: 60px;"><!-- Logo para móviles -->
+</a>
+
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
     </button>
