@@ -402,110 +402,39 @@
 
 
     <!-- Proyect Start -->
-  <style>
-    #project {
-      padding: 80px 0;
-      /* Restaurar fondo */
-      background: url('img/bg-proyectos.jpg') center/cover no-repeat;
-    }
-    .slider-container {
-      position: relative;
-      overflow: hidden;
-    }
-    .slider-track {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-    .slider-item {
-      flex: 0 0 auto;
-      width: 300px;
-      margin: 0 15px;
-      perspective: 1000px;
-    }
-    .flip-card {
-      width: 100%;
-      height: 200px;
-      position: relative;
-    }
-    .flip-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-      cursor: pointer;
-    }
-    .flip-card.flipped .flip-inner {
-      transform: rotateY(180deg);
-    }
-    .flip-front, .flip-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: .75rem;
-      overflow: hidden;
-    }
-    .flip-front img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    .flip-back {
-      background: rgba(255,255,255,0.9);
-      color: #333;
-      transform: rotateY(180deg);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-    .flip-back h5 {
-      margin-bottom: .5rem;
-    }
 
-    .nav-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.6);
-      border: none;
+    <style>
+    /* Fondo profesional con overlay semitransparente */
+    .bg-gallery {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                  url('img/gallery.png') no-repeat center center;
+      background-size: cover;
       color: #fff;
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 10;
-      font-size: 1.5rem;
     }
+    #project { padding: 80px 0; }
+    .slider-container { position: relative; overflow: hidden; }
+    .slider-track { display: flex; transition: transform 0.5s ease; }
+    .slider-item { flex: 0 0 auto; width: 300px; margin: 0 15px; perspective: 1000px; }
+    .flip-card { width: 100%; height: 200px; position: relative; }
+    .flip-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; cursor: pointer; }
+    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+    .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: .75rem; overflow: hidden; }
+    .flip-front img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .flip-back { background: rgba(255,255,255,0.9); color: #333; transform: rotateY(180deg); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+    .flip-back h5 { margin-bottom: .5rem; }
+    .nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.6); border: none; color: #fff; width: 42px; height: 42px; border-radius: 50%; cursor: pointer; z-index: 10; font-size: 1.5rem; }
     .nav-arrow.left { left: 5px; }
     .nav-arrow.right { right: 5px; }
-
     @media (max-width: 768px) {
-      .slider-item, .slider-track {
-        width: 100vw;
-      }
-      .slider-item {
-        flex: 0 0 100vw;
-        margin: 0;
-      }
-      .flip-card {
-        height: 60vh;
-      }
-      .flip-front img {
-        height: 60vh;
-      }
+      .slider-item, .slider-track { width: 100vw; }
+      .slider-item { flex: 0 0 100vw; margin: 0; }
+      .flip-card { height: 60vh; }
+      .flip-front img { height: 60vh; }
     }
-
   </style>
-
-<section id="project">
+<section id="project" class="bg-gallery">
     <div class="container text-center">
-      <h2 class="fw-bold mb-5 text-white">Galería de Proyectos</h2>
+      <h2 class="fw-bold mb-5">Galería de Proyectos</h2>
       <div class="position-relative slider-container" id="slider">
         <button class="nav-arrow left" onclick="slide(-1)">&#8592;</button>
         <div class="slider-track" id="track">
@@ -618,7 +547,8 @@
         <button class="nav-arrow right" onclick="slide(1)">&#8594;</button>
       </div>
     </div>
-  </section>
+  </section> 
+
     <!-- Proyect End -->
 
 
@@ -1130,11 +1060,13 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
 
     function slide(direction) {
       const items = document.querySelectorAll('.slider-item');
-      const itemStyle = getComputedStyle(items[0]);
-      const itemWidth = items[0].offsetWidth + parseInt(itemStyle.marginLeft) + parseInt(itemStyle.marginRight);
+      const style = getComputedStyle(items[0]);
+      const itemWidth = items[0].offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
       const visibleCount = Math.floor(document.getElementById('slider').offsetWidth / itemWidth);
       const maxIndex = items.length - visibleCount;
-      currentIndex = Math.min(Math.max(currentIndex + direction, 0), maxIndex);
+      currentIndex += direction;
+      if (currentIndex > maxIndex) currentIndex = 0;
+      if (currentIndex < 0) currentIndex = maxIndex;
       track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
     }
 
@@ -1152,7 +1084,8 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
     }
 
     function startAutoSlide() {
-      autoSlideInterval = setInterval(() => slide(1), 3000);
+      const intervalTime = window.innerWidth <= 768 ? 5000 : 3000;
+      autoSlideInterval = setInterval(() => slide(1), intervalTime);
     }
 
     function setupSwipe() {
