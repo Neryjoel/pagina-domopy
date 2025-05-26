@@ -399,10 +399,17 @@
 
     <!-- Gallery Start -->
 <style>
-    .project-carousel-wrapper {
-    position: relative;
+ .project-carousel-wrapper {
     display: flex;
     align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.carousel-container {
+    width: 100%;
+    overflow: hidden;
 }
 
 .gallery-carousel {
@@ -413,24 +420,42 @@
     background: #009CFF;
     border: none;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     padding: 10px 15px;
     cursor: pointer;
-    z-index: 2;
+    border-radius: 50%;
+    z-index: 10;
+    transition: background 0.3s;
+}
+
+.custom-nav:hover {
+    background: #007acc;
 }
 
 .custom-nav.left {
-    margin-right: 10px;
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .custom-nav.right {
-    margin-left: 10px;
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 @media (max-width: 768px) {
     .custom-nav {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         padding: 8px 10px;
+    }
+    .custom-nav.left {
+        left: 0;
+    }
+    .custom-nav.right {
+        right: 0;
     }
 }
 
@@ -442,70 +467,71 @@
         <h1 class="font-secondary display-4 text-white">Project Photo Gallery</h1>
     </div>
 
-    <div class="project-carousel-wrapper position-relative">
-        <!-- Botón izquierdo -->
-        <button class="custom-nav left"><i class="fas fa-chevron-left"></i></button>
+    <div class="container position-relative">
+        <div class="project-carousel-wrapper">
+            <!-- Botón izquierdo -->
+            <button class="custom-nav left"><i class="fas fa-chevron-left"></i></button>
 
-        <!-- Carrusel de proyectos -->
-        <div class="carousel-container">
-            <div class="owl-carousel gallery-carousel">
-                <div class="gallery-item">
-                    <img class="img-fluid w-100" src="img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg" alt="">
-                    <a class="btn btn-primary" href="img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg" data-lightbox="gallery">
-                        <i class="fa fa-2x fa-plus text-white"></i>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <img class="img-fluid w-100" src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPÁ.jpg" alt="">
-                    <a class="btn btn-primary" href="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPÁ.jpg" data-lightbox="gallery">
-                        <i class="fa fa-2x fa-plus text-white"></i>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <img class="img-fluid w-100" src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg" alt="">
-                    <a class="btn btn-primary" href="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg" data-lightbox="gallery">
-                        <i class="fa fa-2x fa-plus text-white"></i>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <img class="img-fluid w-100" src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg" alt="">
-                    <a class="btn btn-primary" href="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg" data-lightbox="gallery">
-                        <i class="fa fa-2x fa-plus text-white"></i>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <img class="img-fluid w-100" src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg" alt="">
-                    <a class="btn btn-primary" href="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg" data-lightbox="gallery">
-                        <i class="fa fa-2x fa-plus text-white"></i>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <img class="img-fluid w-100" src="img/GRAN HOSPITAL DEL SUR.jpg" alt="">
-                    <a class="btn btn-primary" href="img/GRAN HOSPITAL DEL SUR.jpg" data-lightbox="gallery">
-                        <i class="fa fa-2x fa-plus text-white"></i>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <img class="img-fluid w-100" src="img/IGLESIA CENTRO FAMILAR DE ADORACIÓN.jpg" alt="">
-                    <a class="btn btn-primary" href="img/IGLESIA CENTRO FAMILAR DE ADORACIÓN.jpg" data-lightbox="gallery">
-                        <i class="fa fa-2x fa-plus text-white"></i>
-                    </a>
-                </div>
-                <div class="gallery-item">
-                    <img class="img-fluid w-100" src="img/PUERTO MADERO.jpg" alt="">
-                    <a class="btn btn-primary" href="img/PUERTO MADERO.jpg" data-lightbox="gallery">
-                        <i class="fa fa-2x fa-plus text-white"></i>
-                    </a>
+            <!-- Carrusel de proyectos -->
+            <div class="carousel-container">
+                <div class="owl-carousel gallery-carousel">
+                    <div class="gallery-item">
+                        <img class="img-fluid w-100" src="img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg" alt="">
+                        <a class="btn btn-primary" href="img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg" data-lightbox="gallery">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <img class="img-fluid w-100" src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPÁ.jpg" alt="">
+                        <a class="btn btn-primary" href="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPÁ.jpg" data-lightbox="gallery">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <img class="img-fluid w-100" src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg" alt="">
+                        <a class="btn btn-primary" href="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg" data-lightbox="gallery">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <img class="img-fluid w-100" src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg" alt="">
+                        <a class="btn btn-primary" href="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg" data-lightbox="gallery">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <img class="img-fluid w-100" src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg" alt="">
+                        <a class="btn btn-primary" href="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg" data-lightbox="gallery">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <img class="img-fluid w-100" src="img/GRAN HOSPITAL DEL SUR.jpg" alt="">
+                        <a class="btn btn-primary" href="img/GRAN HOSPITAL DEL SUR.jpg" data-lightbox="gallery">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <img class="img-fluid w-100" src="img/IGLESIA CENTRO FAMILAR DE ADORACIÓN.jpg" alt="">
+                        <a class="btn btn-primary" href="img/IGLESIA CENTRO FAMILAR DE ADORACIÓN.jpg" data-lightbox="gallery">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
+                    <div class="gallery-item">
+                        <img class="img-fluid w-100" src="img/PUERTO MADERO.jpg" alt="">
+                        <a class="btn btn-primary" href="img/PUERTO MADERO.jpg" data-lightbox="gallery">
+                            <i class="fa fa-2x fa-plus text-white"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Botón derecho -->
-        <button class="custom-nav right"><i class="fas fa-chevron-right"></i></button>
+            <!-- Botón derecho -->
+            <button class="custom-nav right"><i class="fas fa-chevron-right"></i></button>
+        </div>
     </div>
 </div>
-
-    <!-- Gallery End -->
+<!-- Gallery End -->
 
     <!-- Team Start 
     <div class="container-fluid py-5" id="team">
