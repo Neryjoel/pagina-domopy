@@ -419,15 +419,15 @@
     }
     .slider-item {
       flex: 0 0 auto;
-      width: 300px;
-      margin: 0 15px;
+      width: 320px;
+      margin: 0 10px;
       perspective: 1000px;
       position: relative;
       z-index: 1;
     }
     .flip-card {
       width: 100%;
-      height: 200px;
+      aspect-ratio: 1 / 1.2;
       position: relative;
     }
     .flip-inner {
@@ -464,7 +464,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
-      padding: 1rem;
+      padding: 1rem 0.5rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       z-index: 2;
     }
@@ -472,11 +472,13 @@
       margin-bottom: .5rem;
       text-align: left;
       width: 100%;
+      font-size: 1rem;
     }
     .flip-back p {
       margin-left: 5px;
       margin-right: 5px;
       text-align: left;
+      font-size: 0.9rem;
     }
 
     .nav-arrow {
@@ -505,11 +507,14 @@
         margin: 0;
       }
       .flip-card {
-        height: 60vh;
+        width: 90vw;
+        margin: 0 auto;
+        aspect-ratio: 1 / 1.2;
       }
       .flip-front img {
-        height: 60vh;
-        object-fit: contain;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
       }
       .flip-back {
         padding: 1rem 5px;
@@ -521,11 +526,7 @@
         width: 100%;
         margin-left: 5px;
         margin-right: 5px;
-      }
-      .nav-arrow {
-        width: 36px;
-        height: 36px;
-        font-size: 1.2rem;
+        text-align: left;
       }
     }
 
