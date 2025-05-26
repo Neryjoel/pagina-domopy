@@ -504,38 +504,7 @@
         </div>
     </div>
 
-    <script>
-$(document).ready(function(){
-    var owl = $(".gallery-carousel");
-
-    owl.owlCarousel({
-        items: 1,
-        loop: true,
-        margin: 10,
-        autoplay: true,
-        autoplayTimeout: 4000,
-        autoplayHoverPause: false,
-        smartSpeed: 1000,
-        nav: false,
-        dots: false,
-        touchDrag: true,
-        mouseDrag: true,
-        responsive: {
-            0: { items: 1 },
-            576: { items: 2 },
-            992: { items: 3 }
-        }
-    });
-
-    $(".custom-nav.left").click(function(){
-        owl.trigger('prev.owl.carousel');
-    });
-
-    $(".custom-nav.right").click(function(){
-        owl.trigger('next.owl.carousel');
-    });
-});
-</script>
+  
     <!-- Gallery End -->
 
     <!-- Team Start 
@@ -1041,6 +1010,39 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
               });
             });
             </script>
+
+              <script>
+$(document).ready(function(){
+    var owl = $(".gallery-carousel");
+
+    owl.owlCarousel({
+        items: 1,
+        loop: true,
+        margin: 10,
+        autoplay: true,
+        autoplayTimeout: 4000,
+        autoplayHoverPause: false,
+        smartSpeed: 1000,
+        nav: false,
+        dots: false,
+        touchDrag: true,
+        mouseDrag: true,
+        responsive: {
+            0: { items: 1 },
+            576: { items: 2 },
+            992: { items: 3 }
+        }
+    });
+
+    $(".custom-nav.left").click(function(){
+        owl.trigger('prev.owl.carousel');
+    });
+
+    $(".custom-nav.right").click(function(){
+        owl.trigger('next.owl.carousel');
+    });
+});
+</script>
             
 </body>
 </html>
