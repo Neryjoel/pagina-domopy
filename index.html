@@ -402,6 +402,7 @@
 
 
     <!-- Proyect Start -->
+
   <style>
     .bg-gallery {
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
@@ -411,11 +412,36 @@
     }
     #project { padding: 80px 0; }
     .slider-container { position: relative; overflow: hidden; }
-    .slider-track { display: flex; transition: transform 1s ease-in-out; }
-    .slider-item { flex: 0 0 auto; width: 300px; margin: 0 15px; perspective: 1000px; position: relative; z-index: 1; }
-    .flip-card { width: 100%; height: 200px; position: relative; }
-    .flip-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; cursor: pointer; }
-    .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
+    .slider-track {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+      touch-action: pan-y;
+    }
+    .slider-item {
+      flex: 0 0 auto;
+      width: 300px;
+      margin: 0 15px;
+      perspective: 1000px;
+      position: relative;
+      z-index: 1;
+    }
+    .flip-card {
+      width: 100%;
+      height: 200px;
+      position: relative;
+    }
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+    .flip-card.flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
     .flip-front, .flip-back {
       position: absolute;
       width: 100%;
@@ -462,12 +488,30 @@
     .nav-arrow.right { right: 10px; }
 
     @media (max-width: 768px) {
-      .slider-item, .slider-track { width: 100vw; }
-      .slider-item { flex: 0 0 100vw; margin: 0; }
-      .flip-card { height: 65vh; }
-      .flip-front img { height: 65vh; }
-      .flip-back { padding: 1rem; font-size: 0.95rem; text-align: center; }
-      .nav-arrow { width: 36px; height: 36px; font-size: 1.2rem; }
+      .slider-item, .slider-track {
+        width: 100vw;
+      }
+      .slider-item {
+        flex: 0 0 100vw;
+        margin: 0;
+      }
+      .flip-card {
+        height: 60vh;
+      }
+      .flip-front img {
+        height: 60vh;
+        object-fit: contain;
+      }
+      .flip-back {
+        padding: 1rem;
+        font-size: 0.95rem;
+        text-align: center;
+      }
+      .nav-arrow {
+        width: 36px;
+        height: 36px;
+        font-size: 1.2rem;
+      }
     }
 
     h2.fw-bold {
@@ -475,6 +519,7 @@
       text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
   </style>
+
   <section id="project" class="bg-gallery">
     <div class="container text-center">
       <h2 class="fw-bold mb-5">Galería de Proyectos</h2>
