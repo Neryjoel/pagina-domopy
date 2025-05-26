@@ -403,7 +403,7 @@
 
     <!-- Proyect Start -->
 
-  <style>
+ <style>
     .bg-gallery {
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                   url('img/gallery.png') no-repeat center center;
@@ -463,12 +463,21 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       padding: 1rem;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
       z-index: 2;
     }
-    .flip-back h5 { margin-bottom: .5rem; }
+    .flip-back h5 {
+      margin-bottom: .5rem;
+      text-align: left;
+      width: 100%;
+    }
+    .flip-back p {
+      margin-left: 5px;
+      margin-right: 5px;
+      text-align: left;
+    }
 
     .nav-arrow {
       position: absolute;
@@ -503,9 +512,15 @@
         object-fit: contain;
       }
       .flip-back {
-        padding: 1rem;
+        padding: 1rem 5px;
         font-size: 0.95rem;
-        text-align: center;
+        text-align: left;
+        align-items: flex-start;
+      }
+      .flip-back h5, .flip-back p {
+        width: 100%;
+        margin-left: 5px;
+        margin-right: 5px;
       }
       .nav-arrow {
         width: 36px;
