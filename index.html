@@ -402,8 +402,7 @@
 
 
     <!-- Proyect Start -->
-<style>
-    /* Fondo profesional con overlay semitransparente */
+  <style>
     .bg-gallery {
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                   url('img/gallery.png') no-repeat center center;
@@ -413,93 +412,181 @@
     #project { padding: 80px 0; }
     .slider-container { position: relative; overflow: hidden; }
     .slider-track { display: flex; transition: transform 1s ease-in-out; }
-    .slider-item { flex: 0 0 auto; width: 300px; margin: 0 15px; perspective: 1000px; }
+    .slider-item { flex: 0 0 auto; width: 300px; margin: 0 15px; perspective: 1000px; position: relative; z-index: 1; }
     .flip-card { width: 100%; height: 200px; position: relative; }
     .flip-inner { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.6s; transform-style: preserve-3d; cursor: pointer; }
     .flip-card.flipped .flip-inner { transform: rotateY(180deg); }
-    .flip-front, .flip-back { position: absolute; width: 100%; height: 100%; backface-visibility: hidden; border-radius: .75rem; overflow: hidden; }
-    .flip-front img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .flip-back { background: rgba(255,255,255,0.9); color: #333; transform: rotateY(180deg); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+    .flip-front, .flip-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: .75rem;
+      overflow: hidden;
+    }
+    .flip-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .flip-back {
+      background: rgba(255,255,255,0.95);
+      color: #333;
+      transform: rotateY(180deg);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
     .flip-back h5 { margin-bottom: .5rem; }
-    .nav-arrow { display: none; }
+
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.6);
+      border: none;
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 5;
+      font-size: 1.4rem;
+    }
+    .nav-arrow.left { left: 10px; }
+    .nav-arrow.right { right: 10px; }
+
     @media (max-width: 768px) {
       .slider-item, .slider-track { width: 100vw; }
       .slider-item { flex: 0 0 100vw; margin: 0; }
-      .flip-card { height: 60vh; }
-      .flip-front img { height: 60vh; }
+      .flip-card { height: 65vh; }
+      .flip-front img { height: 65vh; }
+      .flip-back { padding: 1rem; font-size: 0.95rem; text-align: center; }
+      .nav-arrow { width: 36px; height: 36px; font-size: 1.2rem; }
+    }
+
+    h2.fw-bold {
+      color: #fff !important;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
     }
   </style>
-<section id="project" class="bg-gallery">
+  <section id="project" class="bg-gallery">
     <div class="container text-center">
       <h2 class="fw-bold mb-5">Galería de Proyectos</h2>
       <div class="slider-container" id="slider">
+        <button class="nav-arrow left" onclick="slide(-1)">&#8592;</button>
         <div class="slider-track" id="track">
-          <!-- Tarjetas completas -->
           <div class="slider-item">
-            <div class="flip-card" data-title="Caja Mutual de Cooperativistas del Paraguay" data-desc="Proyecto Caja Mutual de Cooperativistas del Paraguay">
-              <div class="flip-inner">
-                <div class="flip-front"><img src="img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg" alt="Caja Mutual"></div>
-                <div class="flip-back"><h5>Caja Mutual de Cooperativistas del Paraguay</h5><p>Proyecto Caja Mutual de Cooperativistas del Paraguay</p></div>
-              </div>
-            </div>
-          </div>
-          <div class="slider-item">
-            <div class="flip-card" data-title="Corte Suprema - Caazapá" data-desc="Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Caazapá">
-              <div class="flip-inner">
-                <div class="flip-front"><img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPÁ.jpg" alt="Corte Suprema Caazapá"></div>
-                <div class="flip-back"><h5>Corte Suprema - Caazapá</h5><p>Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Caazapá</p></div>
-              </div>
-            </div>
-          </div>
-          <div class="slider-item">
-            <div class="flip-card" data-title="Corte Suprema - Ciudad del Este" data-desc="Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Ciudad del Este">
-              <div class="flip-inner">
-                <div class="flip-front"><img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg" alt="Corte Suprema Ciudad del Este"></div>
-                <div class="flip-back"><h5>Corte Suprema - Ciudad del Este</h5><p>Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Ciudad del Este</p></div>
-              </div>
-            </div>
-          </div>
-          <div class="slider-item">
-            <div class="flip-card" data-title="Corte Suprema - Guairá" data-desc="Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Guairá">
-              <div class="flip-inner">
-                <div class="flip-front"><img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg" alt="Corte Suprema Guairá"></div>
-                <div class="flip-back"><h5>Corte Suprema - Guairá</h5><p>Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Guairá</p></div>
-              </div>
-            </div>
-          </div>
-          <div class="slider-item">
-            <div class="flip-card" data-title="Corte Suprema - Cordillera" data-desc="Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Cordillera">
-              <div class="flip-inner">
-                <div class="flip-front"><img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg" alt="Corte Suprema Cordillera"></div>
-                <div class="flip-back"><h5>Corte Suprema - Cordillera</h5><p>Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Cordillera</p></div>
-              </div>
-            </div>
-          </div>
-          <div class="slider-item">
-            <div class="flip-card" data-title="Gran Hospital del Sur" data-desc="Proyecto Gran Hospital del Sur">
-              <div class="flip-inner">
-                <div class="flip-front"><img src="img/GRAN HOSPITAL DEL SUR.jpg" alt="Gran Hospital del Sur"></div>
-                <div class="flip-back"><h5>Gran Hospital del Sur</h5><p>Proyecto Gran Hospital del Sur</p></div>
-              </div>
-            </div>
-          </div>
-          <div class="slider-item">
-            <div class="flip-card" data-title="Iglesia Centro Familiar de Adoración" data-desc="Proyecto Iglesia Centro Familiar de Adoración">
-              <div class="flip-inner">
-                <div class="flip-front"><img src="img/IGLESIA CENTRO FAMILAR DE ADORACIÓN.jpg" alt="Iglesia Centro Familiar de Adoración"></div>
-                <div class="flip-back"><h5>Iglesia Centro Familiar de Adoración</h5><p>Proyecto Iglesia Centro Familiar de Adoración</p></div>
-              </div>
-            </div>
-          </div>
-          <div class="slider-item">
-            <div class="flip-card" data-title="Puerto Madero" data-desc="Proyecto Puerto Madero">
-              <div class="flip-inner">
-                <div class="flip-front"><img src="img/PUERTO MADERO.jpg" alt="Puerto Madero"></div>
-                <div class="flip-back"><h5>Puerto Madero</h5><p>Proyecto Puerto Madero</p></div>
-              </div>
-            </div>
-          </div>
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg" alt="Caja Mutual">
+      </div>
+      <div class="flip-back">
+        <h5>Caja Mutual de Cooperativistas del Paraguay</h5>
+        <p>Proyecto Caja Mutual de Cooperativistas del Paraguay</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slider-item">
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPÁ.jpg" alt="Corte Suprema Caazapá">
+      </div>
+      <div class="flip-back">
+        <h5>Corte Suprema - Caazapá</h5>
+        <p>Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Caazapá</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slider-item">
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg" alt="Corte Suprema Ciudad del Este">
+      </div>
+      <div class="flip-back">
+        <h5>Corte Suprema - Ciudad del Este</h5>
+        <p>Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Ciudad del Este</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slider-item">
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg" alt="Corte Suprema Guairá">
+      </div>
+      <div class="flip-back">
+        <h5>Corte Suprema - Guairá</h5>
+        <p>Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Guairá</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slider-item">
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg" alt="Corte Suprema Cordillera">
+      </div>
+      <div class="flip-back">
+        <h5>Corte Suprema - Cordillera</h5>
+        <p>Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Cordillera</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slider-item">
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="img/GRAN HOSPITAL DEL SUR.jpg" alt="Gran Hospital del Sur">
+      </div>
+      <div class="flip-back">
+        <h5>Gran Hospital del Sur</h5>
+        <p>Proyecto Gran Hospital del Sur</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slider-item">
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="img/IGLESIA CENTRO FAMILAR DE ADORACIÓN.jpg" alt="Iglesia Centro Familiar de Adoración">
+      </div>
+      <div class="flip-back">
+        <h5>Iglesia Centro Familiar de Adoración</h5>
+        <p>Proyecto Iglesia Centro Familiar de Adoración</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="slider-item">
+  <div class="flip-card">
+    <div class="flip-inner">
+      <div class="flip-front">
+        <img src="img/PUERTO MADERO.jpg" alt="Puerto Madero">
+      </div>
+      <div class="flip-back">
+        <h5>Puerto Madero</h5>
+        <p>Proyecto Puerto Madero</p>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
+        <button class="nav-arrow right" onclick="slide(1)">&#8594;</button>
       </div>
     </div>
   </section>
@@ -1009,28 +1096,35 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
             </script>
 
 <!-- Proyecto-->
-  <script>
+ <script>
     const track = document.getElementById('track');
+    const items = document.querySelectorAll('.slider-item');
     let currentIndex = 0;
     let autoSlideInterval;
     let isPaused = false;
 
-    function slide() {
+    function slide(direction) {
       if (isPaused) return;
-      const items = document.querySelectorAll('.slider-item');
-      const style = getComputedStyle(items[0]);
-      const itemWidth = items[0].offsetWidth + parseInt(style.marginLeft) + parseInt(style.marginRight);
-      currentIndex = (currentIndex + 1) % items.length;
+      const itemStyle = getComputedStyle(items[0]);
+      const itemWidth = items[0].offsetWidth + parseInt(itemStyle.marginLeft) + parseInt(itemStyle.marginRight);
+      currentIndex = (currentIndex + direction + items.length) % items.length;
       track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+    }
+
+    function startAutoSlide() {
+      const intervalTime = window.innerWidth <= 768 ? 5000 : 4000;
+      autoSlideInterval = setInterval(() => slide(1), intervalTime);
     }
 
     function setupFlip() {
       document.querySelectorAll('.flip-card').forEach(card => {
         card.addEventListener('click', () => {
-          if (!card.classList.contains('flipped')) {
+          const isFlipped = card.classList.contains('flipped');
+          document.querySelectorAll('.flip-card').forEach(c => c.classList.remove('flipped'));
+          if (!isFlipped) {
+            card.classList.add('flipped');
             isPaused = true;
             clearInterval(autoSlideInterval);
-            card.classList.add('flipped');
           } else {
             card.classList.remove('flipped');
             isPaused = false;
@@ -1040,20 +1134,14 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
       });
     }
 
-    function startAutoSlide() {
-      const intervalTime = window.innerWidth <= 768 ? 5000 : 4000;
-      autoSlideInterval = setInterval(slide, intervalTime);
-    }
-
     function setupSwipe() {
       let startX = 0;
       track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
       track.addEventListener('touchend', e => {
         const diff = e.changedTouches[0].clientX - startX;
         if (Math.abs(diff) > 50) {
-          isPaused = true;
-          clearInterval(autoSlideInterval);
-          if (diff < 0) slide();
+          if (diff < 0) slide(1);
+          else slide(-1);
         }
       });
     }
