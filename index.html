@@ -592,6 +592,13 @@
     <!-- FAQs End -->
     
    <style>
+.gallery-carousel img {
+    width: 100%;
+    height: 300px; /* ajusta según tu diseño */
+    object-fit: cover;
+    border-radius: 5px;
+}
+ 
 .gallery-item {
     height: 320px; /* Un poco más grande que la imagen */
     overflow: hidden;
@@ -637,9 +644,6 @@
 }
 
 </style>
-
-
-
 
     <!-- Marcas Start -->
     <div class="container-fluid bg-gallery" id="marcas" style="padding: 120px 0; margin: 90px 0;">
@@ -845,8 +849,7 @@
     
     <script>
     
-$(document).ready(function(){
-    // Carrusel de testimonios
+ $(document).ready(function(){
     $('.testimonia-carousel').owlCarousel({
         loop: true,
         margin: 30,
@@ -856,42 +859,12 @@ $(document).ready(function(){
         autoplayTimeout: 3000,
         smartSpeed: 1000,
         responsive: {
-            0: { items: 1 },
-            768: { items: 2 },
-            992: { items: 4 }
+            0: { items: 1 },     // 1 marca en celular
+            768: { items: 2 },   // 2 en tablet
+            992: { items: 4 }    // 4 en escritorio
         }
-    });
-
-    // Carrusel de galería de proyectos
-    var gallery = $('.gallery-carousel');
-    gallery.owlCarousel({
-        loop: true,
-        margin: 10,
-        nav: false,
-        dots: false,
-        autoplay: true,
-        autoplayTimeout: 4000,
-        autoplayHoverPause: false,
-        smartSpeed: 1000,
-        touchDrag: true,
-        mouseDrag: true,
-        responsive: {
-            0: { items: 1 },
-            576: { items: 2 },
-            992: { items: 3 }
-        }
-    });
-
-    // Navegación manual para la galería
-    $('.custom-nav.left').click(function(){
-        gallery.trigger('prev.owl.carousel');
-    });
-
-    $('.custom-nav.right').click(function(){
-        gallery.trigger('next.owl.carousel');
     });
 });
-
 
 jQuery.event.special.touchstart = {
   setup(_, ns, handle) {
