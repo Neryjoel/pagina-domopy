@@ -402,8 +402,7 @@
 
 
     <!-- Proyect Start -->
-
-   <style>
+<style>
     .bg-gallery {
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                   url('img/gallery.png') no-repeat center center;
@@ -486,18 +485,17 @@
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0,0,0,0.6);
+      background: transparent;
       border: none;
-      color: #fff;
+      color: #ffffff;
       width: 40px;
       height: 40px;
-      border-radius: 50%;
       cursor: pointer;
       z-index: 5;
-      font-size: 1.4rem;
+      font-size: 2rem;
     }
-    .nav-arrow.left { left: 10px; }
-    .nav-arrow.right { right: 10px; }
+    .nav-arrow.left { left: 0; }
+    .nav-arrow.right { right: 0; }
 
     h2.fw-bold {
       color: #fff !important;
@@ -1145,61 +1143,30 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
             </script>
 
 <!-- Proyecto-->
- <script>
-    const track = document.getElementById('track');
-    const items = document.querySelectorAll('.slider-item');
+  <script>
     let currentIndex = 0;
-    let autoSlideInterval;
     let isPaused = false;
+    let autoSlideInterval;
 
     function slide(direction) {
       if (isPaused) return;
-      const itemStyle = getComputedStyle(items[0]);
-      const itemWidth = items[0].offsetWidth + parseInt(itemStyle.marginLeft) + parseInt(itemStyle.marginRight);
-      currentIndex = (currentIndex + direction + items.length) % items.length;
+      const track = document.querySelector('.slider-track');
+      const items = document.querySelectorAll('.slider-item');
+      const itemWidth = items[0].offsetWidth;
+      currentIndex += direction;
+
+      // Loop continuo en una dirección
+      if (currentIndex >= items.length) {
+        currentIndex = 0;
+      }
+
       track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
     }
 
-    function startAutoSlide() {
+    function autoSlide() {
       const intervalTime = window.innerWidth <= 768 ? 5000 : 4000;
       autoSlideInterval = setInterval(() => slide(1), intervalTime);
     }
-
-    function setupFlip() {
-      document.querySelectorAll('.flip-card').forEach(card => {
-        card.addEventListener('click', () => {
-          const isFlipped = card.classList.contains('flipped');
-          document.querySelectorAll('.flip-card').forEach(c => c.classList.remove('flipped'));
-          if (!isFlipped) {
-            card.classList.add('flipped');
-            isPaused = true;
-            clearInterval(autoSlideInterval);
-          } else {
-            card.classList.remove('flipped');
-            isPaused = false;
-            startAutoSlide();
-          }
-        });
-      });
-    }
-
-    function setupSwipe() {
-      let startX = 0;
-      track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
-      track.addEventListener('touchend', e => {
-        const diff = e.changedTouches[0].clientX - startX;
-        if (Math.abs(diff) > 50) {
-          if (diff < 0) slide(1);
-          else slide(-1);
-        }
-      });
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      setupFlip();
-      setupSwipe();
-      startAutoSlide();
-    });
   </script>
 </body>
 </html>
