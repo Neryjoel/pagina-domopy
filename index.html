@@ -222,13 +222,19 @@
 <style>
 .card-flip {
   perspective: 1000px;
-  cursor: pointer;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.card-flip:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 .card-flip-inner {
   position: relative;
   width: 100%;
-  height: 350px;
-  text-align: center;
+  aspect-ratio: 1 / 1;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
@@ -240,28 +246,41 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  border-radius: 10px;
-  overflow: hidden;
+  border-radius: 12px;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
 }
 .card-front {
   background: #fff;
-  border: 1px solid #ddd;
   z-index: 2;
+  border: 1px solid #ddd;
 }
 .card-front img {
   width: 100%;
-  height: 298px;
+  height: 65%;
   object-fit: cover;
 }
 .card-front .info {
-  background: #F3F6FF;
-  padding: 15px;
+  background: #f3f6ff;
+  padding: 10px;
+  text-align: center;
+  font-weight: 600;
+  color: #22395d;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .card-back {
   background: #ffffff;
   transform: rotateY(180deg);
-  padding: 20px;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+  padding: 15px;
+  border: 1px solid #ddd;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 </style>
 
@@ -274,108 +293,108 @@
     <div class="row">
 
       <!-- Servicio 1 -->
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="card-flip" onclick="this.classList.toggle('flipped')">
+      <div class="col-12 col-sm-6 col-lg-4 d-flex mb-4">
+        <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
           <div class="card-flip-inner">
             <div class="card-front">
               <img src="img/product-1.jpg" alt="Domótica e Inmótica">
-              <div class="info">
-                <h5>Domótica e Inmótica</h5>
-              </div>
+              <div class="info">Domótica e Inmótica</div>
             </div>
             <div class="card-back">
-              <h5>Domótica e Inmótica</h5>
-              <p>Automatización y control inteligente para hogares y edificios: luces, clima, seguridad y más.</p>
+              <div>
+                <h5>Domótica e Inmótica</h5>
+                <p>Automatización y control inteligente para hogares y edificios: luces, clima, seguridad y más.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Servicio 2 -->
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="card-flip" onclick="this.classList.toggle('flipped')">
+      <div class="col-12 col-sm-6 col-lg-4 d-flex mb-4">
+        <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
           <div class="card-flip-inner">
             <div class="card-front">
               <img src="img/product-2.jpg" alt="Instalaciones Eléctricas">
-              <div class="info">
-                <h5>Instalaciones Eléctricas</h5>
-              </div>
+              <div class="info">Instalaciones Eléctricas</div>
             </div>
             <div class="card-back">
-              <h5>Instalaciones Eléctricas</h5>
-              <p>Sistemas eléctricos seguros y normativos para viviendas, comercios e industrias.</p>
+              <div>
+                <h5>Instalaciones Eléctricas</h5>
+                <p>Sistemas eléctricos seguros y normativos para viviendas, comercios e industrias.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Servicio 3 -->
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="card-flip" onclick="this.classList.toggle('flipped')">
+      <div class="col-12 col-sm-6 col-lg-4 d-flex mb-4">
+        <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
           <div class="card-flip-inner">
             <div class="card-front">
               <img src="img/product-3.jpg" alt="Climatización">
-              <div class="info">
-                <h5>Climatización</h5>
-              </div>
+              <div class="info">Climatización</div>
             </div>
             <div class="card-back">
-              <h5>Climatización</h5>
-              <p>Instalación y mantenimiento de sistemas de aire y calefacción para el confort interior.</p>
+              <div>
+                <h5>Climatización</h5>
+                <p>Instalación y mantenimiento de sistemas de aire y calefacción para el confort interior.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Servicio 4 -->
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="card-flip" onclick="this.classList.toggle('flipped')">
+      <div class="col-12 col-sm-6 col-lg-4 d-flex mb-4">
+        <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
           <div class="card-flip-inner">
             <div class="card-front">
-              <img src="img/product-4.jpg" alt="PCI">
-              <div class="info">
-                <h5>Prevención Contra Incendios</h5>
-              </div>
+              <img src="img/product-4.jpg" alt="Prevención Contra Incendios">
+              <div class="info">Prevención Contra Incendios</div>
             </div>
             <div class="card-back">
-              <h5>Prevención Contra Incendios (PCI)</h5>
-              <p>Diseño e instalación de sistemas de detección y extinción de incendios según normas vigentes.</p>
+              <div>
+                <h5>Prevención Contra Incendios (PCI)</h5>
+                <p>Diseño e instalación de sistemas de detección y extinción de incendios según normas vigentes.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Servicio 5 -->
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="card-flip" onclick="this.classList.toggle('flipped')">
+      <div class="col-12 col-sm-6 col-lg-4 d-flex mb-4">
+        <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
           <div class="card-flip-inner">
             <div class="card-front">
               <img src="img/product-5.jpg" alt="CCTV">
-              <div class="info">
-                <h5>CCTV</h5>
-              </div>
+              <div class="info">CCTV</div>
             </div>
             <div class="card-back">
-              <h5>CCTV</h5>
-              <p>Monitoreo visual en tiempo real con cámaras de alta definición para mayor seguridad.</p>
+              <div>
+                <h5>CCTV</h5>
+                <p>Monitoreo visual en tiempo real con cámaras de alta definición para mayor seguridad.</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <!-- Servicio 6 -->
-      <div class="col-sm-6 col-md-4 mb-4">
-        <div class="card-flip" onclick="this.classList.toggle('flipped')">
+      <div class="col-12 col-sm-6 col-lg-4 d-flex mb-4">
+        <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
           <div class="card-flip-inner">
             <div class="card-front">
               <img src="img/product-6.jpg" alt="Post Venta">
-              <div class="info">
-                <h5>Post Venta</h5>
-              </div>
+              <div class="info">Post Venta</div>
             </div>
             <div class="card-back">
-              <h5>Post Venta</h5>
-              <p>Soporte técnico y mantenimiento preventivo/correctivo para garantizar continuidad.</p>
+              <div>
+                <h5>Post Venta</h5>
+                <p>Soporte técnico y mantenimiento preventivo/correctivo para garantizar continuidad.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -384,6 +403,7 @@
     </div>
   </div>
 </div>
+
 
 
     <!-- Service End -->
