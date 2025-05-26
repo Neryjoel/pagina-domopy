@@ -222,19 +222,13 @@
 <style>
 .card-flip {
   perspective: 1000px;
-  height: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  transition: box-shadow 0.3s;
-}
-.card-flip:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
 }
 .card-flip-inner {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 350px;
+  text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
@@ -246,39 +240,28 @@
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
-  top: 0;
-  left: 0;
+  border-radius: 10px;
+  overflow: hidden;
 }
 .card-front {
   background: #fff;
+  border: 1px solid #ddd;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  border-radius: 12px;
 }
 .card-front img {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
 }
 .card-front .info {
-  background: #f3f6ff;
+  background: #F3F6FF;
   padding: 15px;
-  text-align: center;
-  font-weight: 600;
-  color: #22395d;
-  flex-grow: 1;
 }
 .card-back {
   background: #ffffff;
   transform: rotateY(180deg);
   padding: 20px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  color: #333;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
 }
 </style>
 
@@ -296,7 +279,9 @@
           <div class="card-flip-inner">
             <div class="card-front">
               <img src="img/product-1.jpg" alt="Domótica e Inmótica">
-              <div class="info">Domótica e Inmótica</div>
+              <div class="info">
+                <h5>Domótica e Inmótica</h5>
+              </div>
             </div>
             <div class="card-back">
               <h5>Domótica e Inmótica</h5>
@@ -312,7 +297,9 @@
           <div class="card-flip-inner">
             <div class="card-front">
               <img src="img/product-2.jpg" alt="Instalaciones Eléctricas">
-              <div class="info">Instalaciones Eléctricas</div>
+              <div class="info">
+                <h5>Instalaciones Eléctricas</h5>
+              </div>
             </div>
             <div class="card-back">
               <h5>Instalaciones Eléctricas</h5>
@@ -328,7 +315,9 @@
           <div class="card-flip-inner">
             <div class="card-front">
               <img src="img/product-3.jpg" alt="Climatización">
-              <div class="info">Climatización</div>
+              <div class="info">
+                <h5>Climatización</h5>
+              </div>
             </div>
             <div class="card-back">
               <h5>Climatización</h5>
@@ -343,12 +332,14 @@
         <div class="card-flip" onclick="this.classList.toggle('flipped')">
           <div class="card-flip-inner">
             <div class="card-front">
-              <img src="img/product-4.jpg" alt="Prevención Contra Incendios">
-              <div class="info">Prevención Contra Incendios</div>
+              <img src="img/product-4.jpg" alt="PCI">
+              <div class="info">
+                <h5>Prevención Contra Incendios</h5>
+              </div>
             </div>
             <div class="card-back">
               <h5>Prevención Contra Incendios (PCI)</h5>
-              <p>Detección y extinción de incendios con sistemas seguros y certificados.</p>
+              <p>Diseño e instalación de sistemas de detección y extinción de incendios según normas vigentes.</p>
             </div>
           </div>
         </div>
@@ -360,7 +351,9 @@
           <div class="card-flip-inner">
             <div class="card-front">
               <img src="img/product-5.jpg" alt="CCTV">
-              <div class="info">CCTV</div>
+              <div class="info">
+                <h5>CCTV</h5>
+              </div>
             </div>
             <div class="card-back">
               <h5>CCTV</h5>
@@ -376,11 +369,13 @@
           <div class="card-flip-inner">
             <div class="card-front">
               <img src="img/product-6.jpg" alt="Post Venta">
-              <div class="info">Post Venta</div>
+              <div class="info">
+                <h5>Post Venta</h5>
+              </div>
             </div>
             <div class="card-back">
               <h5>Post Venta</h5>
-              <p>Soporte técnico y mantenimiento para asegurar el rendimiento continuo de todos los sistemas instalados.</p>
+              <p>Soporte técnico y mantenimiento preventivo/correctivo para garantizar continuidad.</p>
             </div>
           </div>
         </div>
@@ -389,6 +384,7 @@
     </div>
   </div>
 </div>
+
 
     <!-- Service End -->
 
