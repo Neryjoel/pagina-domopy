@@ -218,101 +218,173 @@
     <!-- About End -->
 
 
-    <!-- Service Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5" id="service">
-            <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Servicios</h6>
-                <h1 class="font-secondary display-4">Servicios en Generales</h1>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-                    <div class="product-item mb-2">
-                        <div class="product-img">
-                            <img class="img-fluid" src="img/product-1.jpg" alt="">
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDomotica">
-                                <i class="fa fa-2x fa-plus text-white"></i>
-                            </a>
-                        </div>
-                        <div class="bg-secondary text-center p-4">
-                            <h3 class="m-0">Domótica e Inmótica</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
+<style>
+.card-flip {
+  perspective: 1000px;
+  cursor: pointer;
+}
+.card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.card-flip.flipped .card-flip-inner {
+  transform: rotateY(180deg);
+}
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.card-front {
+  background: #fff;
+  border: 1px solid #ddd;
+  z-index: 2;
+}
+.card-front img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+.card-front .info {
+  background: #F3F6FF;
+  padding: 15px;
+}
+.card-back {
+  background: #ffffff;
+  transform: rotateY(180deg);
+  padding: 20px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+}
+</style>
 
-                    <div class="product-item mb-2">
-                        <div class="product-img">
-                            <img class="img-fluid" src="img/product-2.jpg" alt="">
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalElectricas">
-                                <i class="fa fa-2x fa-plus text-white"></i>
-                            </a>
-                        </div>
-                        <div class="bg-secondary text-center p-4">
-                            <h3 class="m-0">Instalaciones Eléctricas</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-
-                    <div class="product-item mb-2">
-                        <div class="product-img">
-                            <img class="img-fluid" src="img/product-3.jpg" alt="">
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalClimatizacion">
-                                <i class="fa fa-2x fa-plus text-white"></i>
-                            </a>
-                        </div>
-                        <div class="bg-secondary text-center p-4">
-                            <h3 class="m-0">Climatización</h3>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-
-                    <div class="product-item mb-2">
-                        <div class="product-img">
-                            <img class="img-fluid" src="img/product-4.jpg" alt="">
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPCI">
-                                <i class="fa fa-2x fa-plus text-white"></i>
-                            </a>
-                        </div>
-                        <div class="bg-secondary text-center p-4">
-                            <h3 class="m-0">Prevención contra Incendios (PCI)</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-
-                    <div class="product-item mb-2">
-                        <div class="product-img">
-                            <img class="img-fluid" src="img/product-5.jpg" alt="">
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCCTV">
-                                <i class="fa fa-2x fa-plus text-white"></i>
-                            </a>
-                        </div>
-                        <div class="bg-secondary text-center p-4">
-                            <h3 class="m-0">CCTV</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-6 col-lg-4 mb-3">
-
-                    <div class="product-item mb-2">
-                        <div class="product-img">
-                            <img class="img-fluid" src="img/product-6.jpg" alt="">
-                            <a type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPostVenta">
-                                <i class="fa fa-2x fa-plus text-white"></i>
-                            </a>
-                        </div>
-                        <div class="bg-secondary text-center p-4">
-                            <h3 class="m-0">Post Venta</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="container-fluid py-5">
+  <div class="container py-5" id="service">
+    <div class="section-title position-relative text-center">
+      <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Servicios</h6>
+      <h1 class="font-secondary display-4">Servicios en Generales</h1>
     </div>
+    <div class="row">
+
+      <!-- Servicio 1 -->
+      <div class="col-md-4 mb-4">
+        <div class="card-flip" onclick="this.classList.toggle('flipped')">
+          <div class="card-flip-inner">
+            <div class="card-front">
+              <img src="img/product-1.jpg" alt="Domótica e Inmótica">
+              <div class="info">
+                <h5>Domótica e Inmótica</h5>
+              </div>
+            </div>
+            <div class="card-back">
+              <h5>Domótica e Inmótica</h5>
+              <p>Automatización y control inteligente para hogares y edificios: luces, clima, seguridad y más.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio 2 -->
+      <div class="col-md-4 mb-4">
+        <div class="card-flip" onclick="this.classList.toggle('flipped')">
+          <div class="card-flip-inner">
+            <div class="card-front">
+              <img src="img/product-2.jpg" alt="Instalaciones Eléctricas">
+              <div class="info">
+                <h5>Instalaciones Eléctricas</h5>
+              </div>
+            </div>
+            <div class="card-back">
+              <h5>Instalaciones Eléctricas</h5>
+              <p>Sistemas eléctricos seguros y normativos para viviendas, comercios e industrias.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio 3 -->
+      <div class="col-md-4 mb-4">
+        <div class="card-flip" onclick="this.classList.toggle('flipped')">
+          <div class="card-flip-inner">
+            <div class="card-front">
+              <img src="img/product-3.jpg" alt="Climatización">
+              <div class="info">
+                <h5>Climatización</h5>
+              </div>
+            </div>
+            <div class="card-back">
+              <h5>Climatización</h5>
+              <p>Instalación y mantenimiento de sistemas de aire y calefacción para el confort interior.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio 4 -->
+      <div class="col-md-4 mb-4">
+        <div class="card-flip" onclick="this.classList.toggle('flipped')">
+          <div class="card-flip-inner">
+            <div class="card-front">
+              <img src="img/product-4.jpg" alt="PCI">
+              <div class="info">
+                <h5>Prevención Contra Incendios</h5>
+              </div>
+            </div>
+            <div class="card-back">
+              <h5>Prevención Contra Incendios (PCI)</h5>
+              <p>Diseño e instalación de sistemas de detección y extinción de incendios según normas vigentes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio 5 -->
+      <div class="col-md-4 mb-4">
+        <div class="card-flip" onclick="this.classList.toggle('flipped')">
+          <div class="card-flip-inner">
+            <div class="card-front">
+              <img src="img/product-5.jpg" alt="CCTV">
+              <div class="info">
+                <h5>CCTV</h5>
+              </div>
+            </div>
+            <div class="card-back">
+              <h5>CCTV</h5>
+              <p>Monitoreo visual en tiempo real con cámaras de alta definición para mayor seguridad.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio 6 -->
+      <div class="col-md-4 mb-4">
+        <div class="card-flip" onclick="this.classList.toggle('flipped')">
+          <div class="card-flip-inner">
+            <div class="card-front">
+              <img src="img/product-6.jpg" alt="Post Venta">
+              <div class="info">
+                <h5>Post Venta</h5>
+              </div>
+            </div>
+            <div class="card-back">
+              <h5>Post Venta</h5>
+              <p>Soporte técnico y mantenimiento preventivo/correctivo para garantizar continuidad.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
     <!-- Service End -->
 
 
@@ -732,96 +804,6 @@
     </div>
     <!-- Footer End -->
 
-    <!-- Modal Domótica e Inmótica -->
-<div class="modal fade" id="modalDomotica" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg animate__animated animate__fadeInDown" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Domótica e Inmótica</h5>
-        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-      </div>
-      <div class="modal-body">
-        Implementamos soluciones inteligentes para hogares y edificios que permiten el control automatizado de iluminación, climatización, seguridad, y otros sistemas, mejorando el confort, la eficiencia energética y la seguridad.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Instalaciones Eléctricas -->
-<div class="modal fade" id="modalElectricas" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg animate__animated animate__fadeInDown" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Instalaciones Eléctricas</h5>
-        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-      </div>
-      <div class="modal-body">
-        Realizamos instalaciones eléctricas seguras y eficientes para proyectos residenciales, comerciales e industriales, cumpliendo con las normativas vigentes y asegurando un funcionamiento óptimo.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Climatización -->
-<div class="modal fade" id="modalClimatizacion" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg animate__animated animate__fadeInDown" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Climatización</h5>
-        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-      </div>
-      <div class="modal-body">
-        Ofrecemos sistemas de climatización adaptados a cada espacio, incluyendo instalación y mantenimiento de equipos de aire acondicionado y calefacción, para garantizar confort térmico durante todo el año.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal PCI -->
-<div class="modal fade" id="modalPCI" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg animate__animated animate__fadeInDown" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Prevención Contra Incendios (PCI)</h5>
-        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-      </div>
-      <div class="modal-body">
-        Diseñamos e instalamos sistemas de detección y extinción de incendios, asegurando la protección de personas y bienes conforme a las normas de seguridad vigentes.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal CCTV -->
-<div class="modal fade" id="modalCCTV" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg animate__animated animate__fadeInDown" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">CCTV</h5>
-        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-      </div>
-      <div class="modal-body">
-        Instalamos sistemas de videovigilancia de alta calidad que permiten monitorear y registrar todo lo que ocurre en tiempo real, aumentando la seguridad de su propiedad.
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Postventa -->
-<div class="modal fade" id="modalPostVenta" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-lg animate__animated animate__fadeInDown" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Postventa</h5>
-        <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-      </div>
-      <div class="modal-body">
-        Brindamos un servicio postventa completo que incluye soporte técnico, mantenimiento preventivo y correctivo, asegurando el funcionamiento continuo y eficiente de todos nuestros sistemas.
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Editar el lunes -->
  
     <!-- Scroll to Bottom -->
     <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
