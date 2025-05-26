@@ -403,145 +403,98 @@
 
     <!-- Proyect Start -->
   <style>
-    #project {
-      padding: 60px 0;
-      background: #f8f9fa;
-    }
-    .carousel-container {
-      display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      gap: 1rem;
-      padding-bottom: 1rem;
-    }
-    .carousel-container::-webkit-scrollbar {
-      height: 8px;
-    }
-    .carousel-container::-webkit-scrollbar-thumb {
-      background: rgba(0,0,0,0.3);
-      border-radius: 4px;
-    }
-    .project-item {
-      flex: 0 0 auto;
+    #project { padding: 60px 0; background: #f8f9fa; }
+
+    .slider-container {
       position: relative;
-      width: 250px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .slider-track {
+      display: inline-flex;
+      transition: transform 0.5s ease;
+    }
+    .slider-item {
+      display: inline-block;
+      width: 200px;
+      margin: 0 10px;
       cursor: pointer;
-      transition: transform 0.3s;
+      vertical-align: top;
     }
-    .project-item:hover {
-      transform: scale(1.05);
-    }
-    .project-item img {
+    .slider-item img {
       width: 100%;
-      height: 150px;
+      height: 120px;
       object-fit: cover;
       border-radius: .5rem;
+      transition: transform 0.3s;
     }
-    .info-box {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.4s ease;
+    .slider-item:hover img { transform: scale(1.05); }
+    .info-panel {
+      display: none;
+      text-align: left;
+      margin-top: 1rem;
+      padding: 1rem;
       background: #fff;
       border: 1px solid #ddd;
       border-radius: .5rem;
-      padding: 0 1rem;
-      margin-top: .5rem;
     }
-    .info-box.open {
-      max-height: 200px;
-      padding: 1rem;
-    }
-    .info-title {
-      font-weight: 600;
-      margin-bottom: .5rem;
-    }
-    .scroll-btn {
+    .info-panel.active { display: block; }
+    .nav-arrow {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 50%; transform: translateY(-50%);
       background: rgba(0,0,0,0.5);
-      border: none;
-      color: #fff;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      cursor: pointer;
+      border: none; color: #fff;
+      width: 36px; height: 36px;
+      border-radius: 50%; cursor: pointer;
       z-index: 10;
     }
-    .scroll-btn.left { left: 1rem; }
-    .scroll-btn.right { right: 1rem; }
+    .nav-arrow.left { left: 10px; }
+    .nav-arrow.right { right: 10px; }
   </style>
-  
+</head>
+<body>
+
   <section id="project" class="text-center">
     <div class="container">
-      <div class="section-title mb-4">
-        <h2 class="fw-bold">Galería de Proyectos</h2>
-      </div>
-      <div class="position-relative">
-        <button class="scroll-btn left" onclick="scrollCarousel(-1)">&#8592;</button>
-        <div class="carousel-container" id="carousel">
-          <!-- Proyecto items -->
-          <div class="project-item" data-title="Caja Mutual de Cooperativistas del Paraguay" data-desc="Descripción breve del proyecto Caja Mutual." onclick="toggleInfo(this)">
+      <h2 class="fw-bold mb-4">Galería de Proyectos</h2>
+      <div class="position-relative slider-container" id="slider">
+        <button class="nav-arrow left" onclick="slide(-1)">&#8592;</button>
+        <div class="slider-track" id="track">
+          <!-- Items -->
+          <div class="slider-item" data-title="Caja Mutual de Cooperativistas del Paraguay" data-desc="Proyecto Caja Mutual de Cooperativistas del Paraguay" onclick="showInfo(this)">
             <img src="img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg" alt="Caja Mutual">
-            <div class="info-box">
-              <div class="info-title">Caja Mutual de Cooperativistas del Paraguay</div>
-              <div class="info-desc">Proyecto Caja Mutual de Cooperativistas del Paraguay.</div>
-            </div>
           </div>
-          <div class="project-item" data-title="Corte Suprema - Caazapá" data-desc="Circunscripción Judicial de Caazapá." onclick="toggleInfo(this)">
+          <div class="slider-item" data-title="Corte Suprema - Caazapá" data-desc="Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Caazapá" onclick="showInfo(this)">
             <img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPÁ.jpg" alt="Corte Suprema Caazapá">
-            <div class="info-box">
-              <div class="info-title">Corte Suprema - Caazapá</div>
-              <div class="info-desc">Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Caazapá.</div>
-            </div>
           </div>
-          <div class="project-item" data-title="Corte Suprema - Ciudad del Este" data-desc="Circunscripción Judicial de Ciudad del Este." onclick="toggleInfo(this)">
-            <img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg" alt="Corte Suprema CDE">
-            <div class="info-box">
-              <div class="info-title">Corte Suprema - Ciudad del Este</div>
-              <div class="info-desc">Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Ciudad del Este.</div>
-            </div>
+          <div class="slider-item" data-title="Corte Suprema - Ciudad del Este" data-desc="Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Ciudad del Este" onclick="showInfo(this)">
+            <img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg" alt="Corte Suprema Ciudad del Este">
           </div>
-          <div class="project-item" data-title="Corte Suprema - Guairá" data-desc="Circunscripción Judicial de Guairá." onclick="toggleInfo(this)">
+          <div class="slider-item" data-title="Corte Suprema - Guairá" data-desc="Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Guairá" onclick="showInfo(this)">
             <img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg" alt="Corte Suprema Guairá">
-            <div class="info-box">
-              <div class="info-title">Corte Suprema - Guairá</div>
-              <div class="info-desc">Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Guairá.</div>
-            </div>
           </div>
-          <div class="project-item" data-title="Corte Suprema - Cordillera" data-desc="Circunscripción Judicial de Cordillera." onclick="toggleInfo(this)">
+          <div class="slider-item" data-title="Corte Suprema - Cordillera" data-desc="Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Cordillera" onclick="showInfo(this)">
             <img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg" alt="Corte Suprema Cordillera">
-            <div class="info-box">
-              <div class="info-title">Corte Suprema - Cordillera</div>
-              <div class="info-desc">Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Cordillera.</div>
-            </div>
           </div>
-          <div class="project-item" data-title="Gran Hospital del Sur" data-desc="Proyecto Gran Hospital del Sur." onclick="toggleInfo(this)">
+          <div class="slider-item" data-title="Gran Hospital del Sur" data-desc="Proyecto Gran Hospital del Sur" onclick="showInfo(this)">
             <img src="img/GRAN HOSPITAL DEL SUR.jpg" alt="Gran Hospital del Sur">
-            <div class="info-box">
-              <div class="info-title">Gran Hospital del Sur</div>
-              <div class="info-desc">Proyecto Gran Hospital del Sur.</div>
-            </div>
           </div>
-          <div class="project-item" data-title="Iglesia Centro Familiar de Adoración" data-desc="Proyecto Iglesia Centro Familiar de Adoración." onclick="toggleInfo(this)">
+          <div class="slider-item" data-title="Iglesia Centro Familiar de Adoración" data-desc="Proyecto Iglesia Centro Familiar de Adoración" onclick="showInfo(this)">
             <img src="img/IGLESIA CENTRO FAMILAR DE ADORACIÓN.jpg" alt="Iglesia Adoración">
-            <div class="info-box">
-              <div class="info-title">Iglesia Centro Familiar de Adoración</div>
-              <div class="info-desc">Proyecto Iglesia Centro Familiar de Adoración.</div>
-            </div>
           </div>
-          <div class="project-item" data-title="Puerto Madero" data-desc="Proyecto Puerto Madero." onclick="toggleInfo(this)">
+          <div class="slider-item" data-title="Puerto Madero" data-desc="Proyecto Puerto Madero" onclick="showInfo(this)">
             <img src="img/PUERTO MADERO.jpg" alt="Puerto Madero">
-            <div class="info-box">
-              <div class="info-title">Puerto Madero</div>
-              <div class="info-desc">Proyecto Puerto Madero.</div>
-            </div>
           </div>
         </div>
-        <button class="scroll-btn right" onclick="scrollCarousel(1)">&#8594;</button>
+        <button class="nav-arrow right" onclick="slide(1)">&#8594;</button>
+      </div>
+      <div class="info-panel" id="infoPanel">
+        <h5 id="infoTitle"></h5>
+        <p id="infoDesc"></p>
       </div>
     </div>
   </section>
+
     <!-- Proyect End -->
 
 
@@ -1046,19 +999,24 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
             });
             </script>
 
-    <script>
-    function scrollCarousel(direction) {
-      const carousel = document.getElementById('carousel');
-      const scrollAmount = 300;
-      carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  <script>
+    let currentIndex = 0;
+    const track = document.getElementById('track');
+    const items = document.querySelectorAll('.slider-item');
+    const itemWidth = items[0].offsetWidth + 20;
+
+    function slide(direction) {
+      const maxIndex = items.length - Math.floor(track.parentElement.offsetWidth / itemWidth);
+      currentIndex = Math.min(Math.max(currentIndex + direction, 0), maxIndex);
+      track.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
     }
-    function toggleInfo(item) {
-      const info = item.querySelector('.info-box');
-      document.querySelectorAll('.info-box').forEach(box => {
-        if (box !== info) box.classList.remove('open');
-      });
-      info.classList.toggle('open');
+
+    function showInfo(item) {
+      document.getElementById('infoTitle').textContent = item.dataset.title;
+      document.getElementById('infoDesc').textContent = item.dataset.desc;
+      document.getElementById('infoPanel').classList.add('active');
     }
   </script>
+
 </body>
 </html>
