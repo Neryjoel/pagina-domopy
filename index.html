@@ -402,165 +402,132 @@
 
 
     <!-- Proyect Start -->
-<section id="project" class="bg-gallery">
-  <style>
-    .bg-gallery {
-      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url('img/gallery.png') no-repeat center center;
-      background-size: cover;
-      color: #fff;
-    }
-
-    #project {
-      padding: 80px 0;
-    }
-
-    .slider-container {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .slider-track {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-      will-change: transform;
-    }
-
+<style>
+  .bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url('img/gallery.png') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+  }
+  #project { padding: 80px 0; }
+  .slider-container { position: relative; overflow: hidden; }
+  .slider-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    touch-action: pan-y;
+  }
+  .slider-item {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+  }
+  .flip-card {
+    width: 100%;
+    max-width: 320px;
+    aspect-ratio: 1 / 1.2;
+    position: relative;
+  }
+  .flip-inner {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+  }
+  .flip-card.flipped .flip-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: .75rem;
+    overflow: hidden;
+  }
+  .flip-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .flip-back {
+    background: rgba(255,255,255,0.95);
+    color: #333;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 1rem 0.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 2;
+  }
+  .flip-back h5 {
+    margin-bottom: .5rem;
+    text-align: left;
+    width: 100%;
+    font-size: 1rem;
+  }
+  .flip-back p {
+    margin-left: 5px;
+    margin-right: 5px;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+  .nav-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 5;
+    font-size: 1.4rem;
+  }
+  .nav-arrow.left { left: 10px; }
+  .nav-arrow.right { right: 10px; }
+  h2.fw-bold {
+    color: #fff !important;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+  }
+  @media (max-width: 991px) {
     .slider-item {
-      flex: 0 0 33.3333%;
-      max-width: 33.3333%;
-      padding: 0 10px;
-      box-sizing: border-box;
-      perspective: 1000px;
-      display: flex;
-      justify-content: center;
+      flex: 0 0 50%;
+      max-width: 50%;
     }
-
+  }
+  @media (max-width: 768px) {
+    .slider-item {
+      flex: 0 0 100%;
+      max-width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
     .flip-card {
       width: 100%;
-      max-width: 400px;
-      aspect-ratio: 1 / 1.2;
-      position: relative;
+      margin: 0 auto;
     }
+  }
+</style>
 
-    .flip-inner {
-      width: 100%;
-      height: 100%;
-      text-align: center;
-      transition: transform 0.6s;
-      transform-style: preserve-3d;
-      cursor: pointer;
-    }
-
-    .flip-card.flipped .flip-inner {
-      transform: rotateY(180deg);
-    }
-
-    .flip-front,
-    .flip-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      backface-visibility: hidden;
-      border-radius: 0.75rem;
-      overflow: hidden;
-    }
-
-    .flip-front img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .flip-back {
-      background: rgba(255, 255, 255, 0.95);
-      color: #333;
-      transform: rotateY(180deg);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 1rem 0.5rem;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      z-index: 2;
-    }
-
-    .flip-back h5 {
-      margin-bottom: 0.5rem;
-      text-align: left;
-      width: 100%;
-      font-size: 1rem;
-    }
-
-    .flip-back p {
-      margin-left: 5px;
-      margin-right: 5px;
-      text-align: left;
-      font-size: 0.9rem;
-    }
-
-    .nav-arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: #222;
-      border: none;
-      color: #fff;
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      cursor: pointer;
-      z-index: 5;
-      font-size: 1.8rem;
-      transition: background 0.3s;
-    }
-
-    .nav-arrow:hover {
-      background: #444;
-    }
-
-    .nav-arrow.left {
-      left: 10px;
-    }
-
-    .nav-arrow.right {
-      right: 10px;
-    }
-
-    h2.fw-bold {
-      color: #fff !important;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-    }
-
-    @media (max-width: 991px) {
-      .slider-item {
-        flex: 0 0 50%;
-        max-width: 50%;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .slider-item {
-        flex: 0 0 100%;
-        max-width: 100%;
-        padding-left: 20px;
-      }
-
-      .flip-card {
-        width: 95%;
-        margin: 0 auto;
-        max-width: none;
-      }
-    }
-  </style>
-
+<section id="project" class="bg-gallery">
   <div class="container text-center">
     <h2 class="fw-bold mb-5">Galería de Proyectos</h2>
     <div class="slider-container" id="slider">
-      <button class="nav-arrow left">&#10094;</button>
-      <div class="slider-track" id="track"></div>
-      <button class="nav-arrow right">&#10095;</button>
+      <button class="nav-arrow left" onclick="slide(-1)">&#8592;</button>
+      <div class="slider-track" id="track">
+        <!-- Tus .slider-item irán aquí. Se insertan vía DOM para ciclo -->
+      </div>
+      <button class="nav-arrow right" onclick="slide(1)">&#8594;</button>
     </div>
   </div>
 </section>
