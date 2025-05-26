@@ -401,64 +401,150 @@
     <!-- Service End -->
 
 
-    <!-- Gallery Start -->
-    <div class="container-fluid bg-gallery" id="project" style="padding: 120px 0; margin: 90px 0;">
-        <div class="section-title position-relative text-center" style="margin-bottom: 120px;">
-            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Project</h6>
-            <h1 class="font-secondary display-4 text-white">Project Photo Gallery</h1>
+    <!-- Proyect Start -->
+  <style>
+    .bg-gallery {
+      background: url('img/bg-proyectos.jpg') center/cover no-repeat;
+    }
+    .project-card img {
+      object-fit: cover;
+      height: 200px;
+    }
+    .overlay-text {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+  </style>
+
+  <!-- Sección Galería de Proyectos -->
+  <section id="project" class="container-fluid py-5 bg-gallery text-center">
+    <div class="container">
+      <div class="section-title position-relative mb-5">
+        <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Proyectos</h6>
+        <h1 class="font-secondary display-4 text-white">Galería de Proyectos</h1>
+      </div>
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+
+        <!-- Proyecto: Caja Mutual -->
+        <div class="col">
+          <div class="card project-card h-100 border-0 shadow-sm" data-title="Caja Mutual de Cooperativistas del Paraguay" data-desc="Proyecto Caja Mutual de Cooperativistas del Paraguay" onclick="openProjectModal(this)">
+            <img src="img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg" class="card-img-top" alt="Caja Mutual de Cooperativistas del Paraguay">
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <div class="overlay-text w-100 text-white bg-dark bg-opacity-50 py-2">
+                Caja Mutual de Cooperativistas del Paraguay
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="owl-carousel gallery-carousel">
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg" alt="">
-                <a class="btn btn-primary" href="img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
+
+        <!-- Proyecto: Corte Suprema CAAZAPÁ -->
+        <div class="col">
+          <div class="card project-card h-100 border-0 shadow-sm" data-title="Corte Suprema de Justicia - Caazapá" data-desc="Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Caazapá" onclick="openProjectModal(this)">
+            <img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPÁ.jpg" class="card-img-top" alt="Corte Suprema Caazapá">
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <div class="overlay-text w-100 text-white bg-dark bg-opacity-50 py-2">
+                Corte Suprema - Caazapá
+              </div>
             </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPÁ.jpg" alt="">
-                <a class="btn btn-primary" href="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPÁ.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg" alt="">
-                <a class="btn btn-primary" href="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg" alt="">
-                <a class="btn btn-primary" href="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg" alt="">
-                <a class="btn btn-primary" href="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/GRAN HOSPITAL DEL SUR.jpg" alt="">
-                <a class="btn btn-primary" href="img/GRAN HOSPITAL DEL SUR.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/IGLESIA CENTRO FAMILAR DE ADORACIÓN.jpg" alt="">
-                <a class="btn btn-primary" href="img/IGLESIA CENTRO FAMILAR DE ADORACIÓN.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
-            <div class="gallery-item">
-                <img class="img-fluid w-100" src="img/PUERTO MADERO.jpg" alt="">
-                <a class="btn btn-primary" href="img/PUERTO MADERO.jpg" data-lightbox="gallery">
-                    <i class="fa fa-2x fa-plus text-white"></i>
-                </a>
-            </div>
+          </div>
         </div>
+
+        <!-- Proyecto: Corte Suprema CDE -->
+        <div class="col">
+          <div class="card project-card h-100 border-0 shadow-sm" data-title="Corte Suprema de Justicia - Ciudad del Este" data-desc="Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Ciudad del Este" onclick="openProjectModal(this)">
+            <img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg" class="card-img-top" alt="Corte Suprema Ciudad del Este">
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <div class="overlay-text w-100 text-white bg-dark bg-opacity-50 py-2">
+                Corte Suprema - Ciudad del Este
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto: Corte Suprema Guairá -->
+        <div class="col">
+          <div class="card project-card h-100 border-0 shadow-sm" data-title="Corte Suprema de Justicia - Guairá" data-desc="Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Guairá" onclick="openProjectModal(this)">
+            <img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg" class="card-img-top" alt="Corte Suprema Guairá">
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <div class="overlay-text w-100 text-white bg-dark bg-opacity-50 py-2">
+                Corte Suprema - Guairá
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto: Corte Suprema Cordillera -->
+        <div class="col">
+          <div class="card project-card h-100 border-0 shadow-sm" data-title="Corte Suprema de Justicia - Cordillera" data-desc="Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Cordillera" onclick="openProjectModal(this)">
+            <img src="img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg" class="card-img-top" alt="Corte Suprema Cordillera">
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <div class="overlay-text w-100 text-white bg-dark bg-opacity-50 py-2">
+                Corte Suprema - Cordillera
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto: Gran Hospital del Sur -->
+        <div class="col">
+          <div class="card project-card h-100 border-0 shadow-sm" data-title="Gran Hospital del Sur" data-desc="Proyecto Gran Hospital del Sur" onclick="openProjectModal(this)">
+            <img src="img/GRAN HOSPITAL DEL SUR.jpg" class="card-img-top" alt="Gran Hospital del Sur">
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <div class="overlay-text w-100 text-white bg-dark bg-opacity-50 py-2">
+                Gran Hospital del Sur
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto: Iglesia Centro Familiar de Adoración -->
+        <div class="col">
+          <div class="card project-card h-100 border-0 shadow-sm" data-title="Iglesia Centro Familiar de Adoración" data-desc="Proyecto Iglesia Centro Familiar de Adoración" onclick="openProjectModal(this)">
+            <img src="img/IGLESIA CENTRO FAMILAR DE ADORACIÓN.jpg" class="card-img-top" alt="Iglesia Centro Familiar de Adoración">
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <div class="overlay-text w-100 text-white bg-dark bg-opacity-50 py-2">
+                Iglesia Centro Familiar de Adoración
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Proyecto: Puerto Madero -->
+        <div class="col">
+          <div class="card project-card h-100 border-0 shadow-sm" data-title="Puerto Madero" data-desc="Proyecto Puerto Madero" onclick="openProjectModal(this)">
+            <img src="img/PUERTO MADERO.jpg" class="card-img-top" alt="Puerto Madero">
+            <div class="card-img-overlay d-flex align-items-end p-0">
+              <div class="overlay-text w-100 text-white bg-dark bg-opacity-50 py-2">
+                Puerto Madero
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-    <!-- Gallery End -->
+
+    <!-- Modal para detalles -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-labelledby="projectModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark text-white">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="projectModalLabel"></h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+          </div>
+          <div class="modal-body p-0">
+            <img src="" id="projectModalImg" class="img-fluid w-100" alt="Detalle Proyecto">
+            <div class="p-3">
+              <p id="projectModalDesc"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+    <!-- Proyect End -->
 
 
     <!-- Team Start 
@@ -961,6 +1047,18 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
               });
             });
             </script>
+              <script>
+    function openProjectModal(card) {
+      const title = card.getAttribute('data-title');
+      const desc = card.getAttribute('data-desc');
+      const imgSrc = card.querySelector('img').src;
+      document.getElementById('projectModalLabel').textContent = title;
+      document.getElementById('projectModalDesc').textContent = desc;
+      document.getElementById('projectModalImg').src = imgSrc;
+      const modal = new bootstrap.Modal(document.getElementById('projectModal'));
+      modal.show();
+    }
+  </script>
             
 </body>
 </html>
