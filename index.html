@@ -480,6 +480,12 @@
     text-align: left;
     font-size: 0.9rem;
   }
+
+  .slider-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
 .nav-arrow {
   position: absolute;
   top: 50%;
@@ -1202,6 +1208,39 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
     setupSwipe();
     startAutoSlide();
   });
+</script>
+
+<script>
+    let isSliding = false;
+
+function slide(direction) {
+  if (isSliding) return; // Bloquea si ya está en movimiento
+
+  isSliding = true;
+
+  const track = document.getElementById("track");
+  const items = track.children;
+  const itemWidth = items[0].offsetWidth + 20; // + padding/margin si lo hay
+  const currentTransform = getComputedStyle(track).transform;
+
+  // extrae el valor actual de X en el transform
+  let currentX = 0;
+  if (currentTransform !== "none") {
+    const matrix = new WebKitCSSMatrix(currentTransform);
+    currentX = matrix.m41;
+  }
+
+  let newX = currentX - direction * itemWidth;
+
+  // Opcional: puedes hacer control de límites aquí para que no desaparezca
+  track.style.transform = `translateX(${newX}px)`;
+
+  // Espera a que termine la transición
+  setTimeout(() => {
+    isSliding = false;
+  }, 500); // Debe coincidir con transition en CSS: 0.5s
+}
+
 </script>
 </body>
 </html>
