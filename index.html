@@ -411,11 +411,13 @@
   }
   #project { padding: 80px 0; }
   .slider-container { position: relative; overflow: hidden; }
-  .slider-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    touch-action: pan-y;
-  }
+  
+ .slider-track {
+  display: flex;
+  transition: transform 0.8s ease;
+  touch-action: pan-y;
+}
+
   .slider-item {
     flex: 0 0 33.3333%;
     max-width: 33.3333%;
@@ -1148,7 +1150,13 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
     currentIndex = clonedCount;
   }
 
+
+  let isSliding = false; // global, fuera de la función
+
 function slide(dir = 1) {
+  if (isSliding) return; // Evita clics mientras desliza
+  isSliding = true;
+
   // Cierra tarjetas giradas si las hay
   document.querySelectorAll('.flip-card.flipped').forEach(card => {
     card.classList.remove('flipped');
@@ -1165,19 +1173,21 @@ function slide(dir = 1) {
   const needsResetAfterTransition =
     currentIndex >= slideCount + clonedCount || currentIndex < clonedCount;
 
-  if (needsResetAfterTransition) {
-    const targetIndex = currentIndex < clonedCount
-      ? slideCount + clonedCount - 1
-      : clonedCount;
+  const resetTarget = currentIndex < clonedCount
+    ? slideCount + clonedCount - 1
+    : clonedCount;
 
-    // Espera al final de la transición y luego ajusta sin animación
-    track.addEventListener('transitionend', () => {
+  track.addEventListener('transitionend', () => {
+    if (needsResetAfterTransition) {
       track.style.transition = 'none';
-      currentIndex = targetIndex;
+      currentIndex = resetTarget;
       track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
-    }, { once: true });
-  }
+    }
+    isSliding = false; // Permite nuevos clics
+  }, { once: true });
 }
+
+
 
   function startAutoSlide() {
     const intervalTime = window.innerWidth <= 768 ? 5000 : 4000;
