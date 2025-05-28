@@ -1188,11 +1188,13 @@ function slide(dir = 1) {
 }
 
 
+function startAutoSlide() {
+  clearInterval(autoSlideInterval); // 💥 Detiene cualquier anterior
 
-  function startAutoSlide() {
-    const intervalTime = window.innerWidth <= 768 ? 5000 : 4000;
-    autoSlideInterval = setInterval(() => slide(1), intervalTime);
-  }
+  const intervalTime = window.innerWidth <= 768 ? 5000 : 4000;
+  autoSlideInterval = setInterval(() => slide(1), intervalTime);
+}
+
 
   function setupFlip() {
     track.addEventListener('click', (e) => {
@@ -1206,7 +1208,6 @@ function slide(dir = 1) {
         clearInterval(autoSlideInterval);
       } else {
         card.classList.remove('flipped');
-        isPaused = false;
         startAutoSlide();
       }
     });
