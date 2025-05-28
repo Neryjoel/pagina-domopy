@@ -480,26 +480,28 @@
     text-align: left;
     font-size: 0.9rem;
   }
-  .nav-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    color: #fff;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 5;
-    font-size: 1.4rem;
-  }
+ .nav-arrow {
+  background: none;        /* Quita fondo */
+  border: none;            /* Quita borde */
+  padding: 0;              /* Quita espacio interno */
+  margin: 0 10px;          /* Ajusta separación */
+  color: white;            /* Color del ícono */
+  font-size: 1.8rem;       /* Tamaño del ícono */
+  cursor: pointer;
+  outline: none;           /* Elimina borde al hacer foco */
+}
+
+.nav-arrow:focus {
+  outline: none; /* Previene el cuadro al hacer clic o usar teclado */
+}
   .nav-arrow i {
-  font-size: 24px;
+  font-size: 25px;
   color: white;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 8px;
   border-radius: 50%;
   transition: background-color 0.3s ease;
+  pointer-events: none;
 }
 
 .nav-arrow:hover i {
