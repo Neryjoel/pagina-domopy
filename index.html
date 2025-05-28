@@ -480,12 +480,6 @@
     text-align: left;
     font-size: 0.9rem;
   }
-
-.slider-track {
-  min-width: 100%;
-}
-
-
 .nav-arrow {
   position: absolute;
   top: 50%;
@@ -1209,43 +1203,5 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
     startAutoSlide();
   });
 </script>
-
-<script>
-let isSliding = false;
-
-function slide(direction) {
-  if (isSliding) return;
-
-  const track = document.getElementById("track");
-  const items = track.querySelectorAll(".slider-item");
-  const visibleItems = window.innerWidth < 768 ? 1 : (window.innerWidth < 992 ? 2 : 3);
-  const itemWidth = items[0].offsetWidth + 20;
-  const totalWidth = itemWidth * items.length;
-  const visibleWidth = itemWidth * visibleItems;
-
-  const currentTransform = getComputedStyle(track).transform;
-  let currentX = 0;
-  if (currentTransform !== "none") {
-    const matrix = new DOMMatrix(currentTransform);
-    currentX = matrix.m41;
-  }
-
-  let newX = currentX - direction * itemWidth;
-
-  // Límite izquierdo (no desplazar más a la derecha)
-  if (newX > 0) newX = 0;
-
-  // Límite derecho (no desplazar más allá del último item)
-  const maxScroll = -(totalWidth - visibleWidth);
-  if (newX < maxScroll) newX = 0; // Reinicia al principio para efecto cíclico
-
-  track.style.transform = `translateX(${newX}px)`;
-  isSliding = true;
-  setTimeout(() => {
-    isSliding = false;
-  }, 500); // mismo que transition en CSS
-}
-</script>
-
 </body>
 </html>
