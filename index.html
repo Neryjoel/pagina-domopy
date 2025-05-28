@@ -480,20 +480,25 @@
     text-align: left;
     font-size: 0.9rem;
   }
-  .nav-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    color: #fff;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    z-index: 5;
-    font-size: 1.4rem;
-    outline: none;           /* Elimina borde al hacer foco */
-  }
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;        /* sin fondo */
+  border: none;            /* sin borde */
+  padding: 0;              /* sin espacio extra */
+  margin: 0 10px;
+  color: #fff;             /* color blanco */
+  width: auto;             /* no fuerza tamaño fijo */
+  height: auto;
+  font-size: 1.8rem;       /* tamaño del ícono */
+  cursor: pointer;
+  z-index: 5;
+  outline: none;           /* quita borde al foco */
+}
+  .nav-arrow:focus {
+  outline: none;
+}
   .nav-arrow i {
   font-size: 25px;
   color: white;
