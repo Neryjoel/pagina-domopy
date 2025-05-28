@@ -481,10 +481,10 @@
     font-size: 0.9rem;
   }
 
-  .slider-track {
-  display: flex;
-  transition: transform 0.5s ease-in-out;
+.slider-track {
+  min-width: 100%;
 }
+
 
 .nav-arrow {
   position: absolute;
@@ -1211,36 +1211,41 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
 </script>
 
 <script>
-    let isSliding = false;
+let isSliding = false;
 
 function slide(direction) {
-  if (isSliding) return; // Bloquea si ya está en movimiento
-
-  isSliding = true;
+  if (isSliding) return;
 
   const track = document.getElementById("track");
-  const items = track.children;
-  const itemWidth = items[0].offsetWidth + 20; // + padding/margin si lo hay
-  const currentTransform = getComputedStyle(track).transform;
+  const items = track.querySelectorAll(".slider-item");
+  const visibleItems = window.innerWidth < 768 ? 1 : (window.innerWidth < 992 ? 2 : 3);
+  const itemWidth = items[0].offsetWidth + 20;
+  const totalWidth = itemWidth * items.length;
+  const visibleWidth = itemWidth * visibleItems;
 
-  // extrae el valor actual de X en el transform
+  const currentTransform = getComputedStyle(track).transform;
   let currentX = 0;
   if (currentTransform !== "none") {
-    const matrix = new WebKitCSSMatrix(currentTransform);
+    const matrix = new DOMMatrix(currentTransform);
     currentX = matrix.m41;
   }
 
   let newX = currentX - direction * itemWidth;
 
-  // Opcional: puedes hacer control de límites aquí para que no desaparezca
-  track.style.transform = `translateX(${newX}px)`;
+  // Límite izquierdo (no desplazar más a la derecha)
+  if (newX > 0) newX = 0;
 
-  // Espera a que termine la transición
+  // Límite derecho (no desplazar más allá del último item)
+  const maxScroll = -(totalWidth - visibleWidth);
+  if (newX < maxScroll) newX = 0; // Reinicia al principio para efecto cíclico
+
+  track.style.transform = `translateX(${newX}px)`;
+  isSliding = true;
   setTimeout(() => {
     isSliding = false;
-  }, 500); // Debe coincidir con transition en CSS: 0.5s
+  }, 500); // mismo que transition en CSS
 }
-
 </script>
+
 </body>
 </html>
