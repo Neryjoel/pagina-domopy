@@ -13,7 +13,8 @@
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto:wght@500;700&display=swap"
+        rel="stylesheet">
 
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -25,177 +26,193 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/whatsapp.css" rel="stylesheet">
-    
-<style>
-    .carousel-indicators li {
-      width: 25px;
-      height: 25px;
-      margin: 0 5px 10px 5px;
-      background: transparent;
-      border: 1px solid #FFFFFF;
-      transition: .5s;
-    }
 
-    .carousel-indicators .active {
-      width: 50px;
-      background: #FFFFFF;
-    }
-   
+    <style>
+        .carousel-indicators li {
+            width: 25px;
+            height: 25px;
+            margin: 0 5px 10px 5px;
+            background: transparent;
+            border: 1px solid #FFFFFF;
+            transition: .5s;
+        }
 
-    .navbar {
-        display: flex !important;
-        position: sticky; /* Hacer que el navbar sea pegajoso */
-        top: 0; /* Pegajoso en la parte superior */
-        z-index: 999; /* Para que se mantenga encima del contenido */
-    }
+        .carousel-indicators .active {
+            width: 50px;
+            background: #FFFFFF;
+        }
 
-    .topbar {
-        background-color: rgb(0, 102, 161);
-        position: static; /* El topbar se desplaza con la página */
-        z-index: 998; /* Asegura que esté debajo del navbar */
-    }
 
-    @media (max-width: 991.98px) {
-    .logo-movil {
-        height: 60px !important; /* o el tamaño que desees */
-        margin-left: -10px !important; /* mueve más a la izquierda */
+        .navbar {
+            display: flex !important;
+            position: sticky;
+            /* Hacer que el navbar sea pegajoso */
+            top: 0;
+            /* Pegajoso en la parte superior */
+            z-index: 999;
+            /* Para que se mantenga encima del contenido */
+        }
 
-    }
-}
+        .topbar {
+            background-color: rgb(0, 102, 161);
+            position: static;
+            /* El topbar se desplaza con la página */
+            z-index: 998;
+            /* Asegura que esté debajo del navbar */
+        }
 
-</style>
+        @media (max-width: 991.98px) {
+            .logo-movil {
+                height: 60px !important;
+                margin-left: -10px !important;
+                /* mueve más a la izquierda */
+
+            }
+        }
+    </style>
 
 </head>
-    <body data-spy="scroll" data-target=".navbar" data-offset="90">
+
+<body data-spy="scroll" data-target=".navbar" data-offset="90">
 
     <!-- WhatsApp Button Start -->
-<a href="https://wa.me/595986170999" class="whatsapp-button" target="_blank">
-    <i class="fab fa-whatsapp"></i>
-</a>
-    
-
-<!-- Topbar -->
-<div class="container-fluid d-none d-lg-block topbar"  id="home">
-    <div class="row py-2 px-lg-5">
-        <div class="col-lg-6 text-left mb-2 mb-lg-0">
-            <div class="d-inline-flex align-items-center">
-                <small class="text-white" style="margin-left: 25px;">
-                    <i class="fa fa-phone-alt mr-2"></i>(0986) 170 999
-                </small>
-                <small class="px-3 text-white">|</small>
-                <small class="text-white">
-                    <i class="fa fa-envelope mr-2"></i>comercial@domopy.com
-                </small>
-            </div>
-        </div>  
-
-        <div class="col-lg-6 text-right" style="margin-left: -18px;">
-            <div class="d-inline-flex align-items-center" >
-                <a class="text-white px-2" href="">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a class="text-white px-2" href="">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a class="text-white px-2" href="">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-                <a class="text-white px-2" href="">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a class="text-white pl-2" href="">
-                    <i class="fab fa-youtube"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Navbar Start -->
-<nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 py-lg-0 px-lg-5 align-items-center">
-<a href="index.html" class="navbar-brand d-block d-lg-none">
-    <img src="img/Logodomo.jpg" alt="Logo" class="logo-movil" style="height: 60px;"><!-- Logo para móviles -->
-</a>
-
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-        <!-- Logo a la izquierda -->
-    <a href="index.html" class="navbar-brand d-none d-lg-block" style="margin-left: -40px;">
-        <img src="img/Logodomo.jpg" alt="Logo" style="height: 65px;"><!-- Imagen para escritorio -->
+    <a href="https://wa.me/595986170999" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
 
-        <!-- Menú a la derecha -->
-        <div class="navbar-nav ml-auto py-0">
-            <a href="#home" class="nav-item nav-link active">Inicio</a>
-            <a href="#about" class="nav-item nav-link">about</a>
-            <a href="#service" class="nav-item nav-link">Servicios</a>
-            <a href="#project" class="nav-item nav-link">Proyectos</a>
-            
-            <!-- 
-            <a href="#team" class="nav-item nav-link">Equipo</a>
-            -->
-            
-            <a href="#faqs" class="nav-item nav-link">FAQs</a>
-            <a href="#marcas" class="nav-item nav-link">Marcas</a>
-            <a href="#contact" class="nav-item nav-link">Contacto</a>
+    <!-- Topbar -->
+    <div class="container-fluid d-none d-lg-block topbar" id="home">
+        <div class="row py-2 px-lg-5">
+            <div class="col-lg-6 text-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <small class="text-white" style="margin-left: 25px;">
+                        <i class="fa fa-phone-alt mr-2"></i>(0986) 170 999
+                    </small>
+                    <small class="px-3 text-white">|</small>
+                    <small class="text-white">
+                        <i class="fa fa-envelope mr-2"></i>comercial@domopy.com
+                    </small>
+                </div>
+            </div>
+
+            <div class="col-lg-6 text-right" style="margin-left: -18px;">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-white px-2" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-white pl-2" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
-</nav>
-<!-- Navbar End -->
 
-     <!-- Carousel Start -->
-        <div class="container-fluid p-0 mb-5 pb-5">
-            <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000" data-pause="false">
-                <ol class="carousel-indicators">
-                    <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
-                    <li data-target="#header-carousel" data-slide-to="1"></li>
-                    <li data-target="#header-carousel" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item position-relative active" style="min-height: 100vh;">
-                        <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 900px;">
-                                <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown" style="letter-spacing: 3px;">Domo & Beauty Center</h6>
-                                <h3 class="display-3 text-capitalize text-white mb-3">Prueba Treatment</h3>
-                                <p class="mx-md-5 px-5">Lorem rebum magna dolore amet lorem eirmod magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum labore diam</p>
-                                <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="#contact" >SABER MÁS</a>
-                            </div>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 py-lg-0 px-lg-5 align-items-center">
+        <a href="index.html" class="navbar-brand d-block d-lg-none">
+            <img src="img/Logodomo.jpg" alt="Logo" class="logo-movil" style="height: 60px;"><!-- Logo para móviles -->
+        </a>
+
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <!-- Logo a la izquierda -->
+            <a href="index.html" class="navbar-brand d-none d-lg-block" style="margin-left: -40px;">
+                <img src="img/Logodomo.jpg" alt="Logo" style="height: 65px;"><!-- Imagen para escritorio -->
+            </a>
+
+
+            <!-- Menú a la derecha -->
+            <div class="navbar-nav ml-auto py-0">
+                <a href="#home" class="nav-item nav-link active">Inicio</a>
+                <a href="#about" class="nav-item nav-link">about</a>
+                <a href="#service" class="nav-item nav-link">Servicios</a>
+                <a href="#project" class="nav-item nav-link">Proyectos</a>
+
+                <!-- 
+            <a href="#team" class="nav-item nav-link">Equipo</a>
+            -->
+
+                <a href="#faqs" class="nav-item nav-link">FAQs</a>
+                <a href="#marcas" class="nav-item nav-link">Marcas</a>
+                <a href="#contact" class="nav-item nav-link">Contacto</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Carousel Start -->
+    <div class="container-fluid p-0 mb-5 pb-5">
+        <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="3000"
+            data-pause="false">
+            <ol class="carousel-indicators">
+                <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#header-carousel" data-slide-to="1"></li>
+                <li data-target="#header-carousel" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner">
+                <div class="carousel-item position-relative active" style="min-height: 100vh;">
+                    <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown"
+                                style="letter-spacing: 3px;">Domo & Beauty Center</h6>
+                            <h3 class="display-3 text-capitalize text-white mb-3">Prueba Treatment</h3>
+                            <p class="mx-md-5 px-5">Lorem rebum magna dolore amet lorem eirmod magna erat diam stet.
+                                Sadips duo stet amet amet ndiam elitr ipsum labore diam</p>
+                            <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp"
+                                href="#contact">SABER MÁS</a>
                         </div>
                     </div>
-                    <div class="carousel-item position-relative" style="min-height: 100vh;">
-                        <img class="position-absolute w-100 h-100" src="img/carousel-2.jpg" style="object-fit: cover;">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 900px;">
-                                <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown" style="letter-spacing: 3px;">Domo & Beauty Center</h6>
-                                <h3 class="display-3 text-capitalize text-white mb-3">Camera Treatment</h3>
-                                <p class="mx-md-5 px-5">Lorem rebum magna dolore amet lorem eirmod magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum labore diam</p>
-                                <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="#contact">SABER MÁS</a>
-                            </div>
+                </div>
+                <div class="carousel-item position-relative" style="min-height: 100vh;">
+                    <img class="position-absolute w-100 h-100" src="img/carousel-2.jpg" style="object-fit: cover;">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown"
+                                style="letter-spacing: 3px;">Domo & Beauty Center</h6>
+                            <h3 class="display-3 text-capitalize text-white mb-3">Camera Treatment</h3>
+                            <p class="mx-md-5 px-5">Lorem rebum magna dolore amet lorem eirmod magna erat diam stet.
+                                Sadips duo stet amet amet ndiam elitr ipsum labore diam</p>
+                            <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp"
+                                href="#contact">SABER MÁS</a>
                         </div>
                     </div>
-                    <div class="carousel-item position-relative" style="min-height: 100vh;">
-                        <img class="position-absolute w-100 h-100" src="img/carousel-3.jpg" style="object-fit: cover;">
-                        <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
-                            <div class="p-3" style="max-width: 900px;">
-                                <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown" style="letter-spacing: 3px;">Domo & Beauty Center</h6>
-                                <h3 class="display-3 text-capitalize text-white mb-3">Asssulite Treatment</h3>
-                                <p class="mx-md-5 px-5">Lorem rebum magna dolore amet lorem eirmod magna erat diam stet. Sadips duo stet amet amet ndiam elitr ipsum labore diam</p>
-                                <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp" href="#contact">SABER MÁS</a>
-                            </div>
+                </div>
+                <div class="carousel-item position-relative" style="min-height: 100vh;">
+                    <img class="position-absolute w-100 h-100" src="img/carousel-3.jpg" style="object-fit: cover;">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                        <div class="p-3" style="max-width: 900px;">
+                            <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown"
+                                style="letter-spacing: 3px;">Domo & Beauty Center</h6>
+                            <h3 class="display-3 text-capitalize text-white mb-3">Asssulite Treatment</h3>
+                            <p class="mx-md-5 px-5">Lorem rebum magna dolore amet lorem eirmod magna erat diam stet.
+                                Sadips duo stet amet amet ndiam elitr ipsum labore diam</p>
+                            <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp"
+                                href="#contact">SABER MÁS</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     <!-- Carousel End -->
 
 
     <!-- About Start -->
-    <div class="container-fluid py-5" >
+    <div class="container-fluid py-5">
         <div class="container py-5" id="about">
             <div class="row align-items-center">
                 <div class="col-lg-5">
@@ -205,10 +222,13 @@
                     <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Conoce más</h6>
                     <h1 class="display-4 mb-3"><span class="text-primary">Sobre nosotros</span> en automatización</h1>
                     <p>
-                        Estamos en la vanguardia tecnológica en automatización y control de todo tipo de instalaciones inmobiliarias. Contamos con el aval de empresas fabricantes de equipos mundialmente reconocidas, en instalaciones domóticas, personal calificado y productos vanguardistas.
-                        </p>
-                        <p>
-                        Realizamos sistemas de circuito cerrado, alarmas, control de luces, climatización, control de filtro de piscina y mantenimientos.
+                        Estamos en la vanguardia tecnológica en automatización y control de todo tipo de instalaciones
+                        inmobiliarias. Contamos con el aval de empresas fabricantes de equipos mundialmente reconocidas,
+                        en instalaciones domóticas, personal calificado y productos vanguardistas.
+                    </p>
+                    <p>
+                        Realizamos sistemas de circuito cerrado, alarmas, control de luces, climatización, control de
+                        filtro de piscina y mantenimientos.
                     </p>
                     <a class="btn btn-primary font-weight-bold py-3 px-5 mt-4 btn-scroll" href="#contact">Saber más</a>
                 </div>
@@ -219,445 +239,398 @@
 
     <!-- Service Start -->
     <style>
-    .card-flip {
-    perspective: 1000px;
-    width: 100%;
-    height: 100%;
-    cursor: pointer;
-    }
-    .card-flip-inner {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    transform-style: preserve-3d;
-    transition: transform 0.8s;
-    }
-    .card-flip.flipped .card-flip-inner {
-    transform: rotateY(180deg);
-    }
-    .card-front,
-    .card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-    .card-front {
-    background: #fff;
-    z-index: 2;
-    }
-    .card-front img {
-    width: 100%;
-    height: 85%;
-    object-fit: cover;
-    }
-    .card-front .info {
-    background: #f3f6ff;
-    padding: 10px;
-    text-align: center;
-    font-weight: 600;
-    color: #22395d;
-    flex-grow: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    }
-    .card-back {
-    background: #ffffff;
-    transform: rotateY(180deg);
-    padding: 15px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    }
+        .card-flip {
+            perspective: 1000px;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .card-flip-inner {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+        }
+
+        .card-flip.flipped .card-flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front,
+        .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-front {
+            background: #fff;
+            z-index: 2;
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 85%;
+            object-fit: cover;
+        }
+
+        .card-front .info {
+            background: #f3f6ff;
+            padding: 10px;
+            text-align: center;
+            font-weight: 600;
+            color: #22395d;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-back {
+            background: #ffffff;
+            transform: rotateY(180deg);
+            padding: 15px;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
     </style>
 
     <div class="container-fluid py-5">
-    <div class="container py-5" id="service">
-        <div class="section-title position-relative text-center">
-        <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Servicios</h6>
-        <h1 class="font-secondary display-4">Servicios en Generales</h1>
-        </div>
-        <div class="row">
+        <div class="container py-5" id="service">
+            <div class="section-title position-relative text-center">
+                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Servicios</h6>
+                <h1 class="font-secondary display-4">Servicios en Generales</h1>
+            </div>
+            <div class="row">
 
-        <!-- Servicio 1 -->
-        <div class="col-12 col-sm-6 col-lg-4 mb-4">
-            <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
-            <div class="card-flip-inner">
-                <div class="card-front">
-                <img src="img/product-1.jpg" alt="Domótica e Inmótica">
-                <div class="info">Domótica e Inmótica</div>
+                <!-- Servicio 1 -->
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
+                        <div class="card-flip-inner">
+                            <div class="card-front">
+                                <img src="img/product-1.jpg" alt="Domótica e Inmótica">
+                                <div class="info">Domótica e Inmótica</div>
+                            </div>
+                            <div class="card-back">
+                                <div>
+                                    <h5>Domótica e Inmótica</h5>
+                                    <p>Automatización y control inteligente para hogares y edificios: luces, clima,
+                                        seguridad y más.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-back">
-                <div>
-                    <h5>Domótica e Inmótica</h5>
-                    <p>Automatización y control inteligente para hogares y edificios: luces, clima, seguridad y más.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
 
-        <!-- Servicio 2 -->
-        <div class="col-12 col-sm-6 col-lg-4 mb-4">
-            <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
-            <div class="card-flip-inner">
-                <div class="card-front">
-                <img src="img/product-2.jpg" alt="Instalaciones Eléctricas">
-                <div class="info">Instalaciones Eléctricas</div>
+                <!-- Servicio 2 -->
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
+                        <div class="card-flip-inner">
+                            <div class="card-front">
+                                <img src="img/product-2.jpg" alt="Instalaciones Eléctricas">
+                                <div class="info">Instalaciones Eléctricas</div>
+                            </div>
+                            <div class="card-back">
+                                <div>
+                                    <h5>Instalaciones Eléctricas</h5>
+                                    <p>Sistemas eléctricos seguros y normativos para viviendas, comercios e industrias.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-back">
-                <div>
-                    <h5>Instalaciones Eléctricas</h5>
-                    <p>Sistemas eléctricos seguros y normativos para viviendas, comercios e industrias.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
 
-        <!-- Servicio 3 -->
-        <div class="col-12 col-sm-6 col-lg-4 mb-4">
-            <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
-            <div class="card-flip-inner">
-                <div class="card-front">
-                <img src="img/product-3.jpg" alt="Climatización">
-                <div class="info">Climatización</div>
+                <!-- Servicio 3 -->
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
+                        <div class="card-flip-inner">
+                            <div class="card-front">
+                                <img src="img/product-3.jpg" alt="Climatización">
+                                <div class="info">Climatización</div>
+                            </div>
+                            <div class="card-back">
+                                <div>
+                                    <h5>Climatización</h5>
+                                    <p>Instalación y mantenimiento de sistemas de aire y calefacción para el confort
+                                        interior.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-back">
-                <div>
-                    <h5>Climatización</h5>
-                    <p>Instalación y mantenimiento de sistemas de aire y calefacción para el confort interior.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
 
-        <!-- Servicio 4 -->
-        <div class="col-12 col-sm-6 col-lg-4 mb-4">
-            <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
-            <div class="card-flip-inner">
-                <div class="card-front">
-                <img src="img/product-4.jpg" alt="Prevención Contra Incendios">
-                <div class="info">Prevención Contra Incendios</div>
+                <!-- Servicio 4 -->
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
+                        <div class="card-flip-inner">
+                            <div class="card-front">
+                                <img src="img/product-4.jpg" alt="Prevención Contra Incendios">
+                                <div class="info">Prevención Contra Incendios</div>
+                            </div>
+                            <div class="card-back">
+                                <div>
+                                    <h5>Prevención Contra Incendios (PCI)</h5>
+                                    <p>Diseño e instalación de sistemas de detección y extinción de incendios según
+                                        normas vigentes.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-back">
-                <div>
-                    <h5>Prevención Contra Incendios (PCI)</h5>
-                    <p>Diseño e instalación de sistemas de detección y extinción de incendios según normas vigentes.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
 
-        <!-- Servicio 5 -->
-        <div class="col-12 col-sm-6 col-lg-4 mb-4">
-            <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
-            <div class="card-flip-inner">
-                <div class="card-front">
-                <img src="img/product-5.jpg" alt="CCTV">
-                <div class="info">CCTV</div>
+                <!-- Servicio 5 -->
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
+                        <div class="card-flip-inner">
+                            <div class="card-front">
+                                <img src="img/product-5.jpg" alt="CCTV">
+                                <div class="info">CCTV</div>
+                            </div>
+                            <div class="card-back">
+                                <div>
+                                    <h5>CCTV</h5>
+                                    <p>Monitoreo visual en tiempo real con cámaras de alta definición para mayor
+                                        seguridad.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="card-back">
-                <div>
-                    <h5>CCTV</h5>
-                    <p>Monitoreo visual en tiempo real con cámaras de alta definición para mayor seguridad.</p>
-                </div>
-                </div>
-            </div>
-            </div>
-        </div>
 
-        <!-- Servicio 6 -->
-        <div class="col-12 col-sm-6 col-lg-4 mb-4">
-            <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
-            <div class="card-flip-inner">
-                <div class="card-front">
-                <img src="img/product-6.jpg" alt="Post Venta">
-                <div class="info">Post Venta</div>
-                </div>
-                <div class="card-back">
-                <div>
-                    <h5>Post Venta</h5>
-                    <p>Soporte técnico y mantenimiento preventivo/correctivo para garantizar continuidad.</p>
-                </div>
+                <!-- Servicio 6 -->
+                <div class="col-12 col-sm-6 col-lg-4 mb-4">
+                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
+                        <div class="card-flip-inner">
+                            <div class="card-front">
+                                <img src="img/product-6.jpg" alt="Post Venta">
+                                <div class="info">Post Venta</div>
+                            </div>
+                            <div class="card-back">
+                                <div>
+                                    <h5>Post Venta</h5>
+                                    <p>Soporte técnico y mantenimiento preventivo/correctivo para garantizar
+                                        continuidad.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            </div>
         </div>
-        </div>
-    </div>
     </div>
     <!-- Service End -->
 
 
     <!-- Proyect Start -->
-<style>
-  .bg-gallery {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    <style>
+        .bg-gallery {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                 url('img/gallery.png') no-repeat center center;
-    background-size: cover;
-    color: #fff;
-  }
-  #project { padding: 80px 0; }
-  .slider-container { position: relative; overflow: hidden; }
-  
- .slider-track {
-  display: flex;
-  transition: transform 0.8s ease;
-  touch-action: pan-y;
-}
+            background-size: cover;
+            color: #fff;
+        }
 
-  .slider-item {
-    flex: 0 0 33.3333%;
-    max-width: 33.3333%;
-    padding: 0 10px;
-    box-sizing: border-box;
-    perspective: 1000px;
-    display: flex;
-    justify-content: center;
-  }
-  .flip-card {
-    width: 100%;
-    max-width: 320px;
-    aspect-ratio: 1 / 1.2;
-    position: relative;
-  }
-  .flip-inner {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    cursor: pointer;
-  }
-  .flip-card.flipped .flip-inner {
-    transform: rotateY(180deg);
-  }
-  .flip-front, .flip-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: .75rem;
-    overflow: hidden;
-  }
-  .flip-front img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-  .flip-back {
-    background: rgba(255,255,255,0.95);
-    color: #333;
-    transform: rotateY(180deg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 1rem 0.5rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    z-index: 2;
-  }
-  .flip-back h5 {
-    margin-bottom: .5rem;
-    text-align: left;
-    width: 100%;
-    font-size: 1rem;
-  }
-  .flip-back p {
-    margin-left: 5px;
-    margin-right: 5px;
-    text-align: left;
-    font-size: 0.9rem;
-  }
-.nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;        /* sin fondo */
-  border: none;            /* sin borde */
-  padding: 0;              /* sin espacio extra */
-  margin: 0 10px;
-  color: #fff;             /* color blanco */
-  width: auto;             /* no fuerza tamaño fijo */
-  height: auto;
-  font-size: 1.8rem;       /* tamaño del ícono */
-  cursor: pointer;
-  z-index: 5;
-  outline: none;           /* quita borde al foco */
-}
-  .nav-arrow:focus {
-  outline: none;
-}
-  .nav-arrow i {
-  font-size: 25px;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.6);
-  padding: 8px;
-  border-radius: 50%;
-  transition: background-color 0.3s ease;
-  pointer-events: none;
-}
+        #project {
+            padding: 80px 0;
+        }
 
-.nav-arrow:hover i {
-  background-color: rgba(0, 0, 0, 0.9);
-}
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+        }
 
-  .nav-arrow.left { left: 10px; }
-  .nav-arrow.right { right: 10px; }
-  h2.fw-bold {
-    color: #fff !important;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
-  }
-  @media (max-width: 991px) {
-    .slider-item {
-      flex: 0 0 50%;
-      max-width: 50%;
-    }
-  }
-  @media (max-width: 768px) {
-    .slider-item {
-      flex: 0 0 100%;
-      max-width: 100%;
-      padding-left: 0;
-      padding-right: 0;
-    }
-    .flip-card {
-      width: 100%;
-      margin: 0 auto;
-    }
-  }
-</style>
+        .slider-track {
+            display: flex;
+            transition: transform 0.8s ease;
+            touch-action: pan-y;
+        }
 
-<section  class="bg-gallery">
-    <div class="container text-center" id="project">
-        <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Portafolio de nuestros</h6>
+        .slider-item {
+            flex: 0 0 33.3333%;
+            max-width: 33.3333%;
+            padding: 0 10px;
+            box-sizing: border-box;
+            perspective: 1000px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .flip-card {
+            width: 100%;
+            max-width: 320px;
+            aspect-ratio: 1 / 1.2;
+            position: relative;
+        }
+
+        .flip-inner {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .flip-card.flipped .flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-front,
+        .flip-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: .75rem;
+            overflow: hidden;
+        }
+
+        .flip-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .flip-back {
+            background: rgba(255, 255, 255, 0.95);
+            color: #333;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 1rem 0.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .flip-back h5 {
+            margin-bottom: .5rem;
+            text-align: left;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        .flip-back p {
+            margin-left: 5px;
+            margin-right: 5px;
+            text-align: left;
+            font-size: 0.9rem;
+        }
+
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            /* sin fondo */
+            border: none;
+            /* sin borde */
+            padding: 0;
+            /* sin espacio extra */
+            margin: 0 10px;
+            color: #fff;
+            /* color blanco */
+            width: auto;
+            /* no fuerza tamaño fijo */
+            height: auto;
+            font-size: 1.8rem;
+            /* tamaño del ícono */
+            cursor: pointer;
+            z-index: 5;
+            outline: none;
+            /* quita borde al foco */
+        }
+
+        .nav-arrow:focus {
+            outline: none;
+        }
+
+        .nav-arrow i {
+            font-size: 25px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 8px;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+            pointer-events: none;
+        }
+
+        .nav-arrow:hover i {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        .nav-arrow.left {
+            left: 10px;
+        }
+
+        .nav-arrow.right {
+            right: 10px;
+        }
+
+        h2.fw-bold {
+            color: #fff !important;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+        }
+
+        @media (max-width: 991px) {
+            .slider-item {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .slider-item {
+                flex: 0 0 100%;
+                max-width: 100%;
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+            .flip-card {
+                width: 100%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+
+    <section class="bg-gallery">
+        <div class="container text-center" id="project">
+            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Portafolio de nuestros</h6>
             <h1 class="font-secondary display-4 text-white">Proyectos</h1>
             <h3 class="font-secondary text-white mb-5" style="font-size: 30px;">
-            Trabajos realizados que reflejan nuestra experiencia
+                Trabajos realizados que reflejan nuestra experiencia
             </h3>
 
-        <div class="slider-container" id="slider">
-            <button class="nav-arrow left" onclick="slide(-1)">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <div class="slider-track" id="track">
-                <!-- Tus .slider-item irán aquí. Se insertan vía DOM para ciclo -->
+            <div class="slider-container" id="slider">
+                <button class="nav-arrow left" onclick="slide(-1)">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="slider-track" id="track">
+                    <!--Acá se insertan vía DOM para ciclo -->
+                </div>
+                <button class="nav-arrow right" onclick="slide(1)">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
             </div>
-            <button class="nav-arrow right" onclick="slide(1)">
-                <i class="fas fa-chevron-right"></i>
-            </button>
         </div>
-    </div>
-</section>
+    </section>
     <!-- Proyect End -->
-
-    <!-- Team Start 
-    <div class="container-fluid py-5" id="team">
-        <div class="container py-5">
-            <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Team</h6>
-                <h1 class="font-secondary display-4">Meet The Team</h1>
-            </div>
-            <div class="row justify-content-lg-start m-0 mb-4 pb-2 mb-sm-0 pb-sm-0">
-                <div class="col-lg-6 p-0">
-                    <div class="row m-0">
-                        <div class="col-sm-6 p-0 text-center">
-                            <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4">
-                                <h5 class="mb-2">Donald John</h5>
-                                <p class="text-muted font-italic mb-2">CEO & Founder</p>
-                                <p>Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem</p>
-                                <div class="position-relative mb-2">
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 p-0" style="min-height: 300px;">
-                            <img class="position-absolute w-100 h-100" src="img/team-1.jpg" style="object-fit: cover;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-lg-end m-0 mb-4 pb-2 mb-sm-0 pb-sm-0">
-                <div class="col-lg-6 p-0">
-                    <div class="row m-0">
-                        <div class="col-sm-6 p-0" style="min-height: 300px;">
-                            <img class="position-absolute w-100 h-100" src="img/team-2.jpg" style="object-fit: cover;">
-                        </div>
-                        <div class="col-sm-6 p-0 text-center">
-                            <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4">
-                                <h5 class="mb-2">Adam Phillips</h5>
-                                <p class="text-muted font-italic mb-2">Engineer</p>
-                                <p>Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem</p>
-                                <div class="position-relative mb-2">
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-lg-start m-0 mb-4 pb-2 mb-sm-0 pb-sm-0">
-                <div class="col-lg-6 p-0">
-                    <div class="row m-0">
-                        <div class="col-sm-6 p-0 text-center">
-                            <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4">
-                                <h5 class="mb-2">Thomas Olsen</h5>
-                                <p class="text-muted font-italic mb-2">Engineer</p>
-                                <p>Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem</p>
-                                <div class="position-relative mb-2">
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 p-0" style="min-height: 300px;">
-                            <img class="position-absolute w-100 h-100" src="img/team-3.jpg" style="object-fit: cover;">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-lg-end m-0">
-                <div class="col-lg-6 p-0">
-                    <div class="row m-0">
-                        <div class="col-sm-6 p-0" style="min-height: 300px;">
-                            <img class="position-absolute w-100 h-100" src="img/team-4.jpg" style="object-fit: cover;">
-                        </div>
-                        <div class="col-sm-6 p-0 text-center">
-                            <div class="h-100 d-flex flex-column justify-content-center bg-secondary p-4">
-                                <h5 class="mb-2">James Alien</h5>
-                                <p class="text-muted font-italic mb-2">Engineer</p>
-                                <p>Lorem elitr magna stet rebum dolores sed. Est stet labore est lorem lorem</p>
-                                <div class="position-relative mb-2">
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-twitter"></i></a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-facebook-f"></i></a>
-                                    <a class="btn btn-outline-primary btn-square mr-1" href="#"><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-     Team End -->
 
     <!-- FAQs Start -->
     <div class="container-fluid py-5">
@@ -670,19 +643,30 @@
                 <div class="col-md-6 border-right border-primary">
                     <div class="text-center text-md-right mr-md-3 mb-4 mb-md-0">
                         <h3 class="mb-4">¿Por qué optar por domótica?</h3>
-                        <h5 class="mb-3"><i class="fa fa-check text-success float-md-right mr-2 mr-md-0 ml-md-2"></i>Control total de sistemas en hogares, oficinas o edificios desde un solo lugar</h5>
-                        <h5 class="mb-3"><i class="fa fa-check text-success float-md-right mr-2 mr-md-0 ml-md-2"></i>Recibe alertas en tiempo real desde tu smartphone o panel central</h5>
-                        <h5 class="mb-3"><i class="fa fa-check text-success float-md-right mr-2 mr-md-0 ml-md-2"></i> Programa escenarios automáticos para mejorar eficiencia y confort</h5>
-                        <h5 class="mb-0"><i class="fa fa-check text-success float-md-right mr-2 mr-md-0 ml-md-2"></i>Aumenta el valor y funcionalidad de tus espacios con tecnología inteligente</h5>
+                        <h5 class="mb-3"><i
+                                class="fa fa-check text-success float-md-right mr-2 mr-md-0 ml-md-2"></i>Control total
+                            de sistemas en hogares, oficinas o edificios desde un solo lugar</h5>
+                        <h5 class="mb-3"><i
+                                class="fa fa-check text-success float-md-right mr-2 mr-md-0 ml-md-2"></i>Recibe alertas
+                            en tiempo real desde tu smartphone o panel central</h5>
+                        <h5 class="mb-3"><i class="fa fa-check text-success float-md-right mr-2 mr-md-0 ml-md-2"></i>
+                            Programa escenarios automáticos para mejorar eficiencia y confort</h5>
+                        <h5 class="mb-0"><i
+                                class="fa fa-check text-success float-md-right mr-2 mr-md-0 ml-md-2"></i>Aumenta el
+                            valor y funcionalidad de tus espacios con tecnología inteligente</h5>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="text-center text-md-left ml-md-3">
                         <h3 class="mb-4">¿Por qué confiar en nosotros?</h3>
-                        <h5 class="mb-3"><i class="fa fa-check text-success mr-2"></i>Soluciones a medida para viviendas, comercios y corporativos</h5>
-                        <h5 class="mb-3"><i class="fa fa-check text-success mr-2"></i>Expertos certificados en automatización y control inteligente</h5>
-                        <h5 class="mb-3"><i class="fa fa-check text-success mr-2"></i>Atención personalizada en cada etapa del proyecto</h5>
-                        <h5 class="mb-0"><i class="fa fa-check text-success mr-2"></i>Garantía de calidad, soporte continuo y tecnología de primer nivel</h5>
+                        <h5 class="mb-3"><i class="fa fa-check text-success mr-2"></i>Soluciones a medida para
+                            viviendas, comercios y corporativos</h5>
+                        <h5 class="mb-3"><i class="fa fa-check text-success mr-2"></i>Expertos certificados en
+                            automatización y control inteligente</h5>
+                        <h5 class="mb-3"><i class="fa fa-check text-success mr-2"></i>Atención personalizada en cada
+                            etapa del proyecto</h5>
+                        <h5 class="mb-0"><i class="fa fa-check text-success mr-2"></i>Garantía de calidad, soporte
+                            continuo y tecnología de primer nivel</h5>
                     </div>
                 </div>
                 <div class="col-md-12 text-center pt-3">
@@ -692,53 +676,53 @@
         </div>
     </div>
     <!-- FAQs End -->
-    
-   <style>
-.gallery-item {
-    height: 320px; /* Un poco más grande que la imagen */
-    overflow: hidden;
-    position: relative;
-}
-.gallery-item img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
+
+    <style>
+        .gallery-item {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
 
 
-@media (max-width: 767.98px) {
-  #contact .position-absolute {
-    position: static !important;
-    transform: none !important;
-    width: 100% !important;
-    margin-top: 20px;
-  }
-}
+        @media (max-width: 767.98px) {
+            #contact .position-absolute {
+                position: static !important;
+                transform: none !important;
+                width: 100% !important;
+                margin-top: 20px;
+            }
+        }
 
-@media (max-width: 991.98px) {
-  #contact .col-lg-6 {
-    margin-left: 0 !important;
-  }
-}
+        @media (max-width: 991.98px) {
+            #contact .col-lg-6 {
+                margin-left: 0 !important;
+            }
+        }
 
+        .galleria-item {
+            height: 150px;
+            /* Asegura que tenga altura visible */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            /* Evita que la imagen se salga */
+        }
 
-
-.galleria-item {
-  height: 150px; /* Asegura que tenga altura visible */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; /* Evita que la imagen se salga */
-}
-
-.galleria-item img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain; /* o 'cover' si prefieres recorte */
-  transition: 0.5s;
-}
-
-</style>
+        .galleria-item img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transition: 0.5s;
+        }
+    </style>
 
     <!-- Marcas Start -->
     <div class="container-fluid bg-gallery" id="marcas" style="padding: 120px 0; margin: 90px 0;">
@@ -746,7 +730,7 @@
             <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Algunas de nuestras</h6>
             <h1 class="font-secondary display-4 text-white">Marcas</h1>
             <h3 class="font-secondary text-white" style="font-size: 30px;">
-              Trabajamos con marcas que lideran el mercado
+                Trabajamos con marcas que lideran el mercado
             </h3>
         </div>
         <div class="owl-carousel testimonia-carousel">
@@ -793,91 +777,97 @@
                 </a>
             </div>
         </div>
-            
+
     </div>
     <!-- Marcas End -->
-    
-<!-- Contact Start -->
-<div class="container-fluid py-5" id="contact" style="background-color: #f8f9fa;">
-    <div class="section-title text-center mb-5">
-        <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Enterate más sobre</h6>
-        <h1 class="font-secondary display-4">Contacto</h1>
-    </div>
 
-    <div class="container">
-        <div class="row no-gutters">
-            <!-- Formulario: izquierda -->
-            <div class="col-lg-6 d-flex align-items-center bg-white shadow p-4 p-lg-5">
-                <div class="w-100">
-                    <h1 class="mb-4">Contáctanos para cualquier consulta</h1>
-                    <form id="contactForm">
-                        <div class="form-row">
-                            <div class="form-group col-sm-6">
-                                <input type="text" class="form-control border-0 p-3" name="name" placeholder="Tú nombre" required />
+    <!-- Contact Start -->
+    <div class="container-fluid py-5" id="contact" style="background-color: #f8f9fa;">
+        <div class="section-title text-center mb-5">
+            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Enterate más sobre</h6>
+            <h1 class="font-secondary display-4">Contacto</h1>
+        </div>
+
+        <div class="container">
+            <div class="row no-gutters">
+                <!-- Formulario: izquierda -->
+                <div class="col-lg-6 d-flex align-items-center bg-white shadow p-4 p-lg-5">
+                    <div class="w-100">
+                        <h1 class="mb-4">Contáctanos para cualquier consulta</h1>
+                        <form id="contactForm">
+                            <div class="form-row">
+                                <div class="form-group col-sm-6">
+                                    <input type="text" class="form-control border-0 p-3" name="name"
+                                        placeholder="Tú nombre" required />
+                                </div>
+                                <div class="form-group col-sm-6">
+                                    <input type="email" class="form-control border-0 p-3" name="email"
+                                        placeholder="Tú correo" required />
+                                </div>
                             </div>
-                            <div class="form-group col-sm-6">
-                                <input type="email" class="form-control border-0 p-3" name="email" placeholder="Tú correo" required />
+                            <div class="form-group">
+                                <input type="text" class="form-control border-0 p-3" name="subject"
+                                    placeholder="Subject" required />
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control border-0 p-3" name="subject" placeholder="Subject" required />
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control border-0 p-3" rows="4" name="message" placeholder="Mensage" required></textarea>
-                        </div>
-                        <button class="btn btn-primary px-4 py-2" type="submit">Envíar mensaje</button>
-                        <div id="formMessage" class="mt-3"></div>
-                    </form>
-                    
+                            <div class="form-group">
+                                <textarea class="form-control border-0 p-3" rows="4" name="message"
+                                    placeholder="Mensage" required></textarea>
+                            </div>
+                            <button class="btn btn-primary px-4 py-2" type="submit">Envíar mensaje</button>
+                            <div id="formMessage" class="mt-3"></div>
+                        </form>
+
+                    </div>
+                    <div id="formMessage"></div>
+
                 </div>
-                <div id="formMessage"></div>
 
-            </div>
-        
-            <!-- Mapa: derecha -->
-            <div class="col-lg-6">
-                <div class="h-100" style="min-height: 650px;">
-                    <iframe class="w-100 h-100 border-0" 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8667.917767248056!2d-57.58077595159728!3d-25.287202553044427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da8a019c3884f%3A0x7381107c318c7be8!2sComplejo%20La%20Torre!5e0!3m2!1ses!2spy!4v1746019288003!5m2!1ses!2spy" 
-                        allowfullscreen="" aria-hidden="false" tabindex="0">
-                    </iframe>
+                <!-- Mapa: derecha -->
+                <div class="col-lg-6">
+                    <div class="h-100" style="min-height: 650px;">
+                        <iframe class="w-100 h-100 border-0"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8667.917767248056!2d-57.58077595159728!3d-25.287202553044427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da8a019c3884f%3A0x7381107c318c7be8!2sComplejo%20La%20Torre!5e0!3m2!1ses!2spy!4v1746019288003!5m2!1ses!2spy"
+                            allowfullscreen="" aria-hidden="false" tabindex="0">
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Contact End -->
+    <!-- Contact End -->
 
-<!-- Footer Start -->
-<div class="container-fluid bg-darke text-white py-4 px-sm-3 px-lg-5" style="margin-top: 60px;">
-  <div class="row">
-    <div class="col-md-12 text-center mb-3">
-      <p class="mb-1">© 2025 <strong>Domopy</strong>. Todos los derechos reservados.</p>
-      <p class="mb-2" style="font-size: 0.9rem;">
-        El contenido de este sitio web es ilustrativo. Las imágenes, descripciones y ejemplos de proyectos de automatización y domótica son referenciales y pueden variar según las necesidades de cada cliente. Los servicios ofrecidos están sujetos a evaluación técnica y disponibilidad.
-    </p>
-    </div>
+    <!-- Footer Start -->
+    <div class="container-fluid bg-darke text-white py-4 px-sm-3 px-lg-5" style="margin-top: 60px;">
+        <div class="row">
+            <div class="col-md-12 text-center mb-3">
+                <p class="mb-1">© 2025 <strong>Domopy</strong>. Todos los derechos reservados.</p>
+                <p class="mb-2" style="font-size: 0.9rem;">
+                    Las imágenes son ilustrativas. Ofrecemos servicios y productos de automatización y domótica según
+                    cada proyecto.
+                </p>
+            </div>
 
-    <div class="col-md-12 text-center">
-      <div class="d-flex justify-content-center align-items-center flex-wrap gap-2">
-        <div class="d-flex align-items-center mr-3">
-          <span class="mr-2">Colaboración con</span>
-          <a href="https://nissei.com/py/" target="_blank" rel="noopener">
-            <img src="img/nissei.png" alt="Nissei Logo" style="height: 44px;">
-          </a>
+            <div class="col-md-12 text-center">
+                <div class="d-flex justify-content-center align-items-center flex-wrap gap-2">
+                    <div class="d-flex align-items-center mr-3">
+                        <span class="mr-2">Colaboración con</span>
+                        <a href="https://nissei.com/py/" target="_blank" rel="noopener">
+                            <img src="img/nissei.png" alt="Nissei Logo" style="height: 44px;">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
-<!-- Footer End -->
+    <!-- Footer End -->
 
- 
+
     <!-- Scroll to Bottom -->
     <i class="fa fa-2x fa-angle-down text-white scroll-to-bottom"></i>
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    <a href="#" class="btn btn-lg btn-outline-primary btn-lg-square back-to-top"><i
+            class="fa fa-angle-double-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
@@ -896,187 +886,187 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    
-    
+
+
     <script>
-    
- $(document).ready(function(){
-    $('.testimonia-carousel').owlCarousel({
-        loop: true,
-        margin: 30,
-        nav: false,
-        dots: true,
-        autoplay: true,
-        autoplayTimeout: 3000,
-        smartSpeed: 1000,
-        responsive: {
-            0: { items: 1 },     // 1 marca en celular
-            768: { items: 2 },   // 2 en tablet
-            992: { items: 4 }    // 4 en escritorio
-        }
-    });
-});
 
-jQuery.event.special.touchstart = {
-  setup(_, ns, handle) {
-    this.addEventListener("touchstart", handle, { passive: false });
-  }
-};
-jQuery.event.special.touchmove = {
-  setup(_, ns, handle) {
-    this.addEventListener("touchmove", handle, { passive: false });
-  }
-};
-
-    
-    </script>
-    <script>
-    $('body').scrollspy({ target: '.navbar', offset: 90 });
-</script>
-<script>
-document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      window.scrollTo({
-        top: target.offsetTop - 90, // Ajusta por el alto del navbar
-        behavior: 'smooth'
-      });
-    }
-  });
-});
-
-</script>
-
-<script>
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-    
-        const form = e.target;
-        const data = new FormData(form);
-    
-        fetch("https://formspree.io/f/xvgaaqpv", {
-            method: "POST",
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                document.getElementById("formMessage").innerHTML = "<div class='alert alert-success'>Mensaje enviado con éxito.</div>";
-                form.reset();
-            } else {
-                response.json().then(data => {
-                    if (Object.hasOwn(data, 'errors')) {
-                        document.getElementById("formMessage").innerHTML = "<div class='alert alert-danger'>Error: " + data.errors.map(error => error.message).join(", ") + "</div>";
-                    } else {
-                        document.getElementById("formMessage").innerHTML = "<div class='alert alert-danger'>Error al enviar el mensaje.</div>";
-                    }
-                });
-            }
-        })
-        .catch(error => {
-            document.getElementById("formMessage").innerHTML = "<div class='alert alert-danger'>Error de red.</div>";
+        $(document).ready(function () {
+            $('.testimonia-carousel').owlCarousel({
+                loop: true,
+                margin: 30,
+                nav: false,
+                dots: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                smartSpeed: 1000,
+                responsive: {
+                    0: { items: 1 },     // 1 marca en celular
+                    768: { items: 2 },   // 2 en tablet
+                    992: { items: 4 }    // 4 en escritorio
+                }
+            });
         });
-    });
+
+        jQuery.event.special.touchstart = {
+            setup(_, ns, handle) {
+                this.addEventListener("touchstart", handle, { passive: false });
+            }
+        };
+        jQuery.event.special.touchmove = {
+            setup(_, ns, handle) {
+                this.addEventListener("touchmove", handle, { passive: false });
+            }
+        };
+
+
     </script>
     <script>
-        document.getElementById("contactForm").addEventListener("submit", function(e) {
+        $('body').scrollspy({ target: '.navbar', offset: 90 });
+    </script>
+    <script>
+        document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 90, // Ajusta por el alto del navbar
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+    </script>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
             e.preventDefault();
-        
+
+            const form = e.target;
+            const data = new FormData(form);
+
+            fetch("https://formspree.io/f/xvgaaqpv", {
+                method: "POST",
+                body: data,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        document.getElementById("formMessage").innerHTML = "<div class='alert alert-success'>Mensaje enviado con éxito.</div>";
+                        form.reset();
+                    } else {
+                        response.json().then(data => {
+                            if (Object.hasOwn(data, 'errors')) {
+                                document.getElementById("formMessage").innerHTML = "<div class='alert alert-danger'>Error: " + data.errors.map(error => error.message).join(", ") + "</div>";
+                            } else {
+                                document.getElementById("formMessage").innerHTML = "<div class='alert alert-danger'>Error al enviar el mensaje.</div>";
+                            }
+                        });
+                    }
+                })
+                .catch(error => {
+                    document.getElementById("formMessage").innerHTML = "<div class='alert alert-danger'>Error de red.</div>";
+                });
+        });
+    </script>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
             // Simulamos un envío exitoso (en producción usarías fetch u otro método real)
             const form = e.target;
-        
+
             // Aquí podrías hacer tu fetch/post real, pero simulamos éxito:
             setTimeout(() => {
                 document.getElementById("formMessage").innerHTML =
                     "<div style='color: green; font-weight: bold;'>Mensaje enviado con éxito.</div>";
                 form.reset();
-        
+
                 // Ocultar el mensaje después de 3 segundos
                 setTimeout(() => {
                     document.getElementById("formMessage").innerHTML = "";
                 }, 3000);
             }, 500); // simulación de retardo
         });
-        </script>
-        
-        <script>
-            $(document).ready(function(){
-              $(".marcas-carousel").owlCarousel({
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".marcas-carousel").owlCarousel({
                 loop: true,
                 margin: 30,
                 autoplay: true,
                 autoplayTimeout: 2000, // cambia la velocidad
                 autoplayHoverPause: false,
                 responsive: {
-                  0: { items: 2 },
-                  600: { items: 4 },
-                  1000: { items: 6 }
+                    0: { items: 2 },
+                    600: { items: 4 },
+                    1000: { items: 6 }
                 }
-              });
             });
-            </script>
+        });
+    </script>
 
-<!-- Proyecto-->
- 
-<script>
-  const track = document.getElementById('track');
-  const originalSlides = [
-    {
-      img: 'img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg',
-      title: 'Caja Mutual de Cooperativistas del Paraguay',
-      desc: 'Proyecto Caja Mutual de Cooperativistas del Paraguay'
-    },
-    {
-      img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPÁ.jpg',
-      title: 'Corte Suprema - Caazapá',
-      desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Caazapá'
-    },
-    {
-      img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg',
-      title: 'Corte Suprema - Ciudad del Este',
-      desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Ciudad del Este'
-    },
-    {
-      img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg',
-      title: 'Corte Suprema - Guairá',
-      desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Guairá'
-    },
-    {
-      img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg',
-      title: 'Corte Suprema - Cordillera',
-      desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Cordillera'
-    },
-    {
-      img: 'img/GRAN HOSPITAL DEL SUR.jpg',
-      title: 'Gran Hospital del Sur',
-      desc: 'Proyecto Gran Hospital del Sur'
-    },
-    {
-      img: 'img/IGLESIA CENTRO FAMILAR DE ADORACIÓN.jpg',
-      title: 'Iglesia Centro Familiar de Adoración',
-      desc: 'Proyecto Iglesia Centro Familiar de Adoración'
-    },
-    {
-      img: 'img/PUERTO MADERO.jpg',
-      title: 'Puerto Madero',
-      desc: 'Proyecto Puerto Madero'
-    }
-  ];
+    <!-- Proyecto-->
 
-  let isPaused = false;
-  let autoSlideInterval;
-  let currentIndex = 0;
-  let slideCount = originalSlides.length;
-  let clonedCount = 0;
+    <script>
+        const track = document.getElementById('track');
+        const originalSlides = [
+            {
+                img: 'img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg',
+                title: 'Caja Mutual de Cooperativistas del Paraguay',
+                desc: 'Proyecto Caja Mutual de Cooperativistas del Paraguay'
+            },
+            {
+                img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPÁ.jpg',
+                title: 'Corte Suprema - Caazapá',
+                desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Caazapá'
+            },
+            {
+                img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg',
+                title: 'Corte Suprema - Ciudad del Este',
+                desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Ciudad del Este'
+            },
+            {
+                img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg',
+                title: 'Corte Suprema - Guairá',
+                desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Guairá'
+            },
+            {
+                img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg',
+                title: 'Corte Suprema - Cordillera',
+                desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Cordillera'
+            },
+            {
+                img: 'img/GRAN HOSPITAL DEL SUR.jpg',
+                title: 'Gran Hospital del Sur',
+                desc: 'Proyecto Gran Hospital del Sur'
+            },
+            {
+                img: 'img/IGLESIA CENTRO FAMILAR DE ADORACIÓN.jpg',
+                title: 'Iglesia Centro Familiar de Adoración',
+                desc: 'Proyecto Iglesia Centro Familiar de Adoración'
+            },
+            {
+                img: 'img/PUERTO MADERO.jpg',
+                title: 'Puerto Madero',
+                desc: 'Proyecto Puerto Madero'
+            }
+        ];
 
-  function createSlide(slide) {
-    const div = document.createElement('div');
-    div.className = 'slider-item';
-    div.innerHTML = `
+        let isPaused = false;
+        let autoSlideInterval;
+        let currentIndex = 0;
+        let slideCount = originalSlides.length;
+        let clonedCount = 0;
+
+        function createSlide(slide) {
+            const div = document.createElement('div');
+            div.className = 'slider-item';
+            div.innerHTML = `
       <div class="flip-card">
         <div class="flip-inner">
           <div class="flip-front">
@@ -1089,104 +1079,105 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
         </div>
       </div>
     `;
-    return div;
-  }
+            return div;
+        }
 
-  function setupSlides() {
-    // Clones before
-    for (let i = slideCount - 3; i < slideCount; i++) {
-      track.appendChild(createSlide(originalSlides[i]));
-    }
-    // Originals
-    originalSlides.forEach(slide => track.appendChild(createSlide(slide)));
-    // Clones after
-    for (let i = 0; i < 3; i++) {
-      track.appendChild(createSlide(originalSlides[i]));
-    }
-    clonedCount = 3;
-    const itemWidth = track.children[0].offsetWidth;
-    track.style.transform = `translateX(${-itemWidth * clonedCount}px)`;
-    currentIndex = clonedCount;
-  }
-
-
-  let isSliding = false; // global, fuera de la función
-
-function slide(dir = 1) {
-  if (isSliding) return; // Evita clics mientras desliza
-  isSliding = true;
-
-  // Cierra tarjetas giradas si las hay
-  document.querySelectorAll('.flip-card.flipped').forEach(card => {
-    card.classList.remove('flipped');
-  });
-
-  isPaused = false;
-  startAutoSlide();
-
-  const itemWidth = track.children[0].offsetWidth;
-  currentIndex += dir;
-  track.style.transition = 'transform 0.5s ease';
-  track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
-
-  const needsResetAfterTransition =
-    currentIndex >= slideCount + clonedCount || currentIndex < clonedCount;
-
-  const resetTarget = currentIndex < clonedCount
-    ? slideCount + clonedCount - 1
-    : clonedCount;
-
-  track.addEventListener('transitionend', () => {
-    if (needsResetAfterTransition) {
-      track.style.transition = 'none';
-      currentIndex = resetTarget;
-      track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
-    }
-    isSliding = false; // Permite nuevos clics
-  }, { once: true });
-}
+        function setupSlides() {
+            // Clones before
+            for (let i = slideCount - 3; i < slideCount; i++) {
+                track.appendChild(createSlide(originalSlides[i]));
+            }
+            // Originals
+            originalSlides.forEach(slide => track.appendChild(createSlide(slide)));
+            // Clones after
+            for (let i = 0; i < 3; i++) {
+                track.appendChild(createSlide(originalSlides[i]));
+            }
+            clonedCount = 3;
+            const itemWidth = track.children[0].offsetWidth;
+            track.style.transform = `translateX(${-itemWidth * clonedCount}px)`;
+            currentIndex = clonedCount;
+        }
 
 
-function startAutoSlide() {
-  clearInterval(autoSlideInterval); // 💥 Detiene cualquier anterior
+        let isSliding = false; // global, fuera de la función
 
-  const intervalTime = window.innerWidth <= 768 ? 5000 : 4000;
-  autoSlideInterval = setInterval(() => slide(1), intervalTime);
-}
+        function slide(dir = 1) {
+            if (isSliding) return; // Evita clics mientras desliza
+            isSliding = true;
+
+            // Cierra tarjetas giradas si las hay
+            document.querySelectorAll('.flip-card.flipped').forEach(card => {
+                card.classList.remove('flipped');
+            });
+
+            isPaused = false;
+            startAutoSlide();
+
+            const itemWidth = track.children[0].offsetWidth;
+            currentIndex += dir;
+            track.style.transition = 'transform 0.5s ease';
+            track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
+
+            const needsResetAfterTransition =
+                currentIndex >= slideCount + clonedCount || currentIndex < clonedCount;
+
+            const resetTarget = currentIndex < clonedCount
+                ? slideCount + clonedCount - 1
+                : clonedCount;
+
+            track.addEventListener('transitionend', () => {
+                if (needsResetAfterTransition) {
+                    track.style.transition = 'none';
+                    currentIndex = resetTarget;
+                    track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
+                }
+                isSliding = false; // Permite nuevos clics
+            }, { once: true });
+        }
 
 
-  function setupFlip() {
-    track.addEventListener('click', (e) => {
-      const card = e.target.closest('.flip-card');
-      if (!card) return;
-      const isFlipped = card.classList.contains('flipped');
-      document.querySelectorAll('.flip-card').forEach(c => c.classList.remove('flipped'));
-      if (!isFlipped) {
-        card.classList.add('flipped');
-        isPaused = true;
-        clearInterval(autoSlideInterval);
-      } else {
-        card.classList.remove('flipped');
-        startAutoSlide();
-      }
-    });
-  }
+        function startAutoSlide() {
+            clearInterval(autoSlideInterval); // 💥 Detiene cualquier anterior
 
-  function setupSwipe() {
-    let startX = 0;
-    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
-    track.addEventListener('touchend', e => {
-      const diff = e.changedTouches[0].clientX - startX;
-      if (Math.abs(diff) > 50 && diff < 0) slide(1);
-    });
-  }
+            const intervalTime = window.innerWidth <= 768 ? 5000 : 4000;
+            autoSlideInterval = setInterval(() => slide(1), intervalTime);
+        }
 
-  document.addEventListener('DOMContentLoaded', () => {
-    setupSlides();
-    setupFlip();
-    setupSwipe();
-    startAutoSlide();
-  });
-</script>
+
+        function setupFlip() {
+            track.addEventListener('click', (e) => {
+                const card = e.target.closest('.flip-card');
+                if (!card) return;
+                const isFlipped = card.classList.contains('flipped');
+                document.querySelectorAll('.flip-card').forEach(c => c.classList.remove('flipped'));
+                if (!isFlipped) {
+                    card.classList.add('flipped');
+                    isPaused = true;
+                    clearInterval(autoSlideInterval);
+                } else {
+                    card.classList.remove('flipped');
+                    startAutoSlide();
+                }
+            });
+        }
+
+        function setupSwipe() {
+            let startX = 0;
+            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
+            track.addEventListener('touchend', e => {
+                const diff = e.changedTouches[0].clientX - startX;
+                if (Math.abs(diff) > 50 && diff < 0) slide(1);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupSlides();
+            setupFlip();
+            setupSwipe();
+            startAutoSlide();
+        });
+    </script>
 </body>
+
 </html>
