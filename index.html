@@ -1148,13 +1148,12 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
     currentIndex = clonedCount;
   }
 
- function slide(dir = 1) {
-  // Cierra todas las tarjetas giradas
+function slide(dir = 1) {
+  // Cierra tarjetas giradas si las hay
   document.querySelectorAll('.flip-card.flipped').forEach(card => {
     card.classList.remove('flipped');
   });
 
-  // Reactiva auto slide (opcional)
   isPaused = false;
   startAutoSlide();
 
@@ -1163,19 +1162,22 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
   track.style.transition = 'transform 0.5s ease-in-out';
   track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
 
-  track.addEventListener('transitionend', () => {
-    if (currentIndex >= slideCount + clonedCount) {
-      currentIndex = clonedCount;
-      track.style.transition = 'none';
-      track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
-    } else if (currentIndex < clonedCount) {
-      currentIndex = slideCount + clonedCount - 1;
-      track.style.transition = 'none';
-      track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
-    }
-  }, { once: true });
-}
+  const needsResetAfterTransition =
+    currentIndex >= slideCount + clonedCount || currentIndex < clonedCount;
 
+  if (needsResetAfterTransition) {
+    const targetIndex = currentIndex < clonedCount
+      ? slideCount + clonedCount - 1
+      : clonedCount;
+
+    // Espera al final de la transición y luego ajusta sin animación
+    track.addEventListener('transitionend', () => {
+      track.style.transition = 'none';
+      currentIndex = targetIndex;
+      track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
+    }, { once: true });
+  }
+}
 
   function startAutoSlide() {
     const intervalTime = window.innerWidth <= 768 ? 5000 : 4000;
