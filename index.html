@@ -1148,21 +1148,34 @@ document.querySelectorAll('.navbar-nav a[href^="#"]').forEach(anchor => {
     currentIndex = clonedCount;
   }
 
-  function slide(dir = 1) {
-    if (isPaused) return;
-    const itemWidth = track.children[0].offsetWidth;
-    currentIndex += dir;
-    track.style.transition = 'transform 0.5s ease-in-out';
-    track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
+ function slide(dir = 1) {
+  // Cierra todas las tarjetas giradas
+  document.querySelectorAll('.flip-card.flipped').forEach(card => {
+    card.classList.remove('flipped');
+  });
 
-    track.addEventListener('transitionend', () => {
-      if (currentIndex >= slideCount + clonedCount) {
-        currentIndex = clonedCount;
-        track.style.transition = 'none';
-        track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
-      }
-    }, { once: true });
-  }
+  // Reactiva auto slide (opcional)
+  isPaused = false;
+  startAutoSlide();
+
+  const itemWidth = track.children[0].offsetWidth;
+  currentIndex += dir;
+  track.style.transition = 'transform 0.5s ease-in-out';
+  track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
+
+  track.addEventListener('transitionend', () => {
+    if (currentIndex >= slideCount + clonedCount) {
+      currentIndex = clonedCount;
+      track.style.transition = 'none';
+      track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
+    } else if (currentIndex < clonedCount) {
+      currentIndex = slideCount + clonedCount - 1;
+      track.style.transition = 'none';
+      track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
+    }
+  }, { once: true });
+}
+
 
   function startAutoSlide() {
     const intervalTime = window.innerWidth <= 768 ? 5000 : 4000;
