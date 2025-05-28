@@ -493,6 +493,19 @@
     z-index: 5;
     font-size: 1.4rem;
   }
+  .nav-arrow i {
+  font-size: 24px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.nav-arrow:hover i {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
   .nav-arrow.left { left: 10px; }
   .nav-arrow.right { right: 10px; }
   h2.fw-bold {
@@ -520,16 +533,20 @@
 </style>
 
 <section id="project" class="bg-gallery">
-  <div class="container text-center">
-    <h2 class="fw-bold mb-5">Galería de Proyectos</h2>
-    <div class="slider-container" id="slider">
-      <button class="nav-arrow left" onclick="slide(-1)">&#8592;</button>
-      <div class="slider-track" id="track">
-        <!-- Tus .slider-item irán aquí. Se insertan vía DOM para ciclo -->
-      </div>
-      <button class="nav-arrow right" onclick="slide(1)">&#8594;</button>
+    <div class="container text-center">
+        <h2 class="fw-bold mb-5">Galería de Proyectos</h2>
+        <div class="slider-container" id="slider">
+            <button class="nav-arrow left" onclick="slide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="slider-track" id="track">
+                <!-- Tus .slider-item irán aquí. Se insertan vía DOM para ciclo -->
+            </div>
+            <button class="nav-arrow right" onclick="slide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
     </div>
-  </div>
 </section>
     <!-- Proyect End -->
 
