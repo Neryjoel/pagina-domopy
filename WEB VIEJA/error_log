@@ -1,0 +1,2 @@
+[18-Aug-2015 12:51:36] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'includes/header.php' for inclusion (include_path='.:/usr/lib64/php:/usr/share/pear') in /home3/domopyco/public_html/index.php on line 26
+[18-Aug-2015 12:51:36] PHP Warning:  include() [<a href='function.include'>function.include</a>]: Failed opening 'includes/footer.php' for inclusion (include_path='.:/usr/lib64/php:/usr/share/pear') in /home3/domopyco/public_html/index.php on line 65

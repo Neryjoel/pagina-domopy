@@ -1,0 +1,298 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	background-color:#ededed;
+	color:#333;
+}
+.bg{
+	background:#ededed url(../images/bg.jpg) no-repeat top center;
+}
+a {
+	color:#2088c9;
+}
+div.header {
+	margin:10px 0;
+	float:left;
+	width:100%;
+}
+a.logo, a.logo img {
+	float:left;
+	width:351px;
+	height:101px;
+}
+ul.nav {
+	float:left;
+	margin-top:50px;
+	margin-left:60px;
+}
+ul.nav li {
+	display: inline-block;
+	padding:0px 10px;
+}
+ul.nav li a {
+	font-size:18px;
+	color:#333;
+	font-weight: 900;
+}
+ul.nav li a:hover, ul.nav li a.active, h1.title_home span {
+	color:#2088c9;
+}
+h1.title_home {
+	font-size:60px;
+	margin-top:25px;
+	text-align: center;
+	width:100%;
+	line-height:24px;
+}
+div.house {
+	position:relative;
+	height:574px;
+	float:left;
+	margin-top:-50px;
+	width:100%;
+}
+div.house img {
+	z-index:0;
+}
+div.bubble_wrap {
+	position:absolute;
+	z-index:10;
+}
+div.spot {
+	position:absolute;
+	width:18px;
+	height:18px;
+	z-index:10000;
+	cursor: pointer;
+}
+p.bubble {
+	position:relative;
+	padding:5px;
+	color:#fff;
+	background:#2088c9;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+	font-size:14px;
+	text-align: center;
+}
+p.bubble:after {
+	content:"";
+	position:absolute;
+	bottom:-10px; /* value = - border-top-width - border-bottom-width */
+	left:40px; /* controls horizontal position */
+	border-width:10px 10px 0; /* vary these values to change the angle of the vertex */
+	border-style:solid;
+	border-color:#2088c9 transparent;
+  /* reduce the damage in FF3.0 */
+  display:block; 
+  width:0;
+}
+div.media_center {
+	width:100px;
+	right:80px;
+	bottom:300px;
+	display: none;
+}
+div.media_center_spot {
+	right:120px;
+	bottom:267px;
+}
+div.incendios {
+	width:200px;
+	right:110px;
+	bottom:363px;
+	display: none;
+}
+div.incendios_spot {
+	right:250px;
+	bottom:330px;
+}
+div.iluminacion {
+	width:175px;
+	right:275px;
+	bottom:363px;
+	display: none;
+}
+div.iluminacion_spot {
+	right:390px;
+	bottom:330px;
+}
+div.escenas {
+	width:120px;
+	right:430px;
+	bottom:315px;
+	display: none;
+}
+div.escenas_spot {
+	right:490px;
+	bottom:285px;
+}
+div.luces {
+	width:150px;
+	right:525px;
+	bottom:345px;
+	display: none;
+}
+div.luces_spot {
+	right:615px;
+	bottom:315px;
+}
+div.cortinas {
+	width:150px;
+	right:760px;
+	bottom:230px;
+	display: none;
+}
+div.cortinas_spot {
+	right:850px;
+	bottom:200px;
+}
+div.gas {
+	width:210px;
+	right:485px;
+	bottom:200px;
+	display: none;
+}
+div.gas p.bubble:after {
+	content:"";
+	position:absolute;
+	top: -10px;
+	left: 50px;
+	bottom: auto;
+	right: auto;
+	border-width: 0 10px 10px;
+	border-style:solid;
+	border-color:#2088c9 transparent;
+  /* reduce the damage in FF3.0 */
+  display:block; 
+  width:0;
+}
+div.gas_spot {
+	right:625px;
+	bottom:250px;
+}
+div.octv {
+	width:210px;
+	right:310px;
+	bottom:195px;
+	display: none;
+}
+div.octv p.bubble:after {
+	content:"";
+	position:absolute;
+	top: -10px;
+	left: 50px;
+	bottom: auto;
+	right: auto;
+	border-width: 0 10px 10px;
+	border-style:solid;
+	border-color:#2088c9 transparent;
+  /* reduce the damage in FF3.0 */
+  display:block; 
+  width:0;
+}
+div.octv_spot {
+	right:450px;
+	bottom:250px;
+}
+div.clima {
+	width:150px;
+	right:170px;
+	bottom:270px;
+	display: none;
+}
+div.clima_spot {
+	right:260px;
+	bottom:240px;
+}
+div.accesos {
+	width:150px;
+	right:90px;
+	bottom:230px;
+	display: none;
+}
+div.accesos_spot {
+	right:180px;
+	bottom:200px;
+}
+ul.social {
+	width:100%;
+	float:left;
+}
+ul.social li {
+	margin:0px 5px;
+	float:left;
+	list-style-type: none
+}
+
+div#interna h2 {
+	font-size:28px;
+	color:#2088c9;
+}
+
+ul.interna li span {
+	color:#2088c9;
+}
+
+ul.lite li {
+	width:300px;
+	margin:0 5px;
+	display: inline-block;
+}
+
+div#servicios {
+	width:100%;
+	height:540px;
+	background: url("../images/bg_servicios.jpg") right top no-repeat;
+}
+ul#nav {
+	width:100%;
+	float:left;
+	margin-top:20px;
+}
+ul#nav li {
+	width:188px;
+	float:left;
+	text-align: center;
+	color:#fff;
+}
+ul#nav li span {
+	padding:0px 5px 5px 5px;
+
+}
+ul#nav li.activeSlide span {
+	background:#316c94;
+	-webkit-border-radius:10px;
+	-moz-border-radius:10px;
+	border-radius:10px;
+}
+div.slide {
+	width:900px;
+	float:left;
+	margin:0 10px;
+	height:300px;
+}
+div.slide h1 {
+	font-size:26px;
+	color:#fff;
+}
+div.slide ul li {
+	font-size:18px;
+	color:#fff;
+	padding:5px;
+}
+
+#prev, #next {
+	position:absolute;
+	top:50%;
+	width:10px;
+}
+#prev {
+	left:-25px;
+}
+#next {
+	right:0px;
+}
