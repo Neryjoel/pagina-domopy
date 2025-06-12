@@ -2,6 +2,7 @@
 // filepath: c:\Users\DomoPy\Downloads\pagina domopy\enviar-licitacion.php
 
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\STMP;
 use PHPMailer\PHPMailer\Exception;
 
 // Incluye los archivos de PHPMailer
@@ -13,12 +14,12 @@ require __DIR__ . '/PHPMailer/src/SMTP.php';
 $mail = new PHPMailer(true);
 try {
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com'; // Cambia si usas otro proveedor
+    $mail->Host       = 'mail@domopy.com'; // Cambia si usas otro proveedor
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'henryzapata95@gmail.com'; // Cambia por tu correo SMTP
-    $mail->Password   = '0981@contra';  // Contraseña de aplicación Gmail
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port       = 587;
+    $mail->Username   = 'prueba@domopy.com'; // Cambia por tu correo SMTP
+    $mail->Password   = '0981@';  // Contraseña de aplicación Gmail
+    $mail->SMTPSecure = tls;
+    $mail->Port       = 465;
 
     // Sanitizar y obtener datos
     $nombre   = isset($_POST['nombre'])   ? strip_tags(trim($_POST['nombre']))   : '';
@@ -46,6 +47,6 @@ try {
         echo "Complete todos los campos obligatorios.";
     }
 } catch (Exception $e) {
-    echo "Error al enviar el mensaje: " . $mail->ErrorInfo;
+    echo "Error al enviar el mensaje. Intente más tarde.";
 }
 ?>
