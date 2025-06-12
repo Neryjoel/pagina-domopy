@@ -17,7 +17,7 @@ try {
     $mail->Host       = 'mail@domopy.com'; // Cambia si usas otro proveedor
     $mail->SMTPAuth   = true;
     $mail->Username   = 'prueba@domopy.com'; // Cambia por tu correo SMTP
-    $mail->Password   = '0981@';  // Contraseña de aplicación Gmail
+    $mail->Password   = '0981@contra';  // Contraseña de aplicación Gmail
     $mail->SMTPSecure = tls;
     $mail->Port       = 465;
 
