@@ -1,33 +1,51 @@
 <?php
+// filepath: c:\Users\DomoPy\Downloads\pagina domopy\enviar-licitacion.php
 
-// Configuración
-$destino = "henryzapata95@gmail.com"; // <-- Cambia esto por tu correo real
-$asunto = "Nueva solicitud de licitación desde la web";
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-// Sanitizar y obtener datos
-$nombre   = isset($_POST['nombre'])   ? strip_tags(trim($_POST['nombre']))   : '';
-$empresa  = isset($_POST['empresa'])  ? strip_tags(trim($_POST['empresa']))  : '';
-$correo   = isset($_POST['correo'])   ? filter_var(trim($_POST['correo']), FILTER_SANITIZE_EMAIL) : '';
-$telefono = isset($_POST['telefono']) ? strip_tags(trim($_POST['telefono'])) : '';
-$mensaje  = isset($_POST['mensaje'])  ? strip_tags(trim($_POST['mensaje']))  : '';
+// Incluye los archivos de PHPMailer
+require __DIR__ . '/PHPMailer/src/Exception.php';
+require __DIR__ . '/PHPMailer/src/PHPMailer.php';
+require __DIR__ . '/PHPMailer/src/SMTP.php';
 
-if ($nombre && $correo && $mensaje) {
-    $body = "Nombre: $nombre\n";
-    $body .= "Empresa/Institución: $empresa\n";
-    $body .= "Correo: $correo\n";
-    $body .= "Teléfono: $telefono\n";
-    $body .= "Mensaje:\n$mensaje\n";
+// Configuración SMTP (ejemplo con Gmail)
+$mail = new PHPMailer(true);
+try {
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.gmail.com'; // Cambia si usas otro proveedor
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'tucorreo@gmail.com'; // Cambia por tu correo SMTP
+    $mail->Password   = 'tu_contraseña_app';  // Contraseña de aplicación Gmail
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
 
-    $headers = "From: $nombre <$correo>\r\n";
-    $headers .= "Reply-To: $correo\r\n";
-    $headers .= "Content-Type: text/plain; charset=utf-8\r\n";
+    // Sanitizar y obtener datos
+    $nombre   = isset($_POST['nombre'])   ? strip_tags(trim($_POST['nombre']))   : '';
+    $empresa  = isset($_POST['empresa'])  ? strip_tags(trim($_POST['empresa']))  : '';
+    $correo   = isset($_POST['correo'])   ? filter_var(trim($_POST['correo']), FILTER_SANITIZE_EMAIL) : '';
+    $telefono = isset($_POST['telefono']) ? strip_tags(trim($_POST['telefono'])) : '';
+    $mensaje  = isset($_POST['mensaje'])  ? strip_tags(trim($_POST['mensaje']))  : '';
 
-    if (mail($destino, $asunto, $body, $headers)) {
+    if ($nombre && $correo && $mensaje) {
+        $mail->setFrom($correo, $nombre);
+        $mail->addAddress('henryzapata95@gmail.com'); // Destinatario
+        $mail->Subject = 'Nueva solicitud de licitación desde la web';
+
+        $body = "Nombre: $nombre\n";
+        $body .= "Empresa/Institución: $empresa\n";
+        $body .= "Correo: $correo\n";
+        $body .= "Teléfono: $telefono\n";
+        $body .= "Mensaje:\n$mensaje\n";
+
+        $mail->Body = $body;
+
+        $mail->send();
         echo "OK";
     } else {
-        echo "Error al enviar el mensaje. Intente más tarde.";
+        echo "Complete todos los campos obligatorios.";
     }
-} else {
-    echo "Complete todos los campos obligatorios.";
+} catch (Exception $e) {
+    echo "Error al enviar el mensaje. Intente más tarde.";
 }
 ?>
