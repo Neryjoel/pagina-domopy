@@ -18,7 +18,7 @@ try {
     $mail->SMTPAuth   = true;
     $mail->Username   = 'prueba@domopy.com'; // Cambia por tu correo SMTP
     $mail->Password   = '0981@contra';  // Contraseña de aplicación Gmail
-    $mail->SMTPSecure = tls;
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
 
     // Sanitizar y obtener datos
