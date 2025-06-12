@@ -46,6 +46,6 @@ try {
         echo "Complete todos los campos obligatorios.";
     }
 } catch (Exception $e) {
-    echo "Error al enviar el mensaje. Intente más tarde.";
+    echo "Error al enviar el mensaje: " . $mail->ErrorInfo;
 }
 ?>
