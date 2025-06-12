@@ -1,7 +1,7 @@
 <?php
 
 // Configuración
-$destino = "comercial@domopy.com"; // <-- Cambia esto por tu correo real
+$destino = "henryzapata95@gmail.com"; // <-- Cambia esto por tu correo real
 $asunto = "Nueva solicitud de licitación desde la web";
 
 // Sanitizar y obtener datos
