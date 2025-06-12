@@ -2,7 +2,6 @@
 // filepath: c:\Users\DomoPy\Downloads\pagina domopy\enviar-licitacion.php
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\STMP;
 use PHPMailer\PHPMailer\Exception;
 
 // Incluye los archivos de PHPMailer
@@ -10,14 +9,14 @@ require __DIR__ . '/PHPMailer/src/Exception.php';
 require __DIR__ . '/PHPMailer/src/PHPMailer.php';
 require __DIR__ . '/PHPMailer/src/SMTP.php';
 
-// Configuración SMTP (ejemplo con Gmail)
+// Configuración SMTP
 $mail = new PHPMailer(true);
 try {
     $mail->isSMTP();
-    $mail->Host       = 'mail@domopy.com'; // Cambia si usas otro proveedor
+    $mail->Host       = 'mail.domopy.com'; // Cambia si usas otro proveedor
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'prueba@domopy.com'; // Cambia por tu correo SMTP
-    $mail->Password   = '0981@contra';  // Contraseña de aplicación Gmail
+    $mail->Username   = 'web@domopy.com'; // Tu correo SMTP
+    $mail->Password   = '0981@contra';       // Tu contraseña SMTP
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
 
@@ -29,9 +28,10 @@ try {
     $mensaje  = isset($_POST['mensaje'])  ? strip_tags(trim($_POST['mensaje']))  : '';
 
     if ($nombre && $correo && $mensaje) {
-        $mail->setFrom($correo, $nombre);
+        $mail->setFrom('web@domopy.com', 'DomoPy Web'); // Tu correo SMTP
+        $mail->addReplyTo($correo, $nombre); // El visitante, para que puedas responderle
         $mail->addAddress('henryzapata95@gmail.com'); // Destinatario
-        $mail->Subject = 'Nueva solicitud de licitación desde la web';
+        $mail->Subject = 'Nueva solicitud desde la web';
 
         $body = "Nombre: $nombre\n";
         $body .= "Empresa/Institución: $empresa\n";
@@ -47,6 +47,6 @@ try {
         echo "Complete todos los campos obligatorios.";
     }
 } catch (Exception $e) {
-    echo "Error al enviar el mensaje. Intente más tarde.";
+    echo "Error al enviar el mensaje: " . $mail->ErrorInfo;
 }
 ?>
