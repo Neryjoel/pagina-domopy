@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <title>DomoPy</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta name="description" content="DomoPy ofrece soluciones de automatización para hogares, oficinas y edificios. Control inteligente, eficiencia energética y confort a un clic.">
+    <meta name="description"
+        content="DomoPy ofrece soluciones de automatización para hogares, oficinas y edificios. Control inteligente, eficiencia energética y confort a un clic.">
 
     <!-- Favicon -->
     <link href="img/logo.png" rel="icon">
@@ -67,6 +68,41 @@
                 /* mueve más a la izquierda */
 
             }
+        }
+
+        #licitacionMsg {
+    min-height: 48px;
+    width: 100%;
+    display: block;
+    transition: min-height 0.3s, height 0.3s;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+        .fade-alert {
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+
+        .fade-alert.show {
+            opacity: 1;
+        }
+
+        .invalid-feedback,
+        .valid-feedback {
+            opacity: 0;
+            transition: opacity 0.5s;
+            display: block;
+            /* Para evitar saltos de layout */
+            min-height: 18px;
+            /* Reserva espacio para el mensaje */
+        }
+
+        .was-validated .form-control:invalid~.invalid-feedback,
+        .form-control.is-invalid~.invalid-feedback {
+            opacity: 1;
+            transition: opacity 0.5s;
         }
     </style>
 
@@ -169,7 +205,8 @@
                             <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown"
                                 style="letter-spacing: 3px;">Tecnología Discreta, Espacios Inteligentes</h6>
                             <h3 class="display-3 text-capitalize text-white mb-3">Tecnología al Servicio</h3>
-                            <p class="mx-md-5 px-5">Automatización diseñada para adaptarse a la dinámica institucional y mejorar el rendimiento operativo sin comprometer el diseño arquitectónico.</p>
+                            <p class="mx-md-5 px-5">Automatización diseñada para adaptarse a la dinámica institucional y
+                                mejorar el rendimiento operativo sin comprometer el diseño arquitectónico.</p>
                             <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp"
                                 href="#contact">SABER MÁS</a>
                         </div>
@@ -182,7 +219,8 @@
                             <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown"
                                 style="letter-spacing: 3px;">Domótica desde la Planificación</h6>
                             <h3 class="display-3 text-capitalize text-white mb-3">Infraestructura Avanzada</h3>
-                            <p class="mx-md-5 px-5">Acompañamos grandes obras con sistemas conectados que permiten control total, eficiencia energética y crecimiento escalable.</p>
+                            <p class="mx-md-5 px-5">Acompañamos grandes obras con sistemas conectados que permiten
+                                control total, eficiencia energética y crecimiento escalable.</p>
                             <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp"
                                 href="#contact">SABER MÁS</a>
                         </div>
@@ -195,7 +233,8 @@
                             <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown"
                                 style="letter-spacing: 3px;">Gestión Inteligente y Centralizada</h6>
                             <h3 class="display-3 text-capitalize text-white mb-3">Control Unificado</h3>
-                            <p class="mx-md-5 px-5">Unificamos funciones críticas del edificio —energía, seguridad, acceso— en una sola interfaz adaptable a entornos complejos.</p>
+                            <p class="mx-md-5 px-5">Unificamos funciones críticas del edificio —energía, seguridad,
+                                acceso— en una sola interfaz adaptable a entornos complejos.</p>
                             <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp"
                                 href="#contact">SABER MÁS</a>
                         </div>
@@ -398,7 +437,7 @@
                             <div class="card-back">
                                 <div>
                                     <h5>CCTV</h5>
-                                    <p>Monitoreo visual en tiempo real con cámaras de alta definición para mayor
+                                    <p>Monitoreo visual en tiempo real with cámaras de alta definición para mayor
                                         seguridad.</p>
                                 </div>
                             </div>
@@ -718,6 +757,7 @@
             object-fit: contain;
             transition: 0.5s;
         }
+
         /* Solo en la sección de marcas */
         #marcas .galleria-item img {
             filter: brightness(0) invert(1);
@@ -736,7 +776,7 @@
         <div class="owl-carousel testimonia-carousel">
             <div class="galleria-item">
                 <img class="img-fluid w-100" src="img/Hikvision.png" alt="">
-  
+
             </div>
             <div class="galleria-item">
                 <img class="img-fluid w-100" src="img/hdl.png" alt="">
@@ -748,19 +788,19 @@
             </div>
             <div class="galleria-item">
                 <img class="img-fluid w-100" src="img/knx.png" alt="">
- 
+
             </div>
             <div class="galleria-item">
                 <img class="img-fluid w-100" src="img/RISCO.png" alt="">
-  
+
             </div>
             <div class="galleria-item">
                 <img class="img-fluid w-100" src="img/abb.png" alt="">
-          
+
             </div>
             <div class="galleria-item">
                 <img class="img-fluid w-100" src="img/sonoff.png" alt="">
-                
+
             </div>
         </div>
 
@@ -776,31 +816,48 @@
             <div class="row no-gutters">
                 <!-- Formulario: izquierda -->
                 <div class="col-lg-6 d-flex align-items-center bg-white shadow p-4 p-lg-5">
-                    <div class="w-100">
-                        <h1 class="mb-4">Solicitar Cotización / Licitación</h1>
-                        <form action="enviar-licitacion.php" method="POST" id="contactForm" autocomplete="off">
-                            <div class="form-row">
-                                <div class="form-group col-sm-6">
-                                    <label for="nombre">Nombre y Apellido</label>
-                                    <input type="text" class="form-control border-0 p-3" id="nombre" name="nombre" required />
-                                </div>
-                                <div class="form-group col-sm-6">
-                                    <label for="empresa">Empresa / Institución</label>
-                                    <input type="text" class="form-control border-0 p-3" id="empresa" name="empresa" />
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="correo">Correo electrónico</label>
-                                <input type="email" class="form-control border-0 p-3" id="correo" name="correo" required />
-                            </div>
-                            <div class="form-group">
-                                <label for="mensaje">Detalle de la Licitación / Consulta</label>
-                                <textarea class="form-control border-0 p-3" id="mensaje" name="mensaje" rows="5" required></textarea>
-                            </div>
-                            <button class="btn btn-primary px-4 py-2" type="submit">Enviar Solicitud</button>
-                            <div id="formMessage" class="mt-3"></div>
-                        </form>
-                    </div>
+                    <div class="w-100 d-flex flex-column align-items-center">
+    <div style="max-width: 400px; width: 100%;">
+        <h1 class="mt-4 mb-4 text-center">Solicitar Cotización</h1>
+        <form action="enviar-licitacion.php" method="POST" id="licitacionForm" autocomplete="off"
+            class="needs-validation" novalidate>
+            <div class="form-row">
+                <div class="form-group col-sm-6">
+                    <label for="nombre" class="font-weight-bold">Nombre y Apellido <span
+                            class="text-danger">*</span></label>
+                    <input type="text" class="form-control border-0 p-3 shadow-sm" id="nombre"
+                        name="nombre" required maxlength="80" placeholder="Ej: Miguel Falchi" />
+                    <div class="invalid-feedback">Por favor, ingresa tu nombre completo.</div>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="empresa" class="font-weight-bold">Empresa / Institución</label>
+                    <input type="text" class="form-control border-0 p-3 shadow-sm" id="empresa"
+                        name="empresa" maxlength="80" placeholder="Opcional" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="correo" class="font-weight-bold">Correo electrónico <span
+                        class="text-danger">*</span></label>
+                <input type="email" class="form-control border-0 p-3 shadow-sm" id="correo"
+                    name="correo" required maxlength="80" placeholder="tucorreo@ejemplo.com" />
+                <div class="invalid-feedback">Por favor, ingresa un correo válido.</div>
+            </div>
+            <div class="form-group">
+                <label for="mensaje" class="font-weight-bold">Detalle de la Cotización / Consulta <span
+                        class="text-danger">*</span></label>
+                <textarea class="form-control border-0 p-3 shadow-sm" id="mensaje" name="mensaje"
+                    rows="5" required maxlength="1000"
+                    placeholder="Describe tu necesidad o consulta..."></textarea>
+                <div class="invalid-feedback">Por favor, escribe tu mensaje.</div>
+            </div>
+            <button class="btn btn-primary btn-block py-2 font-weight-bold shadow" type="submit"
+                style="font-size:1.2rem; width:100%;">
+                <i class="fa fa-paper-plane mr-2"></i>Enviar Solicitud
+            </button>
+            <div id="licitacionMsg" class="mt-3"></div>
+        </form>
+    </div>
+</div>
                 </div>
                 <!-- Mapa: derecha -->
                 <div class="col-lg-6">
@@ -816,66 +873,7 @@
     </div>
     <!-- Contact End -->
 
-    <!-- Formulario de Licitación -->
-<section id="licitacion" class="container py-5">
-    <div class="row justify-content-center">
-        <div class="col-lg-7 bg-white shadow p-4 rounded">
-            <h2 class="mb-4 text-center text-primary">Solicitar Cotización / Licitación</h2>
-            <form action="enviar-licitacion.php" method="POST" id="licitacionForm" autocomplete="off">
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="nombre">Nombre y Apellido</label>
-                        <input type="text" class="form-control" id="nombre" name="nombre" required>
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="empresa">Empresa / Institución</label>
-                        <input type="text" class="form-control" id="empresa" name="empresa">
-                    </div>
-                </div>
-                <div cylass="form-group">
-                    <label for="correo">Correo electrónico</label>
-                    <input type="email" class="form-control" id="correo" name="correo" required>
-                </div>
-                <div class="form-group">
-                    <label for="telefono">Teléfono</label>
-                    <input type="text" class="form-control" id="telefono" name="telefono">
-                </div>
-                <div class="form-group">
-                    <label for="mensaje">Detalle de la Licitación / Consulta</label>
-                    <textarea class="form-control" id="mensaje" name="mensaje" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary px-4">Enviar Solicitud</button>
-                <div id="licitacionMsg" class="mt-3"></div>
-            </form>
-        </div>
-    </div>
-</section>
 
-<script>
-document.getElementById('licitacionForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    var form = this;
-    var data = new FormData(form);
-    var msg = document.getElementById('licitacionMsg');
-    msg.innerHTML = "Enviando...";
-    fetch('enviar-licitacion.php', {
-        method: 'POST',
-        body: data
-    })
-    .then(res => res.text())
-    .then(txt => {
-        if (txt.trim() === "OK") {
-            msg.innerHTML = "<div class='alert alert-success'>¡Solicitud enviada correctamente! Nos pondremos en contacto.</div>";
-            form.reset();
-        } else {
-            msg.innerHTML = "<div class='alert alert-danger'>" + txt + "</div>";
-        }
-    })
-    .catch(() => {
-        msg.innerHTML = "<div class='alert alert-danger'>Error de red. Intente más tarde.</div>";
-    });
-});
-</script>
 
     <!-- Footer Start -->
     <div class="container-fluid bg-darke text-white py-4 px-sm-3 px-lg-5" style="margin-top: 60px;">
