@@ -15,8 +15,8 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'smtp.gmail.com'; // Cambia si usas otro proveedor
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'tucorreo@gmail.com'; // Cambia por tu correo SMTP
-    $mail->Password   = 'tu_contraseña_app';  // Contraseña de aplicación Gmail
+    $mail->Username   = 'henryzapata95@gmail.com'; // Cambia por tu correo SMTP
+    $mail->Password   = '0981@contra';  // Contraseña de aplicación Gmail
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = 587;
 
