@@ -71,14 +71,14 @@
         }
 
         #licitacionMsg {
-    min-height: 48px;
-    width: 100%;
-    display: block;
-    transition: min-height 0.3s, height 0.3s;
-    position: relative;
-    margin: 0;
-    padding: 0;
-}
+            min-height: 48px;
+            width: 100%;
+            display: block;
+            transition: min-height 0.3s, height 0.3s;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
 
         .fade-alert {
             opacity: 0;
@@ -104,6 +104,69 @@
             opacity: 1;
             transition: opacity 0.5s;
         }
+
+        /* Mejora visual sobria para el formulario de contacto */
+        #contact .form-control {
+            border-radius: 6px;
+            border: 1px solid #d1d5db;
+            background: #f9f9fa;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        #contact .form-control:focus {
+            border-color: #888;
+            box-shadow: 0 0 0 2px rgba(100, 100, 100, 0.07);
+            background: #fff;
+        }
+
+        #contact label {
+            font-weight: 500;
+            color: #222;
+            margin-bottom: 4px;
+        }
+
+        #contact .btn-primary {
+            background: #009CFF;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            transition: background 0.2s, box-shadow 0.2s;
+        }
+
+        #contact .btn-primary:hover {
+            background: #007bbf;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        #contact .invalid-feedback {
+            font-size: 0.95rem;
+            color: #b94a48;
+        }
+
+        #contact h1 {
+            /* No se cambia tamaño ni color, respeta el diseño original */
+            margin-bottom: 1.5rem;
+        }
+
+        #contact form {
+            margin-top: 1rem;
+        }
+
+        @media (max-width: 991px) {
+            #contact .col-lg-6 {
+                padding: 1.5rem 0 !important;
+            }
+        }
+
+        .input-error {
+    /* No cambia el tamaño, solo el resplandor */
+    box-shadow: 0 0 0 2px #dc3545 !important;
+    background-color: #ffe5e5 !important;
+    transition: box-shadow 0.3s, background 0.3s;
+}
     </style>
 
 </head>
@@ -145,7 +208,7 @@
                     <a class="text-white px-2" href="">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a class="text-white pl-2" href="">
+                    <a class="text-white pl-2" href="luces.html" target="_blank">
                         <i class="fab fa-youtube"></i>
                     </a>
                 </div>
@@ -258,12 +321,14 @@
                     <h1 class="display-4 mb-3"><span class="text-primary">Sobre nosotros</span> en automatización</h1>
                     <p>
                         Estamos en la vanguardia tecnológica en automatización y control de todo tipo de instalaciones
-                        inmobiliarias. Contamos con el aval de empresas fabricantes de equipos mundialmente reconocidas,
-                        en instalaciones domóticas, personal calificado y productos vanguardistas.
+                        inmobiliarias en Paraguay.
+                        Contamos con el respaldo de empresas fabricantes de equipos mundialmente reconocidas, personal
+                        calificado y productos de última generación para instalaciones domóticas.
                     </p>
                     <p>
-                        Realizamos sistemas de circuito cerrado, alarmas, control de luces, climatización, control de
-                        filtro de piscina y mantenimientos.
+                        Ofrecemos sistemas de circuito cerrado, alarmas, control de luces, climatización, control de
+                        filtro de piscina y servicios de mantenimiento,
+                        brindando soluciones exclusivas para el mercado paraguayo.
                     </p>
                     <a class="btn btn-primary font-weight-bold py-3 px-5 mt-4 btn-scroll" href="#contact">Saber más</a>
                 </div>
@@ -775,7 +840,7 @@
         </div>
         <div class="owl-carousel testimonia-carousel">
             <div class="galleria-item">
-                <img class="img-fluid w-100" src="img/Hikvision.png" alt="">
+                <img class="img-fluid w-100" src="img/Hikvision.png" alt="" style="margin-top:20px;">
 
             </div>
             <div class="galleria-item">
@@ -817,50 +882,46 @@
                 <!-- Formulario: izquierda -->
                 <div class="col-lg-6 d-flex align-items-center bg-white shadow p-4 p-lg-5">
                     <div class="w-100 d-flex flex-column align-items-center">
-    <div style="max-width: 400px; width: 100%;">
-        <h1 class="mt-4 mb-4 text-center">Solicitar Cotización</h1>
-        <form action="enviar-licitacion.php" method="POST" id="licitacionForm" autocomplete="off"
-            class="needs-validation" novalidate>
-            <div class="form-row">
-                <div class="form-group col-sm-6">
-                    <label for="nombre" class="font-weight-bold">Nombre y Apellido <span
-                            class="text-danger">*</span></label>
-                    <input type="text" class="form-control border-0 p-3 shadow-sm" id="nombre"
-                        name="nombre" required maxlength="80" placeholder="Ej: Miguel Falchi" />
-                    <div class="invalid-feedback">Por favor, ingresa tu nombre completo.</div>
-                </div>
-                <div class="form-group col-sm-6">
-                    <label for="empresa" class="font-weight-bold">Empresa / Institución</label>
-                    <input type="text" class="form-control border-0 p-3 shadow-sm" id="empresa"
-                        name="empresa" maxlength="80" placeholder="Opcional" />
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="correo" class="font-weight-bold">Correo electrónico <span
-                        class="text-danger">*</span></label>
-                <input type="email" class="form-control border-0 p-3 shadow-sm" id="correo"
-                    name="correo" required maxlength="80" placeholder="tucorreo@ejemplo.com" />
-                <div class="invalid-feedback">Por favor, ingresa un correo válido.</div>
-            </div>
-            <div class="form-group">
-                <label for="mensaje" class="font-weight-bold">Detalle de la Cotización / Consulta <span
-                        class="text-danger">*</span></label>
-                <textarea class="form-control border-0 p-3 shadow-sm" id="mensaje" name="mensaje"
-                    rows="5" required maxlength="1000"
-                    placeholder="Describe tu necesidad o consulta..."></textarea>
-                <div class="invalid-feedback">Por favor, escribe tu mensaje.</div>
-            </div>
-            <button class="btn btn-primary btn-block py-2 font-weight-bold shadow" type="submit"
-                style="font-size:1.2rem; width:100%;">
-                <i class="fa fa-paper-plane mr-2"></i>Enviar Solicitud
-            </button>
-            <div id="licitacionMsg" class="mt-3"></div>
-        </form>
-    </div>
-</div>
+                        <div style="max-width: 400px; width: 100%;" class="px-3 px-md-0">
+                            <h1 class="mt-4 mb-4 text-center">Solicitar Cotización</h1>
+                            <form id="licitacionForm" action="enviar-licitacion.php" method="POST" autocomplete="off" novalidate>
+                                <div class="form-row">
+                                    <div class="form-group col-sm-6 mb-3">
+                                        <label for="nombre" class="font-weight-bold">Nombre y Apellido <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control p-3 shadow-sm" id="nombre"
+                                            name="nombre" maxlength="80" placeholder="Ej: Juan Perez" />
+                                    </div>
+                                    <div class="form-group col-sm-6 mb-3">
+                                        <label for="empresa" class="font-weight-bold">Empresa / Institución</label>
+                                        <input type="text" class="form-control p-3 shadow-sm" id="empresa"
+                                            name="empresa" maxlength="80" placeholder="Opcional" />
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="correo" class="font-weight-bold">Correo electrónico <span class="text-danger">*</span></label>
+                                    <input type="email" class="form-control p-3 shadow-sm" id="correo"
+                                        name="correo" maxlength="80" placeholder="tucorreo@ejemplo.com" />
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="mensaje" class="font-weight-bold">Detalle de la Cotización / Consulta
+                                        <span class="text-danger">*</span></label>
+                                    <textarea class="form-control p-3 shadow-sm" id="mensaje" name="mensaje"
+                                        rows="5" maxlength="1000"
+                                        placeholder="Describe tu necesidad o consulta..."></textarea>
+                                </div>
+                                <button id="enviarBtn" type="button"
+                                    class="btn btn-primary btn-block py-2 font-weight-bold shadow"
+                                    style="font-size:1.2rem; width:100%;">
+                                    <i class="fa fa-paper-plane mr-2"></i>Enviar Solicitud
+                                </button>
+
+                                <div id="licitacionMsg" class="mt-3"></div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 <!-- Mapa: derecha -->
-                <div class="col-lg-6">
+                <div class="col-lg-6 shadow">
                     <div class="h-100" style="min-height: 650px;">
                         <iframe class="w-100 h-100 border-0"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8667.917767248056!2d-57.58077595159728!3d-25.287202553044427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da8a019c3884f%3A0x7381107c318c7be8!2sComplejo%20La%20Torre!5e0!3m2!1ses!2spy!4v1746019288003!5m2!1ses!2spy"
@@ -910,9 +971,9 @@
 
     <!-- Contact Javascript File 
     <script src="mail/contact.js"></script>
--->
-    <script src="mail/jqBootstrapValidation.min.js"></script>
 
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+-->
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
 
@@ -929,12 +990,15 @@
                 autoplayTimeout: 3000,
                 smartSpeed: 1000,
                 responsive: {
-                    0: { items: 1 },     // 1 marca en celular
-                    768: { items: 2 },   // 2 en tablet
-                    992: { items: 4 }    // 4 en escritorio
+                    0: { items: 1 },
+                    768: { items: 2 },
+                    992: { items: 4 }
                 }
             });
+            // Forzar autoplay por si no inicia solo
+            $('.testimonia-carousel').trigger('play.owl.autoplay', [3000]);
         });
+
 
         jQuery.event.special.touchstart = {
             setup(_, ns, handle) {
@@ -966,60 +1030,6 @@
             });
         });
 
-    </script>
-
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            const form = e.target;
-            const data = new FormData(form);
-
-            fetch("https://formspree.io/f/xvgaaqpv", {
-                method: "POST",
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-                .then(response => {
-                    if (response.ok) {
-                        document.getElementById("formMessage").innerHTML = "<div class='alert alert-success'>Mensaje enviado con éxito.</div>";
-                        form.reset();
-                    } else {
-                        response.json().then(data => {
-                            if (Object.hasOwn(data, 'errors')) {
-                                document.getElementById("formMessage").innerHTML = "<div class='alert alert-danger'>Error: " + data.errors.map(error => error.message).join(", ") + "</div>";
-                            } else {
-                                document.getElementById("formMessage").innerHTML = "<div class='alert alert-danger'>Error al enviar el mensaje.</div>";
-                            }
-                        });
-                    }
-                })
-                .catch(error => {
-                    document.getElementById("formMessage").innerHTML = "<div class='alert alert-danger'>Error de red.</div>";
-                });
-        });
-    </script>
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function (e) {
-            e.preventDefault();
-
-            // Simulamos un envío exitoso (en producción usarías fetch u otro método real)
-            const form = e.target;
-
-            // Aquí podrías hacer tu fetch/post real, pero simulamos éxito:
-            setTimeout(() => {
-                document.getElementById("formMessage").innerHTML =
-                    "<div style='color: green; font-weight: bold;'>Mensaje enviado con éxito.</div>";
-                form.reset();
-
-                // Ocultar el mensaje después de 3 segundos
-                setTimeout(() => {
-                    document.getElementById("formMessage").innerHTML = "";
-                }, 3000);
-            }, 500); // simulación de retardo
-        });
     </script>
 
     <script>
@@ -1096,18 +1106,18 @@
             const div = document.createElement('div');
             div.className = 'slider-item';
             div.innerHTML = `
-      <div class="flip-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <img src="${slide.img}" alt="${slide.title}">
-          </div>
-          <div class="flip-back">
-            <h5>${slide.title}</h5>
-            <p>${slide.desc}</p>
-          </div>
-        </div>
-      </div>
-    `;
+            <div class="flip-card">
+                <div class="flip-inner">
+                <div class="flip-front">
+                    <img src="${slide.img}" alt="${slide.title}">
+                </div>
+                <div class="flip-back">
+                    <h5>${slide.title}</h5>
+                    <p>${slide.desc}</p>
+                </div>
+                </div>
+            </div>
+            `;
             return div;
         }
 
@@ -1207,6 +1217,88 @@
             startAutoSlide();
         });
     </script>
+  
+<script>
+  document.getElementById('enviarBtn').addEventListener('click', function () {
+    const form = document.getElementById('licitacionForm');
+    const msg = document.getElementById('licitacionMsg');
+    let valido = true;
+
+    msg.innerHTML = "";
+
+    // Validar nombre
+    const nombre = document.getElementById('nombre');
+    if (!nombre.value.trim()) {
+        valido = false;
+        nombre.classList.add('input-error');
+        setTimeout(() => nombre.classList.remove('input-error'), 3000);
+    }
+
+    // Validar correo
+    const correo = document.getElementById('correo');
+    const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value.trim());
+    if (!correo.value.trim() || !correoValido) {
+        valido = false;
+        correo.classList.add('input-error');
+        setTimeout(() => correo.classList.remove('input-error'), 3000);
+    }
+
+    // Validar mensaje
+    const mensaje = document.getElementById('mensaje');
+    if (!mensaje.value.trim()) {
+        valido = false;
+        mensaje.classList.add('input-error');
+        setTimeout(() => mensaje.classList.remove('input-error'), 3000);
+    }
+
+    // Si hay error
+    if (!valido) {
+        msg.innerHTML = "<div class='fade-alert' style='font-size:12px;color:#b94a48; margin:0; background:#f8d7da; border:1px solid #f5c6cb; border-radius:6px; box-shadow:none; padding:10px 18px; display:flex; align-items:center; gap:8px;'><i class='fa fa-exclamation-circle' style='color:#b94a48;'></i>Complete todos los campos obligatorios.</div>";
+        setTimeout(() => {
+            msg.querySelector('.fade-alert').classList.add('show');
+        }, 10);
+        setTimeout(() => {
+            if (msg.querySelector('.fade-alert')) {
+                msg.querySelector('.fade-alert').classList.remove('show');
+                setTimeout(() => { msg.innerHTML = ""; }, 500);
+            }
+        }, 3000);
+        return;
+    }
+
+    // Si todo está bien, enviar
+    const data = new FormData(form);
+    msg.innerHTML = "<div class='fade-alert' style='font-size:12px;color:#0c5460; margin:0; background:#d1ecf1; border:1px solid #bee5eb; border-radius:6px; box-shadow:none; padding:10px 18px; display:flex; align-items:center; gap:8px;'><i class='fa fa-info-circle' style='color:#0c5460;'></i>Enviando...</div>";
+    setTimeout(() => {
+        msg.querySelector('.fade-alert').classList.add('show');
+    }, 10);
+    fetch('enviar-licitacion.php', {
+        method: 'POST',
+        body: data
+    })
+        .then(res => res.text())
+        .then(txt => {
+            if (txt.trim() === "OK") {
+                msg.innerHTML = "<div class='fade-alert' style='font-size:12px;color:#155724; margin:0; background:#d4edda; border:1px solid #c3e6cb; border-radius:6px; box-shadow:none; padding:10px 18px; display:flex; align-items:center; gap:8px;'><i class='fa fa-check-circle' style='color:#155724;'></i>¡Solicitud enviada correctamente! Nos pondremos en contacto.</div>";
+                form.reset();
+            } else {
+                msg.innerHTML = "<div class='fade-alert' style='font-size:12px;color:#b94a48; margin:0; background:#f8d7da; border:1px solid #f5c6cb; border-radius:6px; box-shadow:none; padding:10px 18px; display:flex; align-items:center; gap:8px;'><i class='fa fa-exclamation-circle' style='color:#b94a48;'></i>" + txt + "</div>";
+            }
+            setTimeout(() => {
+                msg.querySelector('.fade-alert').classList.add('show');
+            }, 10);
+            setTimeout(() => {
+                if (msg.querySelector('.fade-alert')) {
+                    msg.querySelector('.fade-alert').classList.remove('show');
+                    setTimeout(() => { msg.innerHTML = ""; }, 500);
+                }
+            }, 3000);
+        });
+});
+
+</script>
+
+
 </body>
 
 </html>
