@@ -1,56 +1,29 @@
+// server.js
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const path = require('path');
 const ewelink = require('ewelink-api');
 
 const app = express();
-
-app.use(cors({
-  origin: 'https://www.domopy.com',
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type'],
-}));
-
+app.use(cors());
 app.use(bodyParser.json());
 
-// Servir archivos estáticos (como luces.html)
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Ruta raíz para servir luces.html
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'luces.html'));
-});
-
-// Conexión a eWeLink
 const connection = new ewelink({
   email: process.env.EWELINK_EMAIL,
   password: process.env.EWELINK_PASSWORD,
   region: 'us',
   APP_ID: process.env.EWELINK_APP_ID,
-  APP_SECRET: process.env.EWELINK_APP_SECRET,
+  APP_SECRET: process.env.EWELINK_APP_SECRET
 });
-
-// Generador de slug
-function generarSlug(nombre) {
-  return nombre.toLowerCase()
-    .replace(/\s+/g, '-')
-    .replace(/[á]/g, 'a')
-    .replace(/[é]/g, 'e')
-    .replace(/[í]/g, 'i')
-    .replace(/[ó]/g, 'o')
-    .replace(/[ú]/g, 'u')
-    .replace(/[ñ]/g, 'n');
-}
 
 // Control de encendido/apagado
 app.post('/control', async (req, res) => {
   const { dispositivo } = req.body;
   try {
     const devices = await connection.getDevices();
-    const slugObjetivo = generarSlug(dispositivo);
-    const device = devices.find(d => generarSlug(d.name) === slugObjetivo);
-
+    const device = devices.find(
+      d => d.name.toLowerCase() === dispositivo.toLowerCase()
+    );
     if (!device) return res.json({ success: false, message: 'Dispositivo no encontrado' });
 
     const estado = await connection.getDevicePowerState(device.deviceid);
@@ -64,7 +37,12 @@ app.post('/control', async (req, res) => {
   }
 });
 
-// Listado de dispositivos
+// Página principal
+app.get('/', (req, res) => {
+  res.send('API de control de luces activa');
+});
+
+// Listado de dispositivos disponibles
 app.get('/dispositivos', async (req, res) => {
   try {
     const devices = await connection.getDevices();
@@ -74,12 +52,12 @@ app.get('/dispositivos', async (req, res) => {
           const estado = await connection.getDevicePowerState(d.deviceid);
           return {
             nombre: d.name,
-            estado: estado.state,
+            estado: estado.state
           };
         } catch {
           return {
             nombre: d.name,
-            estado: 'unknown',
+            estado: 'unknown'
           };
         }
       })
@@ -91,6 +69,6 @@ app.get('/dispositivos', async (req, res) => {
   }
 });
 
-// Usar el puerto que Render define
-const PORT = process.env.PORT;
+
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
