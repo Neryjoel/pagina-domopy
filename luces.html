@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Control de Luces</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        .plano {
+            position: relative;
+            display: inline-block;
+        }
+
+        .foco {
+            position: absolute;
+            font-size: 32px;
+            cursor: pointer;
+            background-color: transparent !important;
+            border: none;
+            outline: none;
+            padding: 0;
+            margin: 0;
+            filter: grayscale(100%);
+            transition: 0.3s;
+            user-select: none;
+        }
+
+        .foco.on {
+            filter: none;
+        }
+
+        .off {
+            background-color: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Control de Luces</h2>
+    <div class="plano">
+        <img src="plano1.jpeg" alt="Plano" width="600">
+
+        <!-- Focos con IDs basados en nombres, posiciones aproximadas -->
+        <span class="foco off" id="oficina-director-3" style="top: 50px; left: 100px;" onclick="toggle('Oficina director 3')">💡</span>
+        <span class="foco off" id="oficina-director-2" style="top: 100px; left: 130px;" onclick="toggle('Oficina director 2')">💡</span>
+        <span class="foco off" id="oficina-emanuel" style="top: 150px; left: 160px;" onclick="toggle('Oficina Emanuel')">💡</span>
+        <span class="foco off" id="sala-de-reunion" style="top: 200px; left: 200px;" onclick="toggle('Sala de reunion')">💡</span>
+        <span class="foco off" id="cocina" style="top: 250px; left: 250px;" onclick="toggle('Cocina')">💡</span>
+        <span class="foco off" id="acceso-bano" style="top: 300px; left: 300px;" onclick="toggle('Acceso Baño')">💡</span>
+        <span class="foco off" id="bano-caballeros" style="top: 350px; left: 350px;" onclick="toggle('Baño Caballeros')">💡</span>
+        <span class="foco off" id="puerta-principal" style="top: 400px; left: 400px;" onclick="toggle('Puerta Principal')">💡</span>
+    </div>
+
+    <script>
+        function toggle(nombre) {
+            fetch("https://pagina-domopy.onrender.com/control", {
+                method: "POST",
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ dispositivo: nombre })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        const id = nombre.toLowerCase().replace(/\s+/g, '-').replace(/á/g, 'a').replace(/é/g, 'e').replace(/í/g, 'i').replace(/ó/g, 'o').replace(/ú/g, 'u').replace(/ñ/g, 'n');
+                        const foco = document.getElementById(id);
+                        if(foco) foco.classList.toggle('on', data.estado === 'on');
+                    } else {
+                        alert("Error: " + data.message);
+                    }
+                })
+                .catch(err => {
+                    console.error("Error:", err);
+                    alert("Error de conexión.");
+                });
+        }
+    </script>
+</body>
+
+</html>
