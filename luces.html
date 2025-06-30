@@ -99,7 +99,7 @@
     }
 
     // Inicializar estado
-    fetch("https://pagina-domopy.onrender.com/dispositivos")
+    fetch("/dispositivos")
       .then(res => res.json())
       .then(dispositivos => {
         dispositivos.forEach(({ nombre, estado }) => {
@@ -116,7 +116,7 @@
     document.querySelectorAll('.foco').forEach(boton => {
       boton.addEventListener('click', () => {
         const nombre = boton.title;
-        fetch("https://pagina-domopy.onrender.com/control", {
+        fetch("/control", {
           method: "POST",
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ dispositivo: nombre })

@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 const ewelink = require('ewelink-api');
 
 const app = express();
@@ -13,6 +14,15 @@ app.use(cors({
 
 app.use(bodyParser.json());
 
+// Servir archivos estáticos (como luces.html)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Ruta raíz para servir luces.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'luces.html'));
+});
+
+// Conexión a eWeLink
 const connection = new ewelink({
   email: process.env.EWELINK_EMAIL,
   password: process.env.EWELINK_PASSWORD,
@@ -21,6 +31,7 @@ const connection = new ewelink({
   APP_SECRET: process.env.EWELINK_APP_SECRET,
 });
 
+// Generador de slug
 function generarSlug(nombre) {
   return nombre.toLowerCase()
     .replace(/\s+/g, '-')
@@ -32,6 +43,7 @@ function generarSlug(nombre) {
     .replace(/[ñ]/g, 'n');
 }
 
+// Control de encendido/apagado
 app.post('/control', async (req, res) => {
   const { dispositivo } = req.body;
   try {
@@ -52,6 +64,7 @@ app.post('/control', async (req, res) => {
   }
 });
 
+// Listado de dispositivos
 app.get('/dispositivos', async (req, res) => {
   try {
     const devices = await connection.getDevices();
@@ -78,5 +91,6 @@ app.get('/dispositivos', async (req, res) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+// Usar el puerto que Render define
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
