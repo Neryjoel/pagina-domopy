@@ -16,6 +16,7 @@ const connection = new ewelink({
   APP_SECRET: process.env.EWELINK_APP_SECRET
 });
 
+// Control de encendido/apagado
 app.post('/control', async (req, res) => {
   const { dispositivo } = req.body;
   try {
@@ -36,8 +37,21 @@ app.post('/control', async (req, res) => {
   }
 });
 
+// Página principal
 app.get('/', (req, res) => {
   res.send('API de control de luces activa');
+});
+
+// Listado de dispositivos disponibles
+app.get('/dispositivos', async (req, res) => {
+  try {
+    const devices = await connection.getDevices();
+    const listado = devices.map(d => `${d.name} (ID: ${d.deviceid})`);
+    res.send(`<h3>Dispositivos encontrados:</h3><ul>${listado.map(n => `<li>${n}</li>`).join('')}</ul>`);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Error al obtener dispositivos');
+  }
 });
 
 const PORT = process.env.PORT || 3000;
