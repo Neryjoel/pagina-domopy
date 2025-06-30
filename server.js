@@ -5,9 +5,8 @@ const ewelink = require('ewelink-api');
 
 const app = express();
 
-// Configurar CORS para permitir solo solicitudes desde tu dominio
 app.use(cors({
-  origin: 'https://www.domopy.com', // Reemplaza con tu dominio
+  origin: 'https://www.domopy.com',
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type'],
 }));
@@ -22,14 +21,24 @@ const connection = new ewelink({
   APP_SECRET: process.env.EWELINK_APP_SECRET,
 });
 
-// Control de encendido/apagado
+function generarSlug(nombre) {
+  return nombre.toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[á]/g, 'a')
+    .replace(/[é]/g, 'e')
+    .replace(/[í]/g, 'i')
+    .replace(/[ó]/g, 'o')
+    .replace(/[ú]/g, 'u')
+    .replace(/[ñ]/g, 'n');
+}
+
 app.post('/control', async (req, res) => {
   const { dispositivo } = req.body;
   try {
     const devices = await connection.getDevices();
-    const device = devices.find(
-      d => d.name.toLowerCase() === dispositivo.toLowerCase()
-    );
+    const slugObjetivo = generarSlug(dispositivo);
+    const device = devices.find(d => generarSlug(d.name) === slugObjetivo);
+
     if (!device) return res.json({ success: false, message: 'Dispositivo no encontrado' });
 
     const estado = await connection.getDevicePowerState(device.deviceid);
@@ -43,12 +52,6 @@ app.post('/control', async (req, res) => {
   }
 });
 
-// Página principal
-app.get('/', (req, res) => {
-  res.send('API de control de luces activa');
-});
-
-// Listado de dispositivos disponibles
 app.get('/dispositivos', async (req, res) => {
   try {
     const devices = await connection.getDevices();

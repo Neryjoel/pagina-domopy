@@ -14,25 +14,21 @@
       align-items: center;
       background-color: #f5f5f5;
     }
-
     h2 {
       margin: 1rem 0;
       font-size: 1.5rem;
       text-align: center;
     }
-
     .plano {
       position: relative;
       width: 100%;
       max-width: 800px;
     }
-
     .plano img {
       width: 100%;
       height: auto;
       display: block;
     }
-
     .foco {
       position: absolute;
       font-size: clamp(20px, 5vw, 40px);
@@ -49,11 +45,9 @@
       text-align: center;
       z-index: 1;
     }
-
     .foco.on {
       filter: none;
     }
-
     .label {
       font-size: 0.6rem;
       line-height: 1.2;
@@ -66,13 +60,11 @@
       word-wrap: break-word;
       white-space: normal;
     }
-
     @media (max-width: 500px) {
       .label {
         font-size: 0.5rem;
         max-width: 60px;
       }
-
       .foco {
         font-size: 20px;
       }
@@ -84,40 +76,44 @@
   <div class="plano">
     <img src="plano1.jpeg" alt="Plano" />
 
-    <!-- Oficinas -->
-    <button class="foco" id="oficina-director-3" style="top:25%; left:55%;" title="Oficina director 3">
-      💡<span class="label">Oficina <br> Director 3</span>
-    </button>
-    <button class="foco" id="oficina-director-2" style="top:25%; left:40%;" title="Oficina director 2">
-      💡<span class="label">Oficina <br> Director 2</span>
-    </button>
-    <button class="foco" id="oficina-emanuel" style="top:25%; left:21%;" title="Oficina Emanuel">
-      💡<span class="label">Oficina <br> Emanuel</span>
-    </button>
-
-    <!-- Zona común -->
-    <button class="foco" id="sala-de-reunion" style="top:55%; left:58%;" title="Sala de reunión">
-      💡<span class="label">Sala de<br> Reunión</span>
-    </button>
-    <button class="foco" id="cocina" style="top:40%; left:56%;" title="Cocina">
-      💡<span class="label">Cocina</span>
-    </button>
-    <button class="foco" id="acceso-bano" style="top:55%; left:76%;" title="Acceso Baño">
-      💡<span class="label">Acceso <br> Baño</span>
-    </button>
-
-    <!-- Fondo -->
-    <button class="foco" id="bano-caballeros" style="top:78%; left:80%;" title="Baño Caballeros">
-      💡<span class="label">Baño <br> Caballeros</span>
-    </button>
-    <button class="foco" id="puerta-principal" style="top:81%; left:60%;" title="Puerta Principal">
-      💡<span class="label">Puerta <br> Principal</span>
-    </button>
+    <button class="foco" id="oficina-director-3" style="top:25%; left:55%;" title="Oficina director 3">💡<span class="label">Oficina <br> Director 3</span></button>
+    <button class="foco" id="oficina-director-2" style="top:25%; left:40%;" title="Oficina director 2">💡<span class="label">Oficina <br> Director 2</span></button>
+    <button class="foco" id="oficina-emanuel" style="top:25%; left:21%;" title="Oficina Emanuel">💡<span class="label">Oficina <br> Emanuel</span></button>
+    <button class="foco" id="sala-de-reunion" style="top:55%; left:58%;" title="Sala de reunion">💡<span class="label">Sala de<br> Reunión</span></button>
+    <button class="foco" id="cocina" style="top:40%; left:56%;" title="Cocina">💡<span class="label">Cocina</span></button>
+    <button class="foco" id="acceso-bano" style="top:55%; left:76%;" title="Acceso Baño">💡<span class="label">Acceso <br> Baño</span></button>
+    <button class="foco" id="bano-caballeros" style="top:78%; left:80%;" title="Baño Caballeros">💡<span class="label">Baño <br> Caballeros</span></button>
+    <button class="foco" id="puerta-principal" style="top:81%; left:60%;" title="Puerta Principal">💡<span class="label">Puerta <br> Principal</span></button>
   </div>
 
   <script>
-    const botones = document.querySelectorAll('.foco');
-    botones.forEach(boton => {
+    function generarSlug(texto) {
+      return texto.toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[á]/g, 'a')
+        .replace(/[é]/g, 'e')
+        .replace(/[í]/g, 'i')
+        .replace(/[ó]/g, 'o')
+        .replace(/[ú]/g, 'u')
+        .replace(/[ñ]/g, 'n');
+    }
+
+    // Inicializar estado
+    fetch("https://pagina-domopy.onrender.com/dispositivos")
+      .then(res => res.json())
+      .then(dispositivos => {
+        dispositivos.forEach(({ nombre, estado }) => {
+          const id = generarSlug(nombre);
+          const btn = document.getElementById(id);
+          if (btn && estado === 'on') {
+            btn.classList.add('on');
+          }
+        });
+      })
+      .catch(() => console.warn("No se pudo cargar el estado de los dispositivos."));
+
+    // Evento de clic
+    document.querySelectorAll('.foco').forEach(boton => {
       boton.addEventListener('click', () => {
         const nombre = boton.title;
         fetch("https://pagina-domopy.onrender.com/control", {
@@ -136,27 +132,6 @@
         .catch(() => alert("Error de conexión."));
       });
     });
-
-    // Estado inicial
-    fetch("https://pagina-domopy.onrender.com/dispositivos")
-      .then(res => res.json())
-      .then(dispositivos => {
-        dispositivos.forEach(({ nombre, estado }) => {
-          const id = nombre.toLowerCase()
-            .replace(/\s+/g, '-')
-            .replace(/á/g, 'a')
-            .replace(/é/g, 'e')
-            .replace(/í/g, 'i')
-            .replace(/ó/g, 'o')
-            .replace(/ú/g, 'u')
-            .replace(/ñ/g, 'n');
-          const btn = document.getElementById(id);
-          if (btn && estado === 'on') {
-            btn.classList.add('on');
-          }
-        });
-      })
-      .catch(() => console.warn("No se pudo cargar el estado de los dispositivos."));
   </script>
 </body>
 </html>
