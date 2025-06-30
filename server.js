@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -16,7 +15,7 @@ const connection = new ewelink({
   APP_SECRET: process.env.EWELINK_APP_SECRET
 });
 
-// Control de encendido/apagado
+// Control de encendido/apagado (POST)
 app.post('/control', async (req, res) => {
   const { dispositivo } = req.body;
   try {
@@ -35,6 +34,11 @@ app.post('/control', async (req, res) => {
     console.error(err);
     res.json({ success: false, message: 'Error al controlar el dispositivo' });
   }
+});
+
+// Evitar error "Cannot GET /control" para peticiones GET
+app.get('/control', (req, res) => {
+  res.send('Ruta /control solo acepta peticiones POST para controlar dispositivos.');
 });
 
 // Página principal
@@ -68,7 +72,6 @@ app.get('/dispositivos', async (req, res) => {
     res.status(500).json({ error: 'Error al obtener los dispositivos' });
   }
 });
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
