@@ -1,11 +1,17 @@
-// server.js
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const ewelink = require('ewelink-api');
 
 const app = express();
-app.use(cors());
+
+// Configurar CORS para permitir solo solicitudes desde tu dominio
+app.use(cors({
+  origin: 'https://www.domopy.com', // Reemplaza con tu dominio
+  methods: ['GET', 'POST'],
+  allowedHeaders: ['Content-Type'],
+}));
+
 app.use(bodyParser.json());
 
 const connection = new ewelink({
@@ -13,7 +19,7 @@ const connection = new ewelink({
   password: process.env.EWELINK_PASSWORD,
   region: 'us',
   APP_ID: process.env.EWELINK_APP_ID,
-  APP_SECRET: process.env.EWELINK_APP_SECRET
+  APP_SECRET: process.env.EWELINK_APP_SECRET,
 });
 
 // Control de encendido/apagado
@@ -52,12 +58,12 @@ app.get('/dispositivos', async (req, res) => {
           const estado = await connection.getDevicePowerState(d.deviceid);
           return {
             nombre: d.name,
-            estado: estado.state
+            estado: estado.state,
           };
         } catch {
           return {
             nombre: d.name,
-            estado: 'unknown'
+            estado: 'unknown',
           };
         }
       })
@@ -68,7 +74,6 @@ app.get('/dispositivos', async (req, res) => {
     res.status(500).json({ error: 'Error al obtener los dispositivos' });
   }
 });
-
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
