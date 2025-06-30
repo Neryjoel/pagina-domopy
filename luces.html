@@ -1,90 +1,141 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Control de Luces</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            text-align: center;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Control de Luces</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #f5f5f5;
+    }
 
-        .plano {
-            position: relative;
-            display: inline-block;
-        }
+    h2 {
+      margin: 1rem 0;
+    }
 
-        .foco {
-            position: absolute;
-            font-size: 32px;
-            cursor: pointer;
-            background-color: transparent !important;
-            border: none;
-            outline: none;
-            padding: 0;
-            margin: 0;
-            filter: grayscale(100%);
-            transition: 0.3s;
-            user-select: none;
-        }
+    .plano {
+      position: relative;
+      max-width: 100%;
+      width: 100%;
+    }
 
-        .foco.on {
-            filter: none;
-        }
+    .plano img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-        .off {
-            background-color: #ff0000;
-        }
-    </style>
+    .foco {
+      position: absolute;
+      font-size: 2rem;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      filter: grayscale(100%);
+      transition: filter 0.3s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .foco.on {
+      filter: none;
+    }
+
+    .label {
+      font-size: 0.65rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 2px 5px;
+      border-radius: 4px;
+      margin-top: 2px;
+      text-align: center;
+      white-space: nowrap;
+    }
+  </style>
 </head>
-
 <body>
-    <h2>Control de Luces</h2>
-    <div class="plano">
-        <img src="plano1.jpeg" alt="Plano" width="900">
+  <h2>Control de Luces</h2>
+  <div class="plano">
+    <img src="plano1.jpeg" alt="Plano" />
 
-        <!-- Focos con title para identificar -->
-        <span class="foco off" id="oficina-director-3" style="top: 50px; left: 100px;" onclick="toggle('Oficina director 3')" title="Oficina director 3">💡</span>
-        <span class="foco off" id="oficina-director-2" style="top: 100px; left: 130px;" onclick="toggle('Oficina director 2')" title="Oficina director 2">💡</span>
-        <span class="foco off" id="oficina-emanuel" style="top: 150px; left: 160px;" onclick="toggle('Oficina Emanuel')" title="Oficina Emanuel">💡</span>
-        <span class="foco off" id="sala-de-reunion" style="top: 200px; left: 200px;" onclick="toggle('Sala de reunion')" title="Sala de reunion">💡</span>
-        <span class="foco off" id="cocina" style="top: 250px; left: 250px;" onclick="toggle('Cocina')" title="Cocina">💡</span>
-        <span class="foco off" id="acceso-bano" style="top: 300px; left: 300px;" onclick="toggle('Acceso Baño')" title="Acceso Baño">💡</span>
-        <span class="foco off" id="bano-caballeros" style="top: 350px; left: 350px;" onclick="toggle('Baño Caballeros')" title="Baño Caballeros">💡</span>
-        <span class="foco off" id="puerta-principal" style="top: 400px; left: 400px;" onclick="toggle('Puerta Principal')" title="Puerta Principal">💡</span>
-    </div>
+    <!-- Coordenadas en porcentaje, con etiquetas -->
+    <button class="foco" id="oficina-director-3" style="top:5%; left:10%;" title="Oficina director 3">
+      💡<span class="label">Oficina Director 3</span>
+    </button>
+    <button class="foco" id="oficina-director-2" style="top:12%; left:15%;" title="Oficina director 2">
+      💡<span class="label">Oficina Director 2</span>
+    </button>
+    <button class="foco" id="oficina-emanuel" style="top:20%; left:18%;" title="Oficina Emanuel">
+      💡<span class="label">Oficina Emanuel</span>
+    </button>
+    <button class="foco" id="sala-de-reunion" style="top:28%; left:22%;" title="Sala de reunión">
+      💡<span class="label">Sala de Reunión</span>
+    </button>
+    <button class="foco" id="cocina" style="top:35%; left:28%;" title="Cocina">
+      💡<span class="label">Cocina</span>
+    </button>
+    <button class="foco" id="acceso-bano" style="top:45%; left:32%;" title="Acceso Baño">
+      💡<span class="label">Acceso Baño</span>
+    </button>
+    <button class="foco" id="bano-caballeros" style="top:55%; left:38%;" title="Baño Caballeros">
+      💡<span class="label">Baño Caballeros</span>
+    </button>
+    <button class="foco" id="puerta-principal" style="top:65%; left:42%;" title="Puerta Principal">
+      💡<span class="label">Puerta Principal</span>
+    </button>
+  </div>
 
-    <script>
-        function toggle(nombre) {
-            fetch("https://pagina-domopy.onrender.com/control", {
-                method: "POST",
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ dispositivo: nombre })
-            })
-                .then(res => res.json())
-                .then(data => {
-                    if (data.success) {
-                        const id = nombre.toLowerCase()
-                            .replace(/\s+/g, '-')
-                            .replace(/á/g, 'a')
-                            .replace(/é/g, 'e')
-                            .replace(/í/g, 'i')
-                            .replace(/ó/g, 'o')
-                            .replace(/ú/g, 'u')
-                            .replace(/ñ/g, 'n');
-                        const foco = document.getElementById(id);
-                        if (foco) foco.classList.toggle('on', data.estado === 'on');
-                    } else {
-                        alert("Error: " + data.message);
-                    }
-                })
-                .catch(err => {
-                    console.error("Error:", err);
-                    alert("Error de conexión.");
-                });
+<script>
+  const botones = document.querySelectorAll('.foco');
+  botones.forEach(boton => {
+    boton.addEventListener('click', () => {
+      const nombre = boton.title;
+      fetch("https://pagina-domopy.onrender.com/control", {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ dispositivo: nombre })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          boton.classList.toggle('on', data.estado === 'on');
+        } else {
+          alert("Error: " + data.message);
         }
-    </script>
-</body>
+      })
+      .catch(() => alert("Error de conexión."));
+    });
+  });
 
+  // 🔄 Al iniciar, traer el estado de todos
+  fetch("https://pagina-domopy.onrender.com/dispositivos")
+    .then(res => res.json())
+    .then(dispositivos => {
+      dispositivos.forEach(({ nombre, estado }) => {
+        const id = nombre.toLowerCase()
+          .replace(/\s+/g, '-')
+          .replace(/á/g, 'a')
+          .replace(/é/g, 'e')
+          .replace(/í/g, 'i')
+          .replace(/ó/g, 'o')
+          .replace(/ú/g, 'u')
+          .replace(/ñ/g, 'n');
+
+        const btn = document.getElementById(id);
+        if (btn && estado === 'on') {
+          btn.classList.add('on');
+        }
+      });
+    })
+    .catch(() => console.warn("No se pudo cargar el estado de los dispositivos."));
+</script>
+
+</body>
 </html>

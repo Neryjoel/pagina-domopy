@@ -46,13 +46,29 @@ app.get('/', (req, res) => {
 app.get('/dispositivos', async (req, res) => {
   try {
     const devices = await connection.getDevices();
-    const listado = devices.map(d => `${d.name} (ID: ${d.deviceid})`);
-    res.send(`<h3>Dispositivos encontrados:</h3><ul>${listado.map(n => `<li>${n}</li>`).join('')}</ul>`);
+    const estados = await Promise.all(
+      devices.map(async (d) => {
+        try {
+          const estado = await connection.getDevicePowerState(d.deviceid);
+          return {
+            nombre: d.name,
+            estado: estado.state
+          };
+        } catch {
+          return {
+            nombre: d.name,
+            estado: 'unknown'
+          };
+        }
+      })
+    );
+    res.json(estados);
   } catch (err) {
     console.error(err);
-    res.status(500).send('Error al obtener dispositivos');
+    res.status(500).json({ error: 'Error al obtener los dispositivos' });
   }
 });
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
