@@ -96,7 +96,7 @@
     </button>
 
     <!-- Zona común -->
-    <button class="foco" id="sala-de-reunion" style="top:55%; left:58%;" title="Sala de reunión">
+    <button class="foco" id="sala-de-reunion" style="top:55%; left:58%;" title="Sala de reunion">
       💡<span class="label">Sala de<br> Reunión</span>
     </button>
     <button class="foco" id="cocina" style="top:40%; left:56%;" title="Cocina">
@@ -137,26 +137,29 @@
       });
     });
 
-    // Estado inicial
     fetch("https://pagina-domopy.onrender.com/dispositivos")
-      .then(res => res.json())
-      .then(dispositivos => {
-        dispositivos.forEach(({ nombre, estado }) => {
-          const id = nombre.toLowerCase()
-            .replace(/\s+/g, '-')
-            .replace(/á/g, 'a')
-            .replace(/é/g, 'e')
-            .replace(/í/g, 'i')
-            .replace(/ó/g, 'o')
-            .replace(/ú/g, 'u')
-            .replace(/ñ/g, 'n');
-          const btn = document.getElementById(id);
-          if (btn && estado === 'on') {
+    .then(res => res.json())
+    .then(dispositivos => {
+      dispositivos.forEach(({ nombre, estado }) => {
+        // Normalizamos el nombre para comparación
+        const nombreNormalized = nombre.trim().toLowerCase();
+
+        // Buscamos el botón que tenga atributo title igual (insensible a mayúsculas y espacios)
+        const btn = Array.from(document.querySelectorAll('.foco'))
+          .find(b => b.title.trim().toLowerCase() === nombreNormalized);
+
+        if (btn) {
+          if (estado === 'on') {
             btn.classList.add('on');
+          } else {
+            btn.classList.remove('on');
           }
-        });
-      })
-      .catch(() => console.warn("No se pudo cargar el estado de los dispositivos."));
-  </script>
+        } else {
+          console.warn(`No se encontró botón para dispositivo: "${nombre}"`);
+        }
+      });
+    })
+    .catch(() => console.warn("No se pudo cargar el estado de los dispositivos."));
+</script>
 </body>
 </html>

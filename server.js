@@ -18,6 +18,8 @@ const connection = new ewelink({
 // Control de encendido/apagado (POST)
 app.post('/control', async (req, res) => {
   const { dispositivo } = req.body;
+  console.log("Recibido dispositivo para controlar:", dispositivo);  // Log de lo que recibe el servidor
+
   try {
     const devices = await connection.getDevices();
     const device = devices.find(

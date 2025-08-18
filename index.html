@@ -26,6 +26,9 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/whatsapp.css" rel="stylesheet">
+    <!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 
     <style>
         .carousel-indicators li {
@@ -43,27 +46,9 @@
         }
 
 
-        .navbar {
-            display: flex !important;
-            position: sticky;
-            /* Hacer que el navbar sea pegajoso */
-            top: 0;
-            /* Pegajoso en la parte superior */
-            z-index: 999;
-            /* Para que se mantenga encima del contenido */
-        }
-
-        .topbar {
-            background-color: rgb(0, 102, 161);
-            position: static;
-            /* El topbar se desplaza con la página */
-            z-index: 998;
-            /* Asegura que esté debajo del navbar */
-        }
-
         @media (max-width: 991.98px) {
             .logo-movil {
-                height: 60px !important;
+                height: 40px !important;
                 margin-left: -10px !important;
                 /* mueve más a la izquierda */
 
@@ -81,13 +66,16 @@
         }
 
         .fade-alert {
-            opacity: 0;
-            transition: opacity 0.5s;
-        }
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: block;
+    margin-top: 10px;
+}
 
-        .fade-alert.show {
-            opacity: 1;
-        }
+.fade-alert.show {
+    opacity: 1;
+}
+
 
         .invalid-feedback,
         .valid-feedback {
@@ -112,6 +100,8 @@
             background: #f9f9fa;
             font-size: 1rem;
             transition: border-color 0.2s, box-shadow 0.2s;
+              transition: box-shadow 0.3s ease, background-color 0.3s ease;
+
         }
 
         #contact .form-control:focus {
@@ -158,6 +148,7 @@
         @media (max-width: 991px) {
             #contact .col-lg-6 {
                 padding: 1.5rem 0 !important;
+                
             }
         }
 
@@ -166,89 +157,192 @@
     box-shadow: 0 0 0 2px #dc3545 !important;
     background-color: #ffe5e5 !important;
     transition: box-shadow 0.3s, background 0.3s;
-}
+    }
+    .navbar-brand.d-none.d-lg-block img {
+    margin-left: 25px !important; /* mueve la imagen 5px a la izquierda en escritorio */
+    
+  }
+
+    html, body {
+    overflow-x: hidden !important;
+    }
     </style>
+
+<style>
+/* ...existing code... */
+.topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 32px;
+  background-color: rgb(0, 102, 161);
+  z-index: 1040;
+}
+.topbar .row {
+    margin-top: -5px; /* sube el contenido 5px */
+  }
+
+  
+
+
+/* Oculta el topbar en móviles y ajusta navbar */
+@media (max-width: 991px) {
+  .topbar {
+    display: none !important;
+  }
+  .navbar {
+    background-color: #fff !important;
+    top: 0 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+     height: 56px !important; /* antes era más alto */
+  min-height: 56px !important;
+  }
+  .navbar-collapse {
+    background: #fff !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 56px; /* igual al alto del navbar */
+    z-index: 1050;
+  }
+  .navbar-nav {
+    background: #fff !important;
+    padding: 10px 18px 10px 10px;
+  }
+  .navbar-nav .nav-link {
+    font-size: 0.95rem !important;
+    letter-spacing: 0.5px;
+    padding: 8px 0 8px 11px !important; /* mueve solo el texto 1px a la derecha */
+  }
+  body {
+    padding-top: 56px !important; /* solo navbar */
+  }
+}
+
+/* Reduce el tamaño del logo en navbar */
+.logo-movil,
+.navbar-brand img {
+  height: 45px !important;
+  max-height: 45px !important;
+}
+.navbar-nav .nav-link {
+  font-size: 0.90rem !important; /* reduce el tamaño de las letras del nav */
+  line-height: 32px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.navbar.sombra-scroll {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13) !important;
+  transition: box-shadow 0.3s;
+}
+/* Reduce el tamaño del navbar en todos los dispositivos */
+.navbar {
+  position: fixed !important;
+  top: 32px; /* igual a la altura del topbar */
+  width: 100%;
+  z-index: 1030;
+  transition: top 0.3s ease;
+  display: flex !important;
+  height: 60px ;        /* navbar más delgado */
+  min-height: 60px;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;   /* elimina espacio abajo */
+  align-items: center !important; /* centra el contenido verticalmente */
+}
+.navbar-nav {
+  margin-bottom: 0 !important;    /* elimina margen abajo del menú */
+}
+
+
+
+/* Para escritorio */
+@media (min-width: 991px) {
+  body {
+    padding-top: 96px !important; /* topbar + navbar */
+  }
+  .carousel-item {
+    min-height: 87vh; 
+  }
+}
+
+/* Para móviles y tablets */
+@media (max-width: 991px) {
+  body {
+    padding-top: 56px !important; /* Solo navbar */
+  }
+
+  .carousel-item {
+    min-height: 93vh; /* Ajuste para dispositivos más pequeños */
+  }
+}
+
+
+</style>
+
 
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="90">
 
-    <!-- WhatsApp Button Start -->
-    <a href="https://wa.me/595986170999" class="whatsapp-button" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+<!-- WhatsApp Button Start -->
+<a href="https://wa.me/595986170999" class="whatsapp-button" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Topbar -->
+<div class="container-fluid topbar" id="topbar">
+  <div class="row py-2 px-lg-5">
+    <div class="col-lg-6 text-left mb-2 mb-lg-0">
+      <div class="d-inline-flex align-items-center">
+        <small class="text-white ml-3">
+          <i class="fa fa-phone-alt mr-2"></i>(0986) 170 999
+        </small>
+        <small class="px-3 text-white">|</small>
+        <small class="text-white">
+          <i class="fa fa-envelope mr-2"></i>comercial@domopy.com
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 🔽 Este es el ancla real para que funcione #home -->
+<div id="home" style="position: relative; top: -96px;"></div>
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark px-4">    <!-- Logo para móviles -->
+    <a href="index.html" class="navbar-brand d-block d-lg-none">
+        <img src="img/Logodomo.jpg" alt="Logo" class="logo-movil" style="height: 60px;">
     </a>
 
+    <!-- Botón del menú colapsable -->
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <!-- Topbar -->
-    <div class="container-fluid d-none d-lg-block topbar" id="home">
-        <div class="row py-2 px-lg-5">
-            <div class="col-lg-6 text-left mb-2 mb-lg-0">
-                <div class="d-inline-flex align-items-center">
-                    <small class="text-white" style="margin-left: 25px;">
-                        <i class="fa fa-phone-alt mr-2"></i>(0986) 170 999
-                    </small>
-                    <small class="px-3 text-white">|</small>
-                    <small class="text-white">
-                        <i class="fa fa-envelope mr-2"></i>comercial@domopy.com
-                    </small>
-                </div>
-            </div>
-
-            <div class="col-lg-6 text-right" style="margin-left: -18px;">
-                <div class="d-inline-flex align-items-center">
-                    <a class="text-white px-2" href="">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a class="text-white px-2" href="">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a class="text-white pl-2" href="luces.html" target="_blank">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-1 py-lg-0 px-lg-5 align-items-center">
-        <a href="index.html" class="navbar-brand d-block d-lg-none">
-            <img src="img/Logodomo.jpg" alt="Logo" class="logo-movil" style="height: 60px;"><!-- Logo para móviles -->
+    <!-- Contenedor colapsable -->
+    <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+        <!-- Logo para escritorio -->
+        <a href="index.html" class="navbar-brand d-none d-lg-block" style="margin-left: -40px;">
+            <img src="img/Logodomo.jpg" alt="Logo" style="height: 65px;">
         </a>
 
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-            <!-- Logo a la izquierda -->
-            <a href="index.html" class="navbar-brand d-none d-lg-block" style="margin-left: -40px;">
-                <img src="img/Logodomo.jpg" alt="Logo" style="height: 65px;"><!-- Imagen para escritorio -->
-            </a>
-
-
-            <!-- Menú a la derecha -->
-            <div class="navbar-nav ml-auto py-0">
-                <a href="#home" class="nav-item nav-link active">Inicio</a>
-                <a href="#about" class="nav-item nav-link">Nosotros</a>
-                <a href="#service" class="nav-item nav-link">Servicios</a>
-                <a href="#project" class="nav-item nav-link">Proyectos</a>
-
-                <!-- 
-            <a href="#team" class="nav-item nav-link">Equipo</a>
-            -->
-
-                <a href="#faqs" class="nav-item nav-link">FAQs</a>
-                <a href="#marcas" class="nav-item nav-link">Marcas</a>
-                <a href="#contact" class="nav-item nav-link">Contacto</a>
-            </div>
+        <!-- Menú a la derecha -->
+        <div class="navbar-nav ml-auto py-0">
+            <a href="#home" class="nav-item nav-link active">Inicio</a>
+            <a href="#about" class="nav-item nav-link">Nosotros</a>
+            <a href="#service" class="nav-item nav-link">Servicios</a>
+            <a href="#project" class="nav-item nav-link">Proyectos</a>
+            <!-- <a href="#team" class="nav-item nav-link">Equipo</a> -->
+            <a href="#faqs" class="nav-item nav-link">FAQs</a>
+            <a href="#marcas" class="nav-item nav-link">Marcas</a>
+            <a href="#contact" class="nav-item nav-link">Contacto</a>
         </div>
-    </nav>
+    </div>
+</nav>
+
     <!-- Navbar End -->
 
     <!-- Carousel Start -->
@@ -261,21 +355,21 @@
                 <li data-target="#header-carousel" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item position-relative active" style="min-height: 100vh;">
+                <div class="carousel-item position-relative active" >
                     <img class="position-absolute w-100 h-100" src="img/carousel-1.jpg" style="object-fit: cover;">
-                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
+                    <div class="carousel-caption d-flex flex-column align-items-center justify-content-center"  data-aos="fade-down">
                         <div class="p-3" style="max-width: 900px;">
                             <h6 class="text-white text-uppercase mb-3 animate__animated animate__fadeInDown"
                                 style="letter-spacing: 3px;">Tecnología Discreta, Espacios Inteligentes</h6>
                             <h3 class="display-3 text-capitalize text-white mb-3">Tecnología al Servicio</h3>
                             <p class="mx-md-5 px-5">Automatización diseñada para adaptarse a la dinámica institucional y
                                 mejorar el rendimiento operativo sin comprometer el diseño arquitectónico.</p>
-                            <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp"
-                                href="#contact">SABER MÁS</a>
+                            <a class="btn btn-outline-light py-3 px-4 mt-3 saber-mas" data-targetid="contact">SABER MÁS</a>
+
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item position-relative" style="min-height: 100vh;">
+                <div class="carousel-item position-relative" >
                     <img class="position-absolute w-100 h-100" src="img/carousel-2.jpg" style="object-fit: cover;">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
@@ -284,12 +378,12 @@
                             <h3 class="display-3 text-capitalize text-white mb-3">Infraestructura Avanzada</h3>
                             <p class="mx-md-5 px-5">Acompañamos grandes obras con sistemas conectados que permiten
                                 control total, eficiencia energética y crecimiento escalable.</p>
-                            <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp"
-                                href="#contact">SABER MÁS</a>
+                            <a class="btn btn-outline-light py-3 px-4 mt-3 saber-mas" data-targetid="contact">SABER MÁS</a>
+
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item position-relative" style="min-height: 100vh;">
+                <div class="carousel-item position-relative" >
                     <img class="position-absolute w-100 h-100" src="img/carousel-3.jpg" style="object-fit: cover;">
                     <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                         <div class="p-3" style="max-width: 900px;">
@@ -298,8 +392,8 @@
                             <h3 class="display-3 text-capitalize text-white mb-3">Control Unificado</h3>
                             <p class="mx-md-5 px-5">Unificamos funciones críticas del edificio —energía, seguridad,
                                 acceso— en una sola interfaz adaptable a entornos complejos.</p>
-                            <a class="btn btn-outline-light py-3 px-4 mt-3 animate__animated animate__fadeInUp"
-                                href="#contact">SABER MÁS</a>
+                            <a class="btn btn-outline-light py-3 px-4 mt-3 saber-mas" data-targetid="contact">SABER MÁS</a>
+
                         </div>
                     </div>
                 </div>
@@ -308,15 +402,14 @@
     </div>
     <!-- Carousel End -->
 
-
     <!-- About Start -->
     <div class="container-fluid py-5">
         <div class="container py-5" id="about">
             <div class="row align-items-center">
-                <div class="col-lg-5">
+                <div class="col-lg-5" data-aos="fade-right">
                     <img class="img-fluid mb-4 mb-lg-0" src="img/about2.png" alt="">
                 </div>
-                <div class="col-lg-7">
+                <div class="col-lg-7" data-aos="fade-left">
                     <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Conoce más</h6>
                     <h1 class="display-4 mb-3"><span class="text-primary">Sobre nosotros</span> en automatización</h1>
                     <p>
@@ -330,7 +423,7 @@
                         filtro de piscina y servicios de mantenimiento,
                         brindando soluciones exclusivas para el mercado paraguayo.
                     </p>
-                    <a class="btn btn-primary font-weight-bold py-3 px-5 mt-4 btn-scroll" href="#contact">Saber más</a>
+                    <a class="btn btn-primary font-weight-bold py-3 px-5 mt-4 btn-scroll" href="#contact" data-aos="fade-right">Saber más</a>
                 </div>
             </div>
         </div>
@@ -405,19 +498,25 @@
             align-items: center;
             text-align: center;
         }
+        .card-flip:hover .card-front,
+.card-flip:hover .card-back {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
     </style>
 
-    <div class="container-fluid py-5">
+    <div class="container-fluid py-5" >
         <div class="container py-5" id="service">
-            <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Servicios</h6>
-                <h1 class="font-secondary display-4">Servicios en Generales</h1>
+            <div class="section-title position-relative text-center" >
+                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;" data-aos="zoom-out">Servicios</h6>
+                <h1 class="font-secondary display-4" data-aos="zoom-in">Servicios en Generales</h1>
             </div>
             <div class="row">
 
                 <!-- Servicio 1 -->
                 <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
+                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')" data-aos="fade-right">
                         <div class="card-flip-inner">
                             <div class="card-front">
                                 <img src="img/product-1.jpg" alt="Domótica e Inmótica">
@@ -436,7 +535,7 @@
 
                 <!-- Servicio 2 -->
                 <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
+                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')" data-aos="zoom-in">
                         <div class="card-flip-inner">
                             <div class="card-front">
                                 <img src="img/product-2.jpg" alt="Instalaciones Eléctricas">
@@ -455,7 +554,7 @@
 
                 <!-- Servicio 3 -->
                 <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
+                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')" data-aos="fade-left">
                         <div class="card-flip-inner">
                             <div class="card-front">
                                 <img src="img/product-3.jpg" alt="Climatización">
@@ -474,7 +573,7 @@
 
                 <!-- Servicio 4 -->
                 <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
+                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')" data-aos="fade-right">
                         <div class="card-flip-inner">
                             <div class="card-front">
                                 <img src="img/product-4.jpg" alt="Prevención Contra Incendios">
@@ -493,7 +592,7 @@
 
                 <!-- Servicio 5 -->
                 <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
+                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')" data-aos="fade-up">
                         <div class="card-flip-inner">
                             <div class="card-front">
                                 <img src="img/product-5.jpg" alt="CCTV">
@@ -512,7 +611,7 @@
 
                 <!-- Servicio 6 -->
                 <div class="col-12 col-sm-6 col-lg-4 mb-4">
-                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')">
+                    <div class="card-flip w-100" onclick="this.classList.toggle('flipped')" data-aos="fade-left">
                         <div class="card-flip-inner">
                             <div class="card-front">
                                 <img src="img/product-6.jpg" alt="Post Venta">
@@ -535,212 +634,198 @@
 
 
     <!-- Proyect Start -->
-    <style>
-        .bg-gallery {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                url('img/gallery.png') no-repeat center center;
-            background-size: cover;
-            color: #fff;
-        }
+<style>
+.bg-gallery {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+        url('img/gallery.png') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+}
 
-        #project {
-            padding: 80px 0;
-        }
+#project {
+    padding: 80px 0;
+}
 
-        .slider-container {
-            position: relative;
-            overflow: hidden;
-        }
+.proyecto-slider-container {
+    overflow: hidden;
+    width: 100%;
+    padding: 0 30px;
+    max-width: 1320px;
+    margin: 0 auto;
+}
 
-        .slider-track {
-            display: flex;
-            transition: transform 0.8s ease;
-            touch-action: pan-y;
-        }
+.proyecto-slider {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.6s ease;
+    gap: 32px;
+    will-change: transform;
+}
 
-        .slider-item {
-            flex: 0 0 33.3333%;
-            max-width: 33.3333%;
-            padding: 0 10px;
-            box-sizing: border-box;
-            perspective: 1000px;
-            display: flex;
-            justify-content: center;
-        }
+.proyecto-column {
+    flex: 0 0 calc(100% / 3 - 20px);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
 
-        .flip-card {
-            width: 100%;
-            max-width: 320px;
-            aspect-ratio: 1 / 1.2;
-            position: relative;
-        }
+/* Tarjeta individual */
+.proyecto-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2); /* sombra blanca leve por defecto */
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 250px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+}
 
-        .flip-inner {
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            cursor: pointer;
-        }
+.proyecto-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.5); /* sombra blanca suave al pasar el mouse */
+}
 
-        .flip-card.flipped .flip-inner {
-            transform: rotateY(180deg);
-        }
 
-        .flip-front,
-        .flip-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: .75rem;
-            overflow: hidden;
-        }
+/* Imagen dentro de la tarjeta */
+.proyecto-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
 
-        .flip-front img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+.proyecto-card:hover img {
+    transform: none;
+}
 
-        .flip-back {
-            background: rgba(255, 255, 255, 0.95);
-            color: #333;
-            transform: rotateY(180deg);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 1rem 0.5rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-            z-index: 2;
-        }
+/* Cuerpo de la tarjeta */
+.proyecto-card .body {
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
 
-        .flip-back h5 {
-            margin-bottom: .5rem;
-            text-align: left;
-            width: 100%;
-            font-size: 1rem;
-        }
+/* Título */
+.proyecto-card h5 {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #22395d;
+    margin-bottom: 4px;
+}
 
-        .flip-back p {
-            margin-left: 5px;
-            margin-right: 5px;
-            text-align: left;
-            font-size: 0.9rem;
-        }
+/* Descripción */
+.proyecto-card p {
+    font-size: 0.85rem;
+    color: #555 !important;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-height: 2.8em;
+}
 
-        .nav-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            /* sin fondo */
-            border: none;
-            /* sin borde */
-            padding: 0;
-            /* sin espacio extra */
-            margin: 0 10px;
-            color: #fff;
-            /* color blanco */
-            width: auto;
-            /* no fuerza tamaño fijo */
-            height: auto;
-            font-size: 1.8rem;
-            /* tamaño del ícono */
-            cursor: pointer;
-            z-index: 5;
-            outline: none;
-            /* quita borde al foco */
-        }
 
-        .nav-arrow:focus {
-            outline: none;
-        }
+/* ✅ Botón de más detalle restaurado y resaltado */
+.proyecto-card .more-btn {
+    margin-top: auto;
+    font-weight: bold;
+    color: #0b212f;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
 
-        .nav-arrow i {
-            font-size: 25px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 8px;
-            border-radius: 50%;
-            transition: background-color 0.3s ease;
-            pointer-events: none;
-        }
+.proyecto-card:hover .more-btn {
+    color: #040a11; /* azul más fuerte al pasar el mouse */
+}
 
-        .nav-arrow:hover i {
-            background-color: rgba(0, 0, 0, 0.9);
-        }
+/* Flechita animada */
+.proyecto-card .more-btn i {
+    transition: transform 0.3s ease;
+}
 
-        .nav-arrow.left {
-            left: 10px;
-        }
+.proyecto-card:hover .more-btn i {
+    transform: translateX(4px);
+}
 
-        .nav-arrow.right {
-            right: 10px;
-        }
+/* ❌ Eliminamos el texto "Ver detalle" del pseudo-elemento */
+.proyecto-card::after {
+    content: none;
+}
 
-        h2.fw-bold {
-            color: #fff !important;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
-        }
+/* Responsive: tablet */
+@media (max-width: 992px) {
+    .proyecto-column {
+        flex: 0 0 50%;
+    }
+}
 
-        @media (max-width: 991px) {
-            .slider-item {
-                flex: 0 0 50%;
-                max-width: 50%;
-            }
-        }
+/* Responsive: móvil */
+@media (max-width: 768px) {
+    .proyecto-slider {
+        flex-wrap: nowrap;
+    }
 
-        @media (max-width: 768px) {
-            .slider-item {
-                flex: 0 0 100%;
-                max-width: 100%;
-                padding-left: 0;
-                padding-right: 0;
-            }
+    .proyecto-column {
+        flex: 0 0 100% !important;
+        max-width: 100%;
+    }
 
-            .flip-card {
-                width: 100%;
-                margin: 0 auto;
-            }
-        }
-    </style>
+    .proyecto-card img {
+        height: 130px;
+    }
 
-    <section class="bg-gallery">
-        <div class="container text-center" id="project">
-            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Portafolio de nuestros</h6>
-            <h1 class="font-secondary display-4 text-white">Proyectos</h1>
-            <h3 class="font-secondary text-white mb-5" style="font-size: 30px;">
-                Trabajos realizados que reflejan nuestra experiencia
-            </h3>
+    .proyecto-card .body {
+        padding: 8px;
+    }
+}
+</style>
 
-            <div class="slider-container" id="slider">
-                <button class="nav-arrow left" onclick="slide(-1)">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="slider-track" id="track">
-                    <!--Acá se insertan vía DOM para ciclo -->
-                </div>
-                <button class="nav-arrow right" onclick="slide(1)">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </section>
+<section class="bg-gallery">
+    <div class="text-center"id="project" >
+       <h6 class="text-uppercase text-primary mb-2" style="letter-spacing: 3px; margin-top: -30px;" data-aos="fade-down">
+    Portafolio de nuestros
+</h6>
+<h1 class="font-secondary display-4 text-white" style="margin-bottom: 30px;" data-aos="zoom-in">Proyectos</h1>
+
+
+        <div class="proyecto-slider-container">
+            
+  <div class="proyecto-slider" id="proyectoSlider" data-aos="zoom-out">
+    <!-- Las columnas se insertan dinámicamente aquí -->
+  </div>
+    <div class="d-flex justify-content-center mt-4">
+    <button id="prevBtn" class="btn btn-outline-light mx-2"><i class="fa fa-chevron-left"></i></button>
+    <button id="nextBtn" class="btn btn-outline-light mx-2"><i class="fa fa-chevron-right"></i></button>
+    </div>
+
+    </div>        
+    </div>
+</section>
+
     <!-- Proyect End -->
 
     <!-- FAQs Start -->
     <div class="container-fluid py-5">
         <div class="container py-5" id="faqs">
             <div class="section-title position-relative text-center">
-                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">FAQs</h6>
-                <h1 class="display-4">Preguntas Frecuentes</h1>
+                <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;" data-aos="zoom-in">FAQs</h6>
+                <h1 class="display-4" data-aos="zoom-out">Preguntas Frecuentes</h1>
             </div>
             <div class="row">
-                <div class="col-md-6 border-right border-primary">
+                <div class="col-md-6 border-right border-primary" data-aos="fade-right">
                     <div class="text-center text-md-right mr-md-3 mb-4 mb-md-0">
                         <h3 class="mb-4">¿Por qué optar por domótica?</h3>
                         <h5 class="mb-3"><i
@@ -756,7 +841,7 @@
                             valor y funcionalidad de tus espacios con tecnología inteligente</h5>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6" data-aos="fade-left">
                     <div class="text-center text-md-left ml-md-3">
                         <h3 class="mb-4">¿Por qué confiar en nosotros?</h3>
                         <h5 class="mb-3"><i class="fa fa-check text-success mr-2"></i>Soluciones a medida para
@@ -770,7 +855,7 @@
                     </div>
                 </div>
                 <div class="col-md-12 text-center pt-3">
-                    <a class="btn btn-primary font-weight-bold py-3 px-5 mt-4 btn-scroll" href="#contact">Saber más</a>
+                    <a class="btn btn-primary font-weight-bold py-3 px-5 mt-4 btn-scroll" href="#contact" data-aos="fade-down">Saber más</a>
                 </div>
             </div>
         </div>
@@ -806,6 +891,17 @@
             }
         }
 
+        /* Estilo base: blanco con filtro 
+#marcas .galleria-item img {
+  filter: brightness(0) invert(1);
+  transition: filter 0.4s ease-in-out;
+}
+
+#marcas .galleria-item:hover img {
+  filter: none;
+}
+*/
+
         .galleria-item {
             height: 150px;
             /* Asegura que tenga altura visible */
@@ -817,7 +913,7 @@
         }
 
         .galleria-item img {
-            max-width: 100%;
+            max-width: 86%;
             max-height: 100%;
             object-fit: contain;
             transition: 0.5s;
@@ -828,24 +924,23 @@
             filter: brightness(0) invert(1);
         }
     </style>
+   
 
     <!-- Marcas Start -->
     <div class="container-fluid bg-gallery" id="marcas" style="padding: 120px 0; margin: 90px 0;">
-        <div class="section-title position-relative text-center" style="margin-bottom: 120px;">
-            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;">Algunas de nuestras</h6>
-            <h1 class="font-secondary display-4 text-white">Marcas</h1>
-            <h3 class="font-secondary text-white" style="font-size: 30px;">
+        <div class="section-title position-relative text-center" style="margin-bottom: 120px;" >
+            <h6 class="text-uppercase text-primary mb-3" style="letter-spacing: 3px;" data-aos="fade-down">Algunas de nuestras</h6>
+            <h1 class="font-secondary display-4 text-white" data-aos="zoom-in">Marcas</h1>
+            <h3 class="font-secondary text-white" style="font-size: 30px;" data-aos="slide-up">
                 Trabajamos con marcas que lideran el mercado
             </h3>
         </div>
-        <div class="owl-carousel testimonia-carousel">
-            <div class="galleria-item">
-                <img class="img-fluid w-100" src="img/Hikvision.png" alt="" style="margin-top:20px;">
-
+        <div class="owl-carousel testimonia-carousel"  >
+            <div class="galleria-item" >
+                <img class="img-fluid w-100" src="img/Hikvision.png" alt="" style="margin-top:17px;">
             </div>
-            <div class="galleria-item">
-                <img class="img-fluid w-100" src="img/hdl.png" alt="">
-
+            <div class="galleria-item" style="margin:30px; margin-top:0px;">
+                <img class="img-fluid w-100" src="img/hdl.png" alt="" >
             </div>
             <div class="galleria-item">
                 <img class="img-fluid w-100" src="img/zkteco.png" alt="">
@@ -859,13 +954,27 @@
                 <img class="img-fluid w-100" src="img/RISCO.png" alt="">
 
             </div>
-            <div class="galleria-item">
+            <div class="galleria-item" style="margin:30px; margin-top:-3px;">
                 <img class="img-fluid w-100" src="img/abb.png" alt="">
 
             </div>
+            <div class="galleria-item" >
+                <img class="img-fluid w-100" src="img/Jade_Bird.png" alt="">
+            </div>
             <div class="galleria-item">
-                <img class="img-fluid w-100" src="img/sonoff.png" alt="">
-
+                <img class="img-fluid w-100" src="img/eelectron.png" alt="">
+            </div>
+            <div class="galleria-item" style="margin:50px; margin-top:0px;">
+                <img class="img-fluid w-100" src="img/itc.png" alt="">
+            </div>
+            <div class="galleria-item">
+                <img class="img-fluid w-100" src="img/fireclass.png" alt="">
+            </div>
+            <div class="galleria-item">
+                <img class="img-fluid w-100" src="img/molilock.png" alt="">
+            </div>
+            <div class="galleria-item">
+                <img class="img-fluid w-100" src="img/Johnson_Controls.png" alt="">
             </div>
         </div>
 
@@ -873,14 +982,14 @@
     <!-- Marcas End -->
 
     <!-- Contact Start -->
-    <div class="container-fluid py-5" id="contact" style="background-color: #f8f9fa;">
-        <div class="section-title text-center mb-5">
-            <h1 class="font-secondary display-4">Contacto</h1>
+    <div class="container-fluid py-4"  style="background-color: #f8f9fa;" id="contact">
+        <div class="section-title text-center mb-1" >
+            <h1 class="font-secondary display-4"  data-aos="zoom-in">Contacto</h1>
         </div>
         <div class="container">
             <div class="row no-gutters">
                 <!-- Formulario: izquierda -->
-                <div class="col-lg-6 d-flex align-items-center bg-white shadow p-4 p-lg-5">
+                <div class="col-lg-6 d-flex align-items-center bg-white shadow p-4 p-lg-5" data-aos="fade-right">
                     <div class="w-100 d-flex flex-column align-items-center">
                         <div style="max-width: 400px; width: 100%;" class="px-3 px-md-0">
                             <h1 class="mt-4 mb-4 text-center">Solicitar Cotización</h1>
@@ -909,11 +1018,10 @@
                                         rows="5" maxlength="1000"
                                         placeholder="Describe tu necesidad o consulta..."></textarea>
                                 </div>
-                                <button id="enviarBtn" type="button"
-                                    class="btn btn-primary btn-block py-2 font-weight-bold shadow"
-                                    style="font-size:1.2rem; width:100%;">
-                                    <i class="fa fa-paper-plane mr-2"></i>Enviar Solicitud
-                                </button>
+<div class="g-recaptcha" data-sitekey="6Ld9VH4rAAAAAJVwZEa-KBQwPOugyUzKCodzIH0J"></div>
+<button id="enviarBtn" type="button" class="btn btn-primary btn-block py-2 font-weight-bold shadow" style="font-size:1.2rem; width:100%;">
+    <i class="fa fa-paper-plane mr-2"></i>Enviar Solicitud
+</button>
 
                                 <div id="licitacionMsg" class="mt-3"></div>
                             </form>
@@ -921,7 +1029,7 @@
                     </div>
                 </div>
                 <!-- Mapa: derecha -->
-                <div class="col-lg-6 shadow">
+                <div class="col-lg-6 shadow" data-aos="fade-left">
                     <div class="h-100" style="min-height: 650px;">
                         <iframe class="w-100 h-100 border-0"
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8667.917767248056!2d-57.58077595159728!3d-25.287202553044427!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x945da8a019c3884f%3A0x7381107c318c7be8!2sComplejo%20La%20Torre!5e0!3m2!1ses!2spy!4v1746019288003!5m2!1ses!2spy"
@@ -937,9 +1045,9 @@
 
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-darke text-white py-4 px-sm-3 px-lg-5" style="margin-top: 60px;">
-        <div class="row">
-            <div class="col-md-12 text-center mb-3">
+    <div class="container-fluid bg-darke text-white py-4 px-sm-3 px-lg-5" style="margin-top: 15px;">
+        <div class="row" >
+            <div class="col-md-12 text-center mb-3" >
                 <p class="mb-1">© 2025 <strong>Domopy</strong>. Todos los derechos reservados.</p>
                 <p class="mb-2" style="font-size: 0.9rem;">
                     Las imágenes son ilustrativas. Ofrecemos servicios y productos de automatización y domótica según
@@ -1049,255 +1157,820 @@
         });
     </script>
 
-    <!-- Proyecto-->
+<!-- Modal Portafolio Mejorado -->
+<div class="modal fade" id="modalProyecto" tabindex="-1">
+  <div class="modal-dialog modal-xl" style="max-width: 1180px; margin: 5px auto;">
+    <div class="modal-content border-0 rounded shadow position-relative">
 
-    <script>
-        const track = document.getElementById('track');
-        const originalSlides = [
-            {
-                img: 'img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg',
-                title: 'Caja Mutual de Cooperativistas del Paraguay',
-                desc: 'Proyecto Caja Mutual de Cooperativistas del Paraguay'
-            },
-            {
-                img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPA.jpg',
-                title: 'Corte Suprema - Caazapá',
-                desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Caazapá'
-            },
-            {
-                img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg',
-                title: 'Corte Suprema - Ciudad del Este',
-                desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Ciudad del Este'
-            },
-            {
-                img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg',
-                title: 'Corte Suprema - Guairá',
-                desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Guairá'
-            },
-            {
-                img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg',
-                title: 'Corte Suprema - Cordillera',
-                desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Cordillera'
-            },
-            {
-                img: 'img/GRAN HOSPITAL DEL SUR.jpg',
-                title: 'Gran Hospital del Sur',
-                desc: 'Proyecto Gran Hospital del Sur'
-            },
-            {
-                img: 'img/IGLESIA CENTRO FAMILAR DE ADORACION.jpg',
-                title: 'Iglesia Centro Familiar de Adoración',
-                desc: 'Proyecto Iglesia Centro Familiar de Adoración'
-            },
-            {
-                img: 'img/PUERTO MADERO.jpg',
-                title: 'Plaza Madero',
-                desc: 'Proyecto Plaza Madero'
-            }
-        ];
+      <!-- ✅ Botón cerrar fijo, pero ajustado al modal -->
+        <button type="button" class="close modal-close-fixed" data-dismiss="modal" aria-label="Cerrar">
+    <span aria-hidden="true">&times;</span>
+  </button>
 
-        let isPaused = false;
-        let autoSlideInterval;
-        let currentIndex = 0;
-        let slideCount = originalSlides.length;
-        let clonedCount = 0;
+      <!-- Imagen de portada -->
+      <div id="modalProyectoHeader" class="w-100">
+        <img id="modalProyectoImgPortada" src="" alt="" class="img-fluid w-100" style="object-fit: cover; max-height: 420px;">
+      </div>
 
-        function createSlide(slide) {
-            const div = document.createElement('div');
-            div.className = 'slider-item';
-            div.innerHTML = `
-            <div class="flip-card">
-                <div class="flip-inner">
-                <div class="flip-front">
-                    <img src="${slide.img}" alt="${slide.title}">
-                </div>
-                <div class="flip-back">
-                    <h5>${slide.title}</h5>
-                    <p>${slide.desc}</p>
-                </div>
-                </div>
+      <!-- Cuerpo del modal -->
+      <div class="modal-body px-4 px-md-5 py-5" style="background-color: #e5e6e9;">
+        <h2 id="modalProyectoLabel" class="font-weight-bold mb-5 text-uppercase text-center" style="font-size: 2rem; color: #22395d;"></h2>
+
+        <!-- Sección 1 -->
+        <div class="row align-items-center mb-5 modal-row-top">
+          <div class="col-md-6 mb-4 mb-md-0 d-flex justify-content-center">
+            <div class="img-vertical">
+              <img id="modalProyectoImg1" src="" alt="Imagen del proyecto" class="img-fluid">
             </div>
-            `;
-            return div;
-        }
+          </div>
+          <div class="col-md-6">
+            <h4 class="text-center font-weight-bold mb-3" id="modalProyectoTitulo1">Detalles del Proyecto</h4>
+            <p id="modalProyectoTexto1" class="mb-3"></p>
+            <p id="modalProyectoTexto1b" class="mb-3"></p>
+            <p id="modalProyectoTexto1c" class="mb-0"></p>
+          </div>
+        </div>
 
-        function setupSlides() {
-            // Clones before
-            for (let i = slideCount - 3; i < slideCount; i++) {
-                track.appendChild(createSlide(originalSlides[i]));
-            }
-            // Originals
-            originalSlides.forEach(slide => track.appendChild(createSlide(slide)));
-            // Clones after
-            for (let i = 0; i < 3; i++) {
-                track.appendChild(createSlide(originalSlides[i]));
-            }
-            clonedCount = 3;
-            const itemWidth = track.children[0].offsetWidth;
-            track.style.transform = `translateX(${-itemWidth * clonedCount}px)`;
-            currentIndex = clonedCount;
-        }
+        <hr class="my-5" style="opacity: 0.15;">
 
+        <!-- Sección 2 -->
+        <div class="row align-items-center flex-column-reverse flex-md-row modal-row-bottom">
+          <div class="col-md-6">
+            <h4 class="text-center font-weight-bold mb-3" id="modalProyectoTitulo2">Resultados y Beneficios</h4>
+            <p id="modalProyectoTexto2" class="mb-3"></p>
+            <p id="modalProyectoTexto2b" class="mb-3"></p>
+            <p id="modalProyectoTexto2c" class="mb-0"></p>
+          </div>
+          <div class="col-md-6 mb-4 mb-md-0 d-flex justify-content-center">
+            <div class="img-vertical">
+              <img id="modalProyectoImg2" src="" alt="Imagen del proyecto" class="img-fluid">
+            </div>
+          </div>
+        </div>
 
-        let isSliding = false; // global, fuera de la función
+        <hr class="my-5" style="opacity: 0.15;">
 
-        function slide(dir = 1) {
-            if (isSliding) return; // Evita clics mientras desliza
-            isSliding = true;
+        <!-- Sección 3 dinámica -->
+        <div class="row align-items-center mb-4 modal-row-top">
+          <div class="col-md-6 mb-4 mb-md-0 d-flex justify-content-center">
+            <div class="img-vertical">
+              <img id="modalProyectoImg3" src="" alt="Imagen adicional" class="img-fluid">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4 class="text-center font-weight-bold mb-3" id="modalProyectoTitulo3">Fase de Implementación</h4>
+            <p id="modalProyectoTexto3" class="mb-3"></p>
+            <p id="modalProyectoTexto3b" class="mb-3"></p>
+            <p id="modalProyectoTexto3c" class="mb-0"></p>
+          </div>
+        </div>
 
-            // Cierra tarjetas giradas si las hay
-            document.querySelectorAll('.flip-card.flipped').forEach(card => {
-                card.classList.remove('flipped');
-            });
-
-            isPaused = false;
-            startAutoSlide();
-
-            const itemWidth = track.children[0].offsetWidth;
-            currentIndex += dir;
-            track.style.transition = 'transform 0.5s ease';
-            track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
-
-            const needsResetAfterTransition =
-                currentIndex >= slideCount + clonedCount || currentIndex < clonedCount;
-
-            const resetTarget = currentIndex < clonedCount
-                ? slideCount + clonedCount - 1
-                : clonedCount;
-
-            track.addEventListener('transitionend', () => {
-                if (needsResetAfterTransition) {
-                    track.style.transition = 'none';
-                    currentIndex = resetTarget;
-                    track.style.transform = `translateX(${-itemWidth * currentIndex}px)`;
-                }
-                isSliding = false; // Permite nuevos denery
-            }, { once: true });
-        }
+      </div>
+    </div>
+  </div>
+</div>
 
 
-        function startAutoSlide() {
-            clearInterval(autoSlideInterval); // 💥 Detiene cualquier anterior
+<!-- ✅ CSS actualizado para usar col-md-6 -->
+<style>
 
-            const intervalTime = window.innerWidth <= 768 ? 5000 : 4000;
-            autoSlideInterval = setInterval(() => slide(1), intervalTime);
-        }
+.modal-close-fixed {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(520px); /* Mitad de 1140px (ancho del modal) menos espacio interno */
+  z-index: 2000;
+  font-size: 2.5rem;
+  color: #333;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-close-fixed:hover {
+  color: #009cff;
+}
+
+@media (max-width: 1200px) {
+  .modal-close-fixed {
+    transform: translateX(45vw); /* Aproximadamente al borde del modal */
+  }
+}
+
+@media (max-width: 1200px) {
+  .modal-close-fixed {
+    top: 20px;
+    left: auto;
+    right: 45px;
+    transform: none;
+    font-size: 2rem;
+  }
+}
 
 
-        function setupFlip() {
-            track.addEventListener('click', (e) => {
-                const card = e.target.closest('.flip-card');
-                if (!card) return;
-                const isFlipped = card.classList.contains('flipped');
-                document.querySelectorAll('.flip-card').forEach(c => c.classList.remove('flipped'));
-                if (!isFlipped) {
-                    card.classList.add('flipped');
-                    isPaused = true;
-                    clearInterval(autoSlideInterval);
-                } else {
-                    card.classList.remove('flipped');
-                    startAutoSlide();
-                }
-            });
-        }
 
-        function setupSwipe() {
-            let startX = 0;
-            track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
-            track.addEventListener('touchend', e => {
-                const diff = e.changedTouches[0].clientX - startX;
-                if (Math.abs(diff) > 50 && diff < 0) slide(1);
-            });
-        }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            setupSlides();
-            setupFlip();
-            setupSwipe();
-            startAutoSlide();
-        });
-    </script>
+
+  .modal-row-top .col-md-6 p {
+    text-align: justify;
+    max-width: 432px;
+    margin-left: 0;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 10px;
+  }
+
+  .modal-row-bottom .col-md-6 p {
+    text-align: justify;
+    max-width: 432px;
+    margin-left: auto;
+    margin-right: 0;
+    padding-left: 10px;
+    padding-right: 0;
+  }
+
+  @media (max-width: 767.98px) {
+    .modal-body .col-md-6 p {
+      max-width: 100%;
+      padding: 15px;
+      margin: 0 auto;
+    }
+  }
+</style>
+
+
+
+
+<style>
+  .img-vertical {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 3 / 3.6; /* más delgada y menos alta */
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f4f6;
+  }
+
+  .img-vertical img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .img-vertical {
+      max-width: 85%;
+      aspect-ratio: 3 / 4.2;
+    }
+  }
+</style>
+
+
+<style>
+    
+.modal-content {
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.modal-body {
+  background-color: #f9f9fb;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.modal-body h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #22395d;
+}
+
+.modal-body p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+  .modal-dialog {
+    max-width: 95% !important;
+    margin: 20px auto;
+  }
+}
+body.modal-open {
+  overflow: hidden !important;
+  position: fixed;
+  width: 100%;
+}
+.overlay-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* negro con transparencia */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+}
+
+.flip-front:hover .overlay-name {
+  opacity: 1;
+}
+.overlay-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-hover i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* perfecto centrado */
+  font-size: 2.5rem;
+  color: white;
+}
+
+.overlay-hover span {
+  position: absolute;
+  bottom: 20%;  /* más abajo (ajusta el porcentaje si quieres) */
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: 1rem;
+  color: white;
+}
+
+.flip-front:hover .overlay-hover {
+  opacity: 1;
+}
+#modalProyecto img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+#modalProyecto img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+/* Animación al hacer hover sobre la tarjeta */
+.flip-card:hover .flip-front img {
+  transform: scale(1.05) rotateZ(0.5deg);
+  transition: transform 0.4s ease;
+}
+
+/* Animación por defecto para suavizar retorno */
+.flip-front img {
+  transition: transform 0.4s ease;
+}
+/* Animación keyframes */
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.07);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Clase animada */
+.zoom-animate {
+  animation: zoomInOut 2s ease-in-out;
+}
+
+/* Solo para dispositivos móviles */
+@media (max-width: 768px) {
+  /* Asegura que el contenedor del modal tenga margen */
+  .modal-dialog {
+    margin: 15px;  /* Margen para no pegarse al borde */
+  }
+
+  /* Fondo gris detrás del contenido del modal */
+  .modal-content {
+    background-color: #e5e6e9 !important;  /* Fondo gris */
+    padding: 0 !important;  /* Sin relleno extra */
+    border-radius: 12px !important;
+  }
+
+  /* Asegura que el contenido dentro del modal no se mueva */
+  .modal-body {
+    background-color: transparent;  /* El fondo se hace transparente para que solo se vea el fondo gris de .modal-content */
+    padding: 15px !important;  /* Relleno dentro del modal */
+  }
+
+  /* Ajuste de los párrafos dentro del modal */
+  .modal-body p {
+    margin-bottom: 0 !important; /* Elimina el espacio entre párrafo e imagen */
+    margin-top: 0 !important; /* Elimina el margen superior */
+    text-align: justify;
+    padding-left: 30px !important;  /* Aleja el texto del borde izquierdo */
+    padding-right: 30px !important;  /* Aleja el texto del borde derecho */
+  }
+
+  /* Ajuste de las imágenes dentro del modal */
+  .modal-body img {
+    width: 100% !important;  /* La imagen ocupará todo el ancho disponible */
+    height: auto !important;  /* Mantiene la relación de aspecto */
+    margin-top: 0 !important;  /* Elimina el margen superior entre imagen y párrafo */
+    margin-bottom: 10px !important;  /* Reduce el espacio debajo de la imagen */
+  }
+
+  /* Asegura que las columnas dentro del modal ocupen todo el espacio */
+  .modal-body .col-md-6 {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+
+  .modal-body .row {
+    margin-top: 0 !important;
+    margin-bottom: -30px !important;  /* Adecuar margen entre secciones */
+  }
+}
+
+
+
+</style>
+
+<script>
+  $(document).ready(function () {
+    const $body = $('body');
+    const $modal = $('#modalProyecto');
+    const $html = $('html'); // también puede verse afectado
+    let scrollTop = 0;
+
+    $modal.on('show.bs.modal', function () {
+  scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+  // Elimina la línea que oculta el topbar/navbar
+  // $body.addClass('ocultar-topbar');
+
+  // Evita scroll del fondo sin romper layout
+  $html.css('overflow-y', 'hidden');
+  $body.css({
+    position: 'fixed',
+    top: `-${scrollTop}px`,
+    width: '100%'
+  }).data('scroll-position', scrollTop);
+});
+
+$modal.on('hidden.bs.modal', function () {
+  const scroll = $body.data('scroll-position') || 0;
+
+  // Restaurar scroll y estilos
+  $html.css('overflow-y', '');
+  $body.css({ position: '', top: '', width: '' });
+  window.scrollTo(0, scroll);
+
+  // Elimina el bloque que quita la clase ocultar-topbar
+  // setTimeout(() => {
+  //   $body.removeClass('ocultar-topbar');
+  // }, 350);
+});
+  });
+</script>
+
+
+<script>
+document.getElementById('proyectoSlider').addEventListener('click', (e) => {
+  const card = e.target.closest('.proyecto-card');
+
+  if (!card) return;
+
+  const index = card.dataset.index;
+  const proyecto = originalSlides[index];
+  if (!proyecto) return;
+
+  document.getElementById('modalProyectoLabel').textContent = proyecto.title || '';
+  document.getElementById('modalProyectoImgPortada').src = proyecto.img || '';
+  document.getElementById('modalProyectoImg1').src = proyecto.img1 || proyecto.img;
+  document.getElementById('modalProyectoImg2').src = proyecto.img2 || proyecto.img;
+
+  // Párrafos principales
+  document.getElementById('modalProyectoTexto1').textContent = proyecto.texto1 || '';
+  document.getElementById('modalProyectoTexto2').textContent = proyecto.texto2 || '';
+
+  // Segundo párrafo tipo lorem ipsum (puede ser personalizado luego)
+  document.getElementById('modalProyectoTexto1b').textContent =
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed justo orci. Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.';
+
+  document.getElementById('modalProyectoTexto1c').textContent = '';
+
+  document.getElementById('modalProyectoTexto2b').textContent =
+    'Suspendisse potenti. Proin vitae justo sed libero malesuada porttitor. Curabitur efficitur augue sit amet sapien scelerisque, ac dignissim velit pulvinar.';
+
+  document.getElementById('modalProyectoTexto2c').textContent = '';
+  document.getElementById('modalProyectoImg3').src = proyecto.img3 || proyecto.img;
+    document.getElementById('modalProyectoTexto3').textContent = proyecto.texto3 || '';
+    document.getElementById('modalProyectoTexto3b').textContent = proyecto.texto3b || '';
+    document.getElementById('modalProyectoTexto3c').textContent = proyecto.texto3c || '';
+
+
+  $('#modalProyecto').modal('show');
+});
+</script>
+
+    <!-- Proyecto-->
+   <script>
+    
+const originalSlides = [
+  {
+    img: 'img/CAJA MUTUAL DE COOPERATIVISTAS DEL PARAGUAY.jpg',
+    title: 'Caja Mutual de Cooperativistas del Paraguay',
+    desc: 'Proyecto Caja Mutual de Cooperativistas del Paraguay',
+    img1: 'img/capiata2.jpg',
+    img2: 'img/capiata1.jpg',
+    img3: 'img/capiata1.jpg',
+    texto1: 'Automatización de iluminación y accesos para mayor eficiencia operativa.',
+    texto2: 'Reducción del 20% en consumo energético mediante sensores de presencia.',
+    texto3: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3b: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3c: ''
+  },
+  {
+    img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CAAZAPA.jpg',
+    title: 'Corte Suprema - Caazapá',
+    desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Caazapá',
+    img1: 'img/capiata2.jpg',
+    img2: 'img/capiata1.jpg',
+    img3: 'img/capiata2.jpg',
+    texto1: 'Se automatizó el sistema de climatización y monitoreo.',
+    texto2: 'Mayor confort térmico y control desde una interfaz central.',
+    texto3: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3b: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3c: ''
+  },
+  {
+    img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL ESTE.jpg',
+    title: 'Corte Suprema - Ciudad del Este',
+    desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Ciudad del Este',
+    img1: 'img/capiata2.jpg',
+    img2: 'img/capiata1.jpg',
+    img3: 'img/capiata1.jpg',
+    texto1: 'Proyecto de control inteligente de iluminación y cortinas.',
+    texto2: 'Implementación sin modificar estructura arquitectónica.',
+    texto3: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3b: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3c: ''
+  },
+  {
+    img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CIUDAD DEL GUAIRA.jpg',
+    title: 'Corte Suprema - Guairá',
+    desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Guairá',
+    img1: 'img/capiata2.jpg',
+    img2: 'img/capiata1.jpg',
+    img3: 'img/capiata2.jpg',
+    texto1: 'Domótica aplicada en salas de juicio y oficinas administrativas.',
+    texto2: 'Ahorro energético y simplificación operativa.',
+    texto3: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3b: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3c: ''
+  },
+  {
+    img: 'img/CORTE SUPREMA DE JUSTICIA CIRCUNSCRIPCION JUDICIAL DE CORDILLERA.jpg',
+    title: 'Corte Suprema - Cordillera',
+    desc: 'Proyecto Corte Suprema de Justicia - Circunscripción Judicial de Cordillera',
+    img1: 'img/capiata2.jpg',
+    img2: 'img/capiata1.jpg',
+    img3: 'img/capiata1.jpg',
+    texto1: 'Proyecto de monitoreo con cámaras IP y domótica de acceso.',
+    texto2: 'Mayor seguridad y trazabilidad dentro del edificio.',
+    texto3: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3b: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3c: ''
+  },
+  {
+    img: 'img/GRAN HOSPITAL DEL SUR.jpg',
+    title: 'Gran Hospital del Sur',
+    desc: 'Proyecto Gran Hospital del Sur',
+    img1: 'img/capiata2.jpg',
+    img2: 'img/capiata1.jpg',
+    img3: 'img/capiata1.jpg',
+    texto1: 'Domótica en áreas críticas: quirófanos, UTI y pasillos.',
+    texto2: 'Control automatizado de presión y temperatura.',
+    texto3: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3b: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3c: ''
+  },
+  {
+    img: 'img/IGLESIA CENTRO FAMILAR DE ADORACION.jpg',
+    title: 'Iglesia Centro Familiar de Adoración',
+    desc: 'Proyecto Iglesia Centro Familiar de Adoración',
+    img1: 'img/capiata2.jpg',
+    img2: 'img/capiata1.jpg',
+    img3: 'img/capiata2.jpg',
+    texto1: 'Automatización de luces y climatización en auditorio principal.',
+    texto2: 'Creación de escenarios programados para eventos.',
+    texto3: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3b: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3c: ''
+  },
+  {
+    img: 'img/PUERTO MADERO.jpg',
+    title: 'Plaza Madero',
+    desc: 'Proyecto Plaza Madero',
+    img1: 'img/capiata2.jpg',
+    img2: 'img/capiata1.jpg',
+    img3: 'img/capiata2.jpg',
+    texto1: 'Sistema de CCTV y control de iluminación por zonas.',
+    texto2: 'Automatización exterior y monitoreo 24/7.',
+    texto3: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3b: 'lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. cing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    texto3c: ''
+  }
+];
+
+
+const slider = document.getElementById('proyectoSlider');
+let currentColumn = 0;
+let isPaused = false;
+
+// Calcula cuántas columnas se deben mostrar según el ancho
+function getVisibleColumns() {
+  const width = window.innerWidth;
+  if (width <= 768) return 1;
+  if (width <= 992) return 2;
+  return 3;
+}
+
+// Renderiza todas las columnas (2 tarjetas por columna)
+function renderAllColumns() {
+  slider.innerHTML = '';
+  for (let i = 0; i < originalSlides.length; i += 2) {
+    const column = document.createElement('div');
+    column.className = 'proyecto-column';
+
+    for (let j = i; j < i + 2 && j < originalSlides.length; j++) {
+      const proyecto = originalSlides[j];
+      const card = document.createElement('div');
+      card.className = 'proyecto-card';
+      card.innerHTML = `
+        <img src="${proyecto.img}" alt="${proyecto.title}">
+        <div class="body">
+          <h5>${proyecto.title}</h5>
+          <p>${proyecto.desc}</p>
+          <span class="more-btn">Más detalle <i class="fa fa-arrow-right"></i></span>
+        </div>
+      `;
+      card.setAttribute('data-index', j);
+      card.addEventListener('mouseenter', () => isPaused = true);
+      card.addEventListener('mouseleave', () => isPaused = false);
+      column.appendChild(card);
+    }
+
+    slider.appendChild(column);
+  }
+}
+
+function slideToColumn(index) {
+  const colWidth = slider.children[0].offsetWidth + 32; // 32 = gap entre columnas
+  const offset = index * colWidth;
+  slider.style.transform = `translateX(-${offset}px)`;
+}
+
+function slideToNextColumn() {
+  if (isPaused) return;
+
+  const totalColumns = slider.children.length;
+  const visibleColumns = getVisibleColumns();
+
+  currentColumn++;
+  if (currentColumn > totalColumns - visibleColumns) {
+    currentColumn = 0;
+  }
+
+  slideToColumn(currentColumn);
+}
+
+// Botones navegación manual
+document.addEventListener('DOMContentLoaded', () => {
+  renderAllColumns();
+  setInterval(slideToNextColumn, 3500); // auto-slide
+
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  if (prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      const visibleColumns = getVisibleColumns();
+      currentColumn--;
+      if (currentColumn < 0) {
+        currentColumn = slider.children.length - visibleColumns;
+      }
+      slideToColumn(currentColumn);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const visibleColumns = getVisibleColumns();
+      currentColumn++;
+      if (currentColumn > slider.children.length - visibleColumns) {
+        currentColumn = 0;
+      }
+      slideToColumn(currentColumn);
+    });
+  }
+
+  // Recalcular si cambia tamaño de pantalla
+  window.addEventListener('resize', () => {
+    currentColumn = 0;
+    slideToColumn(currentColumn);
+  });
+});
+</script>
+
   
 <script>
-  document.getElementById('enviarBtn').addEventListener('click', function () {
+document.getElementById('enviarBtn').addEventListener('click', function () {
     const form = document.getElementById('licitacionForm');
     const msg = document.getElementById('licitacionMsg');
-    let valido = true;
-
     msg.innerHTML = "";
 
-    // Validar nombre
+    let valido = true;
+
     const nombre = document.getElementById('nombre');
+    const correo = document.getElementById('correo');
+    const mensaje = document.getElementById('mensaje');
+
+    // Limpiar estilos anteriores
+    [nombre, correo, mensaje].forEach(input => input.classList.remove('input-error'));
+
+    // Validar campos
     if (!nombre.value.trim()) {
         valido = false;
         nombre.classList.add('input-error');
-        setTimeout(() => nombre.classList.remove('input-error'), 3000);
     }
 
-    // Validar correo
-    const correo = document.getElementById('correo');
     const correoValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo.value.trim());
     if (!correo.value.trim() || !correoValido) {
         valido = false;
         correo.classList.add('input-error');
-        setTimeout(() => correo.classList.remove('input-error'), 3000);
     }
 
-    // Validar mensaje
-    const mensaje = document.getElementById('mensaje');
     if (!mensaje.value.trim()) {
         valido = false;
         mensaje.classList.add('input-error');
-        setTimeout(() => mensaje.classList.remove('input-error'), 3000);
     }
 
-    // Si hay error
+    const recaptcha = grecaptcha.getResponse();
+
+    // Mostrar error por campos vacíos
     if (!valido) {
-        msg.innerHTML = "<div class='fade-alert' style='font-size:12px;color:#b94a48; margin:0; background:#f8d7da; border:1px solid #f5c6cb; border-radius:6px; box-shadow:none; padding:10px 18px; display:flex; align-items:center; gap:8px;'><i class='fa fa-exclamation-circle' style='color:#b94a48;'></i>Complete todos los campos obligatorios.</div>";
+        msg.innerHTML = `<div class='fade-alert' style='font-size:12px;color:#b94a48; margin:0; background:#f8d7da; border:1px solid #f5c6cb; border-radius:6px; box-shadow:none; padding:10px 18px; display:flex; align-items:center; gap:8px;'>
+            <i class='fa fa-exclamation-circle' style='color:#b94a48;'></i>Complete todos los campos obligatorios.
+        </div>`;
+        setTimeout(() => msg.querySelector('.fade-alert')?.classList.add('show'), 10);
+    setTimeout(() => {
+        msg.querySelector('.fade-alert')?.classList.remove('show');
+        setTimeout(() => { msg.innerHTML = ""; }, 500);
+    }, 3000);
+
+    // <--- AQUÍ AGREGA ESTO:
+    setTimeout(() => {
+        [nombre, correo, mensaje].forEach(input => input.classList.remove('input-error'));
+    }, 3000);
+
+    return;
+}
+
+    // Mostrar error por CAPTCHA no marcado
+    if (!recaptcha) {
+        msg.innerHTML = `<div class='fade-alert' style='font-size:12px;color:#b94a48; margin:0; background:#f8d7da; border:1px solid #f5c6cb; border-radius:6px; box-shadow:none; padding:10px 18px; display:flex; align-items:center; gap:8px;'>
+            <i class='fa fa-exclamation-circle' style='color:#b94a48;'></i>Por favor, confirma que no eres un robot.
+        </div>`;
+        setTimeout(() => msg.querySelector('.fade-alert')?.classList.add('show'), 10);
         setTimeout(() => {
-            msg.querySelector('.fade-alert').classList.add('show');
-        }, 10);
-        setTimeout(() => {
-            if (msg.querySelector('.fade-alert')) {
-                msg.querySelector('.fade-alert').classList.remove('show');
-                setTimeout(() => { msg.innerHTML = ""; }, 500);
-            }
+            msg.querySelector('.fade-alert')?.classList.remove('show');
+            setTimeout(() => { msg.innerHTML = ""; }, 500);
         }, 3000);
         return;
     }
 
     // Si todo está bien, enviar
     const data = new FormData(form);
-    msg.innerHTML = "<div class='fade-alert' style='font-size:12px;color:#0c5460; margin:0; background:#d1ecf1; border:1px solid #bee5eb; border-radius:6px; box-shadow:none; padding:10px 18px; display:flex; align-items:center; gap:8px;'><i class='fa fa-info-circle' style='color:#0c5460;'></i>Enviando...</div>";
-    setTimeout(() => {
-        msg.querySelector('.fade-alert').classList.add('show');
-    }, 10);
+    data.append('g-recaptcha-response', recaptcha);
+
+    msg.innerHTML = `<div class='fade-alert' style='font-size:12px;color:#0c5460; margin:0; background:#d1ecf1; border:1px solid #bee5eb; border-radius:6px; box-shadow:none; padding:10px 18px; display:flex; align-items:center; gap:8px;'>
+        <i class='fa fa-info-circle' style='color:#0c5460;'></i>Enviando...
+    </div>`;
+    setTimeout(() => msg.querySelector('.fade-alert')?.classList.add('show'), 10);
+
     fetch('enviar-licitacion.php', {
         method: 'POST',
         body: data
     })
-        .then(res => res.text())
-        .then(txt => {
-            if (txt.trim() === "OK") {
-                msg.innerHTML = "<div class='fade-alert' style='font-size:12px;color:#155724; margin:0; background:#d4edda; border:1px solid #c3e6cb; border-radius:6px; box-shadow:none; padding:10px 18px; display:flex; align-items:center; gap:8px;'><i class='fa fa-check-circle' style='color:#155724;'></i>¡Solicitud enviada correctamente! Nos pondremos en contacto.</div>";
-                form.reset();
-            } else {
-                msg.innerHTML = "<div class='fade-alert' style='font-size:12px;color:#b94a48; margin:0; background:#f8d7da; border:1px solid #f5c6cb; border-radius:6px; box-shadow:none; padding:10px 18px; display:flex; align-items:center; gap:8px;'><i class='fa fa-exclamation-circle' style='color:#b94a48;'></i>" + txt + "</div>";
-            }
-            setTimeout(() => {
-                msg.querySelector('.fade-alert').classList.add('show');
-            }, 10);
-            setTimeout(() => {
-                if (msg.querySelector('.fade-alert')) {
-                    msg.querySelector('.fade-alert').classList.remove('show');
-                    setTimeout(() => { msg.innerHTML = ""; }, 500);
-                }
-            }, 3000);
-        });
-});
+    .then(res => res.text())
+    .then(txt => {
+        if (txt.trim() === "OK") {
+            msg.innerHTML = `<div class='fade-alert' style='font-size:12px;color:#155724; margin:0; background:#d4edda; border:1px solid #c3e6cb; border-radius:6px; box-shadow:none; padding:10px 18px; display:flex; align-items:center; gap:8px;'>
+                <i class='fa fa-check-circle' style='color:#155724;'></i>¡Solicitud enviada correctamente! Nos pondremos en contacto.
+            </div>`;
+            setTimeout(() => msg.querySelector('.fade-alert')?.classList.add('show'), 10);
 
+            // Ocultar luego de 3 segundos
+            setTimeout(() => {
+                msg.querySelector('.fade-alert')?.classList.remove('show');
+                setTimeout(() => { msg.innerHTML = ""; }, 500);
+            }, 3000);
+
+            form.reset();
+            grecaptcha.reset();
+        } else {
+            msg.innerHTML = `<div class='fade-alert' style='font-size:12px;color:#b94a48; margin:0; background:#f8d7da; border:1px solid #f5c6cb; border-radius:6px; box-shadow:none; padding:10px 18px; display:flex; align-items:center; gap:8px;'>
+                <i class='fa fa-exclamation-circle' style='color:#b94a48;'></i>Ocurrió un error al enviar. Intente nuevamente.
+            </div>`;
+            setTimeout(() => msg.querySelector('.fade-alert')?.classList.add('show'), 10);
+        }
+    });
+});
 </script>
 
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800, // duración de la animación
+    easing: 'ease-in-out', // tipo de aceleración
+    once: true, // animar solo la primera vez
+    disable: false
+  });
+</script>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script>
+  document.querySelectorAll('.saber-mas').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('data-targetid');
+      const target = document.getElementById(targetId);
+      if (target) {
+        window.scrollTo({
+          top: target.offsetTop - 90, // Ajusta si el navbar es fijo
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const topbar = document.querySelector('.topbar');
+    const navbar = document.querySelector('.navbar');
+
+    function ajustarNavbar() {
+      // Si hay un modal abierto, oculta el topbar SIEMPRE
+      if (document.body.classList.contains('modal-open')) {
+        topbar.style.display = 'none';
+        navbar.style.top = '0';
+        navbar.classList.add('sombra-scroll');
+        return;
+      }
+      // Si está en el inicio y ningún modal abierto, muestra el topbar
+      if (window.scrollY <= 10) {
+        topbar.style.display = 'block';
+        navbar.style.top = '32px';
+        navbar.classList.remove('sombra-scroll');
+      } else {
+        topbar.style.display = 'none';
+        navbar.style.top = '0';
+        navbar.classList.add('sombra-scroll');
+      }
+    }
+
+    window.addEventListener('scroll', ajustarNavbar);
+    ajustarNavbar();
+
+    // Detecta apertura/cierre de modales
+    document.body.addEventListener('classlistchange', ajustarNavbar);
+    // Bootstrap agrega/quita la clase modal-open, así que escucha cambios en el DOM
+    const observer = new MutationObserver(ajustarNavbar);
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  });
+</script>
 
 </body>
 
