@@ -75,5 +75,18 @@ app.get('/dispositivos', async (req, res) => {
   }
 });
 
+// Obtener dispositivos
+async function obtenerDispositivos() {
+  try {
+    const dispositivos = await connection.getDevices();
+    console.log("Dispositivos disponibles:", dispositivos);
+  } catch (err) {
+    console.error("Error al obtener dispositivos:", err);
+  }
+}
+
+obtenerDispositivos();
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Servidor corriendo en puerto ${PORT}`));
+
