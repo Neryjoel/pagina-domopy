@@ -120,8 +120,6 @@
     botones.forEach(boton => {
       boton.addEventListener('click', () => {
         const nombre = boton.title;
-        console.log("Enviando solicitud a /control con dispositivo:", nombre);  // Log para verificar
-
         fetch("https://pagina-domopy.onrender.com/control", {
           method: "POST",
           headers: { 'Content-Type': 'application/json' },
@@ -139,15 +137,14 @@
       });
     });
 
-    // Cargar estado de dispositivos desde el servidor
     fetch("https://pagina-domopy.onrender.com/dispositivos")
     .then(res => res.json())
     .then(dispositivos => {
       dispositivos.forEach(({ nombre, estado }) => {
-        console.log(`Buscando dispositivo: ${nombre}`);  // Log para verificar nombres
+        // Normalizamos el nombre para comparación
         const nombreNormalized = nombre.trim().toLowerCase();
-        console.log(`Comparando con dispositivo: ${nombreNormalized}`);  // Log para comparar nombres
 
+        // Buscamos el botón que tenga atributo title igual (insensible a mayúsculas y espacios)
         const btn = Array.from(document.querySelectorAll('.foco'))
           .find(b => b.title.trim().toLowerCase() === nombreNormalized);
 
@@ -163,6 +160,6 @@
       });
     })
     .catch(() => console.warn("No se pudo cargar el estado de los dispositivos."));
-  </script>
+</script>
 </body>
 </html>
