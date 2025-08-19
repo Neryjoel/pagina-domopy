@@ -1,3 +1,4 @@
+// server.js
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
@@ -15,37 +16,34 @@ const connection = new ewelink({
   APP_SECRET: process.env.EWELINK_APP_SECRET
 });
 
-// Control de encendido/apagado (POST)
+// Control de encendido/apagado
 app.post('/control', async (req, res) => {
   const { dispositivo } = req.body;
-  console.log("Recibido dispositivo para controlar:", dispositivo);  // Log de lo que recibe el servidor
+  console.log(`Recibido dispositivo para controlar: ${dispositivo}`);  // Log de dispositivo
 
   try {
     const devices = await connection.getDevices();
-    const device = devices.find(
-      d => d.name.toLowerCase() === dispositivo.toLowerCase()
-    );
-    if (!device) return res.json({ success: false, message: 'Dispositivo no encontrado' });
+    console.log("Dispositivos disponibles:", devices.map(d => d.name));  // Log para ver dispositivos
 
+    const device = devices.find(d => d.name.toLowerCase() === dispositivo.toLowerCase());
+    if (!device) {
+      console.warn(`Dispositivo no encontrado: ${dispositivo}`);
+      return res.json({ success: false, message: 'Dispositivo no encontrado' });
+    }
+
+    console.log(`Dispositivo encontrado: ${device.name}`);
     const estado = await connection.getDevicePowerState(device.deviceid);
+    console.log(`Estado actual de ${device.name}: ${estado.state}`);
+
     const nuevoEstado = estado.state === 'on' ? 'off' : 'on';
     await connection.setDevicePowerState(device.deviceid, nuevoEstado);
+    console.log(`Nuevo estado de ${device.name}: ${nuevoEstado}`);
 
     res.json({ success: true, estado: nuevoEstado });
   } catch (err) {
     console.error(err);
     res.json({ success: false, message: 'Error al controlar el dispositivo' });
   }
-});
-
-// Evitar error "Cannot GET /control" para peticiones GET
-app.get('/control', (req, res) => {
-  res.send('Ruta /control solo acepta peticiones POST para controlar dispositivos.');
-});
-
-// Página principal
-app.get('/', (req, res) => {
-  res.send('API de control de luces activa');
 });
 
 // Listado de dispositivos disponibles
